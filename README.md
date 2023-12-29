@@ -1,1 +1,1 @@
-A simple portfolio to showcase my photography, programming & web design.
+A simple portfolio to showcase my photography and programming.

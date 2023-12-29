@@ -16,7 +16,7 @@ const Home: React.FC = () => {
             href="#"
             className="p-6 mt-6 text-left border w-72 rounded-xl hover:text-blue-600 focus:text-blue-600"
           >
-            <Image className="w-60 h-40 rounded" src="/photos/DSC01836.jpg" alt="Orion Astrophotography" width={720} height={400} />
+            <Image className="w-60 h-40 rounded" src="/photos/DSC01836.webp" alt="Orion Astrophotography" width={720} height={400} />
             <h3 className="text-2xl font-bold">Orion</h3>
             <p className="mt-4 text-xl">
               Astrophotography of the Orion constellation.

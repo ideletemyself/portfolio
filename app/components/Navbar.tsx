@@ -36,8 +36,8 @@ const Navbar: React.FC = () => {
               </div>
               <div className="flex flex-auto flex-shrink-0 items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="flex flex-shrink-0 pr-8 items-center">
-                  <Link href="/">
-                      <FaceSmileIcon className="text-6xl sm:text-4xl font-semibold text-white px-3 py-2 rounded hover:bg-gray-700" />
+                  <Link href="/" className=' text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium'>
+                      <FaceSmileIcon className='h-5 w-5' />
                   </Link>
                 </div>
                 </div>

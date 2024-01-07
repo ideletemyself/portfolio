@@ -1,9 +1,9 @@
 'use client';
 
 import { Disclosure } from '@headlessui/react';
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
+import { Bars3Icon, CameraIcon, FaceSmileIcon, HomeIcon, XMarkIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
-import { useRouter, usePathname } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 
 const navigation = [
   { name: 'Home', href: '/', current: true },
@@ -16,10 +16,9 @@ function classNames(...classes: string[]) {
 }
 
 const Navbar: React.FC = () => {
-  const router = useRouter();
   const pathname = usePathname();
   return (
-    <Disclosure as="nav" className="bg-gray-800">
+    <Disclosure as="nav" className="bg-purple-900">
       {({ open }) => (
         <>
           <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
@@ -36,10 +35,11 @@ const Navbar: React.FC = () => {
                 </Disclosure.Button>
               </div>
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-                <div className="flex flex-shrink-0 items-center">
-                  <Link href="/" className="text-xl font-semibold text-white px-3 py-2 rounded hover:bg-gray-700">
-                      Brandon McKimmons Portfolio
+                <div className="flex flex-shrink-0 pr-8 items-center">
+                  <Link href="/">
+                      <FaceSmileIcon className="text-xl font-semibold text-white px-3 py-2 rounded hover:bg-gray-700" />
                   </Link>
+                </div>
                 </div>
                 <div className="hidden sm:block sm:ml-6">
                   <div className="flex space-x-4">
@@ -52,13 +52,14 @@ const Navbar: React.FC = () => {
                       )}
                       aria-current={isActive ? 'page' : undefined}
                     >
-                          {item.name}
+                          {item.name === 'Home' ? <HomeIcon className="h-5 w-5" aria-hidden="true" /> : 
+                           item.name === 'Photos' ? <CameraIcon className="h-5 w-5" aria-hidden="true" /> : 
+                           item.name}
                       </Link>
                       );
                     })}
                   </div>
                 </div>
-              </div>
             </div>
           </div>
           <Disclosure.Panel className="sm:hidden">
@@ -68,10 +69,12 @@ const Navbar: React.FC = () => {
                 return (
                 <Disclosure.Button key={item.name} as="a" href={item.href} className={classNames(
                   isActive ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                  'block rounded-md px-3 py-2 text-base font-medium'
+                  'flex justify-center rounded-md px-3 py-2 text-base font-medium max-w-xs mx-auto'
                 )}
                 aria-current={isActive ? 'page' : undefined}>
-                    {item.name}
+                    {item.name === 'Home' ? <HomeIcon className="h-5 w-5" aria-hidden="true" /> : 
+                     item.name === 'Photos' ? <CameraIcon className="h-5 w-5" aria-hidden="true" /> : 
+                     item.name}
                 </Disclosure.Button>
               );
             })}

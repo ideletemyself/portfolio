@@ -35,7 +35,7 @@ const Navbar: React.FC = () => {
                 </Disclosure.Button>
               </div>
               <div className="flex flex-auto flex-shrink-0 items-center justify-center sm:items-stretch sm:justify-start">
-                <div className="flex flex-shrink-0 pr-8 items-center">
+                <div className="flex flex-shrink-0 items-center">
                   <Link href="/" className=' text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium'>
                       <FaceSmileIcon className='h-5 w-5' />
                   </Link>

@@ -26,9 +26,9 @@ const Astrophotography: React.FC = () => {
   };
 
   return (
-    <div className="flex bg-white flex-col items-center justify-center min-h-screen py-2">
-      <main className="flex flex-col items-center justify-center flex-1 px-20 text-center">
-        <h1 className="text-6xl py-4 text-left text-purple-900">Astrophotography</h1>
+    <div className="flex bg-white flex-col items-center justify-center min-h-screen py-2 px-4 sm:px-20">
+      <main className="flex flex-col items-center justify-center flex-1 w-full text-center sm:text-left">
+        <h1 className="text-4xl sm:text-6xl py-4 text-left text-purple-900">Astrophotography</h1>
         <div className="max-w-4xl bg-white rounded overflow-hidden shadow-2xl">
           {images.length > 0 && <Image className="flex h-auto px-3 py-4 space-x-4" src={images[currentImageIndex]}
                   width={900}

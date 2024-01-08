@@ -1,12 +1,6 @@
 [
     { "id": 1, "path": "/images/photos/astrophotography/DSC01836.webp" },
     { "id": 2, "path": "/images/photos/astrophotography/DSC01840.webp" },
-    { "id": 3, "path": "/images/photos/astrophotography/DSC01855.webp" },
-    { "id": 4, "path": "/images/photos/animals/DSC01225.webp" },
-    { "id": 5, "path": "/images/photos/animals/DSC01232.webp" },
-    { "id": 6, "path": "/images/photos/animals/DSC01270.webp" },
-    { "id": 4, "path": "/images/photos/nature/DSC01626.webp" },
-    { "id": 5, "path": "/images/photos/nature/DSC01776.webp" },
-    { "id": 6, "path": "/images/photos/nature/DSC01808.webp" }
+    { "id": 3, "path": "/images/photos/astrophotography/DSC01855.webp" }
 ]
   

@@ -36,32 +36,34 @@ const Home: React.FC = () => {
   }, []);
 
   return (
-    <div className="flex flex-col bg-white items-center justify-start min-h-screen py-2 px-4 sm:px-20">
-      <main className="flex flex-col justify-start flex-1 w-full text-center sm:text-left">
-        <h1 className="text-4xl sm:text-6xl text-left text-purple-900 py-4">
-          Photography
-        </h1>
-        <h1 className="text-4xl sm:text-6xl text-left text-purple-900 py-4">
-          Programming
-        </h1>
-        <h1 className="text-4xl sm:text-6xl text-left text-purple-900 py-4">
-          And Producing Music
-        </h1>
-        <div className="flex flex-col sm:flex-row justify-between">
+    <div className="flex flex-col bg-white min-h-screen py-2 px-4 sm:px-20">
+      <main className="flex flex-col flex-auto w-full text-center">
+        <div className="flex flex-col xl:pl-44">
+          <h1 className="text-4xl sm:text-6xl text-left text-purple-900 py-4">
+            Photography
+          </h1>
+          <h1 className="text-4xl sm:text-6xl text-left text-purple-900 py-4">
+            Programming
+          </h1>
+          <h1 className="text-4xl sm:text-6xl text-left text-purple-900 py-4">
+            And Producing Music
+          </h1>
+        </div>
+        <div className="flex flex-col sm:flex-row justify-center">
           
-        <Link href="/astrophotography" className="max-w-sm bg-white rounded overflow-hidden shadow-2xl mb-4 sm:mb-0">
-            <div className="flex flex-wrap max-w-4xl mt-6 sm:w-full">
+        <Link href="/astrophotography" className="max-w-sm bg-white rounded overflow-hidden shadow-2xl mb-4 mr-2">
+            <div className="flex flex-col max-w-4xl mt-6 sm:w-full">
             <div className="px-6 py-4">
             {astroImage && <Image className="w-full rounded" src={astroImage} alt="Astrophotography" width={720} height={400} />}
-                <h3 className="font-bold text-2xl sm:text-3xl text-purple-700 mb-2">Astrophotography</h3>
-                <article className="text-lg sm:text-xl text-purple-700 text-opacity-75">
+                <h3 className="font-bold sm:text-lg md:text-base lg:text-2xl xl:text-3xl text-purple-700 mb-2">Astrophotography</h3>
+                <article className="sm:text-lg md:text-base lg:text-2xl xl:text-2xl text-purple-700 text-opacity-75">
                   My collections of astrophotography.
                 </article>
                 </div>
             </div>
           </Link>
 
-          <Link href="/nature" className="max-w-sm bg-white rounded overflow-hidden shadow-2xl mb-4 sm:mb-0">
+          <Link href="/nature" className="max-w-sm bg-white rounded overflow-hidden shadow-2xl mb-4 mr-2">
             <div className="flex flex-wrap max-w-4xl mt-6 sm:w-full">
             <div className="px-6 py-4">
             {natureImage && <Image className="w-full rounded" src={natureImage} alt="Animals" width={720} height={400} />}
@@ -73,7 +75,7 @@ const Home: React.FC = () => {
             </div>
           </Link>
 
-          <Link href="/animals" className="max-w-sm bg-white rounded overflow-hidden shadow-2xl mb-4 sm:mb-0">
+          <Link href="/animals" className="max-w-sm bg-white rounded overflow-hidden shadow-2xl mb-4 mr-2">
             <div className="flex flex-wrap max-w-4xl mt-6 sm:w-full">
             <div className="px-6 py-4">
             {animalImage && <Image className="w-full rounded" src={animalImage} alt="Animals" width={720} height={400} />}
@@ -84,7 +86,6 @@ const Home: React.FC = () => {
                 </div>
             </div>
           </Link>
-
       </div>  
       </main>
     </div>

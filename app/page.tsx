@@ -1,28 +1,95 @@
-// pages/index.tsx
-import React from 'react';
+'use client';
+
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
 const Home: React.FC = () => {
-  return (
-    <div className="flex flex-col bg-white items-center justify-center min-h-screen py-2">
-      <main className="flex flex-col items-center justify-center flex-1 px-20 text-center">
-        <h1 className="text-6xl font-bold text-purple-900 py-4">
-          Brandon McKimmons Portfolio
-        </h1>
+  const [astroImage, setAstroImage] = useState<string>('');
+  const [animalImage, setAnimalImage] = useState<string>('');
+  const [natureImage, setNatureImage] = useState<string>('');
 
-        <Link href="/photos" className="max-w-sm bg-white rounded overflow-hidden shadow-2xl">
-          <div className="flex flex-wrap items-center justify-around max-w-4xl mt-6 sm:w-full">
-          <div className="px-6 py-4">
-            {/* Replace with your images */}
-              <Image className="w-full rounded" src="/images/photos/astrophotography/DSC01836.webp" alt="Orion Astrophotography" width={720} height={400} />
-              <h3 className="font-bold text-3xl text-purple-700 mb-2">Photos</h3>
-              <article className="text-xl text-purple-700 text-opacity-75">
-                My collections of photography.
-              </article>
-              </div>
-          </div>
-        </Link>
+  useEffect(() => {
+    fetch('/astrophotography.json')
+      .then(response => response.json())
+      .then(data => {
+        setAstroImage(data[0]?.path);
+        setAnimalImage(data[3]?.path);
+        setNatureImage(data[7]?.path);
+      });
+  }, []);
+
+  useEffect(() => {
+    fetch('/animals.json')
+      .then(response => response.json())
+      .then(data => {
+        setAnimalImage(data[0]?.path);
+      });
+  }, []);
+
+  useEffect(() => {
+    fetch('/nature.json')
+      .then(response => response.json())
+      .then(data => {
+        setNatureImage(data[1]?.path);
+      });
+  }, []);
+
+  return (
+    <div className="flex flex-col bg-white items-center justify-start min-h-screen py-2">
+      <main className="flex flex-col justify-start flex-1 px-20 text-center">
+        <h1 className="text-6xl text-left text-purple-900 py-4">
+          Photography
+        </h1>
+        <h1 className="text-6xl text-left text-purple-900 py-4">
+          Programming
+        </h1>
+        <h1 className="text-6xl text-left text-purple-900 py-4">
+          And Producing Music
+        </h1>
+        <div className="flex justify-between">
+          
+          <Link href="/astrophotography" className="max-w-sm bg-white rounded overflow-hidden shadow-2xl">
+            <div className="flex flex-wrap max-w-4xl mt-6 sm:w-full">
+            <div className="px-6 py-4">
+            {astroImage && <Image className="w-full rounded" src={astroImage} alt="Astrophotography" width={720} height={400} />}
+                <h3 className="font-bold text-3xl text-purple-700 mb-2">Astrophotography</h3>
+                <article className="text-xl text-purple-700 text-opacity-75">
+                  My collections of astrophotography.
+                </article>
+                </div>
+            </div>
+          </Link>
+
+          <div className='flex px-4' />
+
+          <Link href="/nature" className="max-w-sm bg-white rounded overflow-hidden shadow-2xl">
+            <div className="flex flex-wrap max-w-4xl mt-6 sm:w-full">
+            <div className="px-6 py-4">
+            {natureImage && <Image className="w-full rounded" src={natureImage} alt="Animals" width={720} height={400} />}
+                <h3 className="font-bold text-3xl text-purple-700 mb-2">Nature</h3>
+                <article className="text-xl text-purple-700 text-opacity-75">
+                  My collections of nature photos.
+                </article>
+                </div>
+            </div>
+          </Link>
+          
+          <div className='flex px-4' />
+
+          <Link href="/animals" className="max-w-sm bg-white rounded overflow-hidden shadow-2xl">
+            <div className="flex flex-wrap max-w-4xl mt-6 sm:w-full">
+            <div className="px-6 py-4">
+            {animalImage && <Image className="w-full rounded" src={animalImage} alt="Animals" width={720} height={400} />}
+                <h3 className="font-bold text-3xl text-purple-700 mb-2">Animals</h3>
+                <article className="text-xl text-purple-700 text-opacity-75">
+                  My collections of animal photos.
+                </article>
+                </div>
+            </div>
+          </Link>
+
+      </div>  
       </main>
     </div>
   );

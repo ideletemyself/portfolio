@@ -7,8 +7,9 @@ import { usePathname } from 'next/navigation';
 
 const navigation = [
   { name: 'Home', href: '/', current: true },
-  { name: 'Photos', href: '/photos', current: false },
-  // Add more links as needed
+  { name: 'Astrophotography', href: '/astrophotography', current: false },
+  { name: 'Nature', href: '/nature', current: false },
+  { name: 'Animals', href: '/animals', current: false },
 ];
 
 function classNames(...classes: string[]) {
@@ -53,7 +54,9 @@ const Navbar: React.FC = () => {
                       aria-current={isActive ? 'page' : undefined}
                     >
                           {item.name === 'Home' ? <HomeIcon className="h-5 w-5" aria-hidden="true" /> : 
-                           item.name === 'Photos' ? <CameraIcon className="h-5 w-5" aria-hidden="true" /> : 
+                           item.name === 'Astrophotography' ? <p className="h-5 w-30" aria-hidden="true">Astrophotography</p> :
+                           item.name === 'Nature' ? <p className="h-5 w-30" aria-hidden="true">Nature</p> :
+                           item.name === 'Animals' ? <p className="h-5 w-30" aria-hidden="true">Animals</p> : 
                            item.name}
                       </Link>
                       );
@@ -73,7 +76,9 @@ const Navbar: React.FC = () => {
                 )}
                 aria-current={isActive ? 'page' : undefined}>
                     {item.name === 'Home' ? <HomeIcon className="h-5 w-5" aria-hidden="true" /> : 
-                     item.name === 'Photos' ? <CameraIcon className="h-5 w-5" aria-hidden="true" /> : 
+                     item.name === 'Astrophotography' ? <p className="h-5 w-30" aria-hidden="true">Astrophotography</p> :
+                     item.name === 'Nature' ? <p className="h-5 w-30" aria-hidden="true">Nature</p> :
+                     item.name === 'Animals' ? <p className="h-5 w-30" aria-hidden="true">Animals</p> : 
                      item.name}
                 </Disclosure.Button>
               );

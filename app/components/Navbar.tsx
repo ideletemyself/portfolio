@@ -19,7 +19,7 @@ function classNames(...classes: string[]) {
 const Navbar: React.FC = () => {
   const pathname = usePathname();
   return (
-    <Disclosure as="nav" className="bg-white">
+    <Disclosure as="nav">
       {({ open }) => (
         <>
           <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">

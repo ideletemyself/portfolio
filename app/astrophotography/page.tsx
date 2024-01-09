@@ -38,7 +38,7 @@ const Astrophotography: React.FC = () => {
           <img src={images[currentImageIndex]} alt="Slide" className="max-w-full max-h-full" />
         </div>
       )}
-      <div className="flex bg-white flex-col items-center justify-center min-h-screen py-2 px-4 sm:px-20">
+      <div className="flex flex-col items-center justify-center min-h-screen py-2 px-4 sm:px-20">
         <main className="flex flex-col items-center justify-center flex-1 w-full text-center sm:text-left">
           <h1 className="text-4xl sm:text-6xl py-4 text-left text-purple-900">Astrophotography</h1>
           <div className="max-w-4xl bg-white rounded overflow-hidden shadow-2xl">

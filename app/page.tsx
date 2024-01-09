@@ -37,7 +37,7 @@ const Home: React.FC = () => {
   }, []);
 
   return (
-    <div className="flex flex-col bg-white min-h-screen py-2 px-4 sm:px-20">
+    <div className="flex flex-col min-h-screen py-2 px-4 sm:px-20">
       <Hero 
         title="Brandon McKimmons" 
         subtitle="Photography, Programming & Producing Music" 

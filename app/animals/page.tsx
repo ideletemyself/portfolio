@@ -37,7 +37,7 @@ const Animals: React.FC = () => {
       {isModalOpen && (
         <div onClick={toggleModal} className="fixed top-0 left-0 w-screen h-screen flex items-center justify-center bg-black">
           <div className='w-auto'>
-            <Image className='h-full shrink-1' src={images[currentImageIndex]} alt="Slide" 
+            <Image className='h-full shrink-1 lg:max-w-xl xl:max-w-7xl' src={images[currentImageIndex]} alt="Slide" 
             sizes="100vw"
             style={{
               width: '100%',
@@ -45,7 +45,9 @@ const Animals: React.FC = () => {
             }}  
             width={7000}
             height={7000} 
-            priority={true} />
+            placeholder="blur"
+            blurDataURL={'/images/photos/DSC01836_small.webp'}
+              />
           </div>
         </div>
       )}
@@ -56,7 +58,7 @@ const Animals: React.FC = () => {
         <div className="bg-white rounded overflow-hidden shadow-2xl relative">
           <div className='w-full'>
             {!isModalOpen && images.length > 0 && (
-              <Image className="object-cover w-auto h-auto shrink-1 px-3 py-4 space-x-4 z-10" src={images[currentImageIndex]}
+              <Image className="object-cover w-auto h-auto shrink-1 px-3 py-4 space-x-4 z-10 xl:max-w-6xl" src={images[currentImageIndex]}
                 sizes="100vw"
                 style={{
                   objectFit: 'contain'

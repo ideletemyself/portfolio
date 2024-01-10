@@ -48,7 +48,7 @@ const Astrophotography: React.FC = () => {
           </div>
         )}
 
-          <h1 className="text-center text-4xl sm:text-6xl py-4 text-purple-900">Asrophotography</h1>
+          <h1 className="text-center text-4xl sm:text-6xl py-4 text-purple-900">Astrophotography</h1>
           
           <div className="flex flex-wrap justify-center">
             <div className="bg-white rounded overflow-hidden shadow-2xl relative">

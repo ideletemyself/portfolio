@@ -33,7 +33,7 @@ const Home: React.FC = () => {
           </Link>
 
           <Link href="/nature" className="max-w-sm bg-white rounded overflow-hidden shadow-2xl mb-4 mr-2">
-            <div className="flex flex-wrap max-w-4xl mt-6 sm:w-full">
+            <div className="flex flex-col max-w-4xl mt-6 sm:w-full">
             <div className="px-6 py-4">
             <Image className="w-full rounded" src={natureImage} alt="Animals" width={500} height={300} />
                 <h3 className="font-bold text-2xl sm:text-3xl text-purple-700 mb-2">Nature</h3>
@@ -45,7 +45,7 @@ const Home: React.FC = () => {
           </Link>
 
           <Link href="/animals" className="max-w-sm bg-white rounded overflow-hidden shadow-2xl mb-4 mr-2">
-            <div className="flex flex-wrap max-w-4xl mt-6 sm:w-full">
+            <div className="flex flex-col max-w-4xl mt-6 sm:w-full">
             <div className="px-6 py-4">
             <Image className="w-full rounded" src={animalImage} alt="Animals" width={500} height={300} />
                 <h3 className="font-bold text-2xl sm:text-3xl text-purple-700 mb-2">Animals</h3>

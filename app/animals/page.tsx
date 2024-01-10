@@ -35,7 +35,7 @@ const Animals: React.FC = () => {
       <>
       {isModalOpen && (
         <div onClick={toggleModal} className="fixed top-0 left-0 w-screen h-screen flex items-center justify-center bg-black">
-          <div className='w-screen sm:max-w-sm md:max-w-xl lg:max-w-lg xl:max-w-lg 2xl:max-w-md'>
+          <div className='w-screen sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-lg 2xl:max-w-md'>
           <Image src={images[currentImageIndex]} alt="Slide" 
           width={7000}
           height={7000} 

@@ -35,7 +35,7 @@ const Nature: React.FC = () => {
       <>
       {isModalOpen && (
         <div onClick={toggleModal} className="fixed top-0 left-0 w-screen h-screen flex items-center justify-center bg-black">
-          <div className='sm:max-w-sm md:max-w-3xl lg:max-w-4xl xl:max-w-lg 2xl:max-w-lg'>
+          <div className='sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-lg 2xl:max-w-lg'>
           <Image src={images[currentImageIndex]} alt="Slide" 
           width={7000}
           height={7000} 

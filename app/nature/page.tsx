@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
+import { ArrowLeftCircleIcon, ArrowRightCircleIcon } from '@heroicons/react/24/outline';
 
 const Nature: React.FC = () => {
   const [images, setImages] = useState<string[]>([]);
@@ -35,32 +36,45 @@ const Nature: React.FC = () => {
       <>
       {isModalOpen && (
         <div onClick={toggleModal} className="fixed top-0 left-0 w-screen h-screen flex items-center justify-center bg-black">
-          <div className='sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-lg 2xl:max-w-lg'>
-          <Image src={images[currentImageIndex]} alt="Slide" 
-          width={7000}
-          height={7000} 
-          priority />
+          <div style={{ position: 'relative', width: '1600px', height: '900px' }}>
+            <Image src={images[currentImageIndex]} alt="Slide" 
+            sizes="100vw"
+            style={{
+              objectFit: 'contain'
+            }}  
+            fill 
+            priority={true} />
           </div>
         </div>
       )}
-      <div className="w-full items-center justify-center min-h-screen px-4 sm:px-20">
-        <main className="flex flex-col items-center justify-center text-center">
-          <h1 className="text-4xl sm:text-6xl py-4 text-purple-900">Nature</h1>
-          <div className="bg-white rounded overflow-hidden shadow-2xl">
-          <div className='sm:max-w-sm md:max-w-md lg:max-w-md xl:max-w-md 2xl:max-w-md'>
-            {images.length > 0 && <Image className="px-3 py-4 space-x-4" src={images[currentImageIndex]}
-                    width={7000}
-                    height={7000}
-                    alt="Slide"
-                    onClick={toggleModal} 
-                    priority />}
+
+      <h1 className="text-center text-4xl sm:text-6xl py-4 text-purple-900">Nature</h1>
+      
+      <div className="flex flex-wrap justify-center">
+        <div className="bg-white rounded overflow-hidden shadow-2xl relative">
+          <div className='w-full'>
+            {!isModalOpen && images.length > 0 && (
+              <Image className="px-3 py-4 space-x-4 z-10" src={images[currentImageIndex]}
+                sizes="100vw"
+                style={{
+                  objectFit: 'contain'
+                }}  
+                width={7000}
+                height={7000}
+                alt="Slide"
+                onClick={toggleModal}
+                placeholder="blur"
+                blurDataURL={'/images/photos/DSC01836_small.webp'}
+              />
+            )}
+            {!isModalOpen && (
+              <div className="absolute inset-0 flex items-center justify-between px-4 pointer-events-none">
+                <ArrowLeftCircleIcon className="h-10 w-10 text-white opacity-75 hover:opacity-100 pointer-events-auto" onClick={prevImage} >Previous</ArrowLeftCircleIcon>
+                <ArrowRightCircleIcon className="h-10 w-10 text-white opacity-75 hover:opacity-100 pointer-events-auto" onClick={nextImage} >Next</ArrowRightCircleIcon>
+              </div>
+            )}
           </div>
-          </div>
-          <div className="flex px-3 py-4 space-x-4">
-            <button className="bg-purple-900 hover:bg-purple-500 text-white font-bold py-2 px-4 rounded-full" onClick={prevImage}>Previous</button>
-            <button className="bg-purple-900 hover:bg-purple-500 text-white font-bold py-2 px-4 rounded-full" onClick={nextImage}>Next</button>
-          </div>
-        </main>
+        </div>
       </div>
     </>
   );

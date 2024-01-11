@@ -11,7 +11,7 @@ const Home: React.FC = () => {
   const natureImage = '/images/photos/nature/DSC01776.webp';
 
   return (
-    <div className="flex flex-col min-h-screen py-2 px-4 sm:px-20">
+    <div className="flex flex-col min-h-screen bg-behr-debonair-bluevery-light-brown py-2 px-4 sm:px-20">
       <Hero 
         title="Brandon McKimmons" 
         subtitle="Photography, Programming & Producing Music" 
@@ -20,7 +20,7 @@ const Home: React.FC = () => {
       <main className="flex flex-col flex-auto w-full text-center py-4">
         <div className="flex flex-col md:flex-row lg:flex-row xl:flex-row justify-center">
           
-        <Link href="/astrophotography" className="max-w-sm bg-white rounded overflow-hidden shadow-2xl mb-4 mr-2">
+        <Link href="/astrophotography" className="max-w-sm bg-very-light-brown rounded overflow-hidden shadow-2xl mb-4 mr-2">
             <div className="flex flex-col max-w-4xl mt-6 sm:w-full">
             <div className="px-6 py-4">
             <Image className="w-full rounded" 
@@ -31,15 +31,15 @@ const Home: React.FC = () => {
                   placeholder="blur"
                   blurDataURL={'/images/photos/DSC01836_small.webp'} 
                   />
-                <h3 className="font-bold text-2xl sm:text-2xl md:text-base lg:text-2xl xl:text-3xl text-purple-700 mb-2">Astrophotography</h3>
-                <article className="sm:text-lg md:text-base lg:text-2xl xl:text-2xl text-purple-700 text-opacity-75">
+                <h3 className="subpixel-antialiased underline decoration-solid font-bold text-2xl sm:text-2xl md:text-lg lg:text-2xl xl:text-3xl text-med-light-magenta mb-2">Astrophotography</h3>
+                <article className="subpixel-antialiased sm:text-lg md:text-lg lg:text-2xl xl:text-2xl text-zinc-900 text-opacity-75">
                   My collections of astrophotography.
                 </article>
                 </div>
             </div>
           </Link>
 
-          <Link href="/nature" className="max-w-sm bg-white rounded overflow-hidden shadow-2xl mb-4 mr-2">
+          <Link href="/nature" className="max-w-sm bg-very-light-brown rounded overflow-hidden shadow-2xl mb-4 mr-2">
             <div className="flex flex-col max-w-4xl mt-6 sm:w-full">
             <div className="px-6 py-4">
             <Image className="w-full rounded" 
@@ -50,15 +50,15 @@ const Home: React.FC = () => {
                   placeholder="blur"
                   blurDataURL={'/images/photos/DSC01836_small.webp'}
                   />
-                <h3 className="font-bold text-2xl sm:text-3xl text-purple-700 mb-2">Nature</h3>
-                <article className="text-lg sm:text-xl text-purple-700 text-opacity-75">
+                <h3 className="subpixel-antialiased underline decoration-solid font-bold text-2xl sm:text-3xl text-med-light-magenta mb-2">Nature</h3>
+                <article className="subpixel-antialiased text-lg sm:text-xl text-zinc-900 text-opacity-75">
                   My collections of nature photos.
                 </article>
                 </div>
             </div>
           </Link>
 
-          <Link href="/animals" className="max-w-sm bg-white rounded overflow-hidden shadow-2xl mb-4 mr-2">
+          <Link href="/animals" className="max-w-sm bg-very-light-brown rounded overflow-hidden shadow-2xl mb-4 mr-2">
             <div className="flex flex-col max-w-4xl mt-6 sm:w-full">
             <div className="px-6 py-4">
             <Image className="w-full rounded" 
@@ -69,8 +69,8 @@ const Home: React.FC = () => {
                   placeholder="blur"
                   blurDataURL={'/images/photos/DSC01836_small.webp'}
                   />
-                <h3 className="font-bold text-2xl sm:text-3xl text-purple-700 mb-2">Animals</h3>
-                <article className="text-lg sm:text-xl text-purple-700 text-opacity-75">
+                <h3 className="subpixel-antialiased underline decoration-solid font-bold text-2xl sm:text-3xl text-med-light-magenta mb-2">Animals</h3>
+                <article className="subpixel-antialiased text-lg sm:text-xl text-zinc-900 text-opacity-75">
                   My collections of animal photos.
                 </article>
                 </div>

@@ -19,13 +19,13 @@ function classNames(...classes: string[]) {
 const Navbar: React.FC = () => {
   const pathname = usePathname();
   return (
-    <Disclosure as="nav">
+    <Disclosure className="bg-very-light-brown" as="nav">
       {({ open }) => (
         <>
           <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
             <div className="relative flex h-16 items-center justify-between">
               <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
-                <Disclosure.Button className="relative inline-flex items-center justify-center rounded-md p-2 text-purple-900 hover:bg-purple-500 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+                <Disclosure.Button className="relative inline-flex items-center justify-center rounded-md p-2 text-cyan-blue hover:bg-light-cyan-blue hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
                 <span className="absolute -inset-0.5" />
                   <span className="sr-only">Open main menu</span>
                   {open ? (
@@ -37,8 +37,8 @@ const Navbar: React.FC = () => {
               </div>
               <div className="flex flex-auto flex-shrink-0 items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="flex flex-shrink-0 items-center">
-                  <Link href="/" className='font-bold text-purple-900 hover:bg-purple-500 hover:text-white rounded-md px-3 py-2 text-sm'>
-                      <FaceSmileIcon className='h-5 w-5' />
+                  <Link href="/" className='subpixel-antialiased font-bold text-2xl text-cyan-blue hover:bg-light-cyan-blue hover:text-white rounded-md px-3 py-2'>
+                      <h1>Brandon McKimmons</h1>
                   </Link>
                 </div>
                 </div>
@@ -48,7 +48,7 @@ const Navbar: React.FC = () => {
                 const isActive = item.href === pathname;
                 return (
                       <Link key={item.name} href={item.href} className={classNames(
-                        isActive ? 'bg-purple-900 text-white' : 'text-purple-900 hover:bg-purple-500 hover:text-white',
+                        isActive ? 'bg-cyan-blue text-white' : 'text-indigo-400 hover:bg-light-cyan-blue hover:text-white',
                         'rounded-md px-3 py-2 text-sm font-medium'
                       )}
                       aria-current={isActive ? 'page' : undefined}
@@ -71,7 +71,7 @@ const Navbar: React.FC = () => {
                 const isActive = item.href === pathname;
                 return (
                 <Disclosure.Button key={item.name} as="a" href={item.href} className={classNames(
-                  isActive ? 'bg-purple-900 text-white' : 'text-purple-900 hover:bg-purple-500 hover:text-white',
+                  isActive ? 'bg-cyan-blue text-white' : 'text-cyan-blue hover:bg-light-cyan-blue hover:text-white',
                   'flex justify-center rounded-md px-3 py-2 text-base font-medium max-w-xs mx-auto'
                 )}
                 aria-current={isActive ? 'page' : undefined}>

@@ -51,10 +51,10 @@ const Nature: React.FC = () => {
         </div>
       )}
 
-      <h1 className="text-center text-4xl sm:text-6xl py-4 text-purple-900">Nature</h1>
+      <h1 className="bg-behr-debonair-blue subpixel-antialiased underline decoration-solid font-bold text-center text-4xl sm:text-6xl py-4 text-med-light-magenta">Nature</h1>
       
-      <div className="flex flex-wrap justify-center">
-        <div className="bg-gray-300 rounded shadow-2xl relative">
+      <div className="bg-behr-debonair-blue flex flex-wrap justify-center">
+        <div className="bg-very-light-brown rounded shadow-2xl relative">
 
             {!isModalOpen && images.length > 0 && (
               <Image className="object-cover max-h-svh md:max-w-2xl lg:max-w-3xl xl:max-w-7xl 2xl:max-w-max px-3 py-3 z-10" src={images[currentImageIndex]}

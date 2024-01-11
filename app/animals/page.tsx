@@ -36,12 +36,11 @@ const Animals: React.FC = () => {
       <>
         {isModalOpen && (
             <div onClick={toggleModal} className="fixed top-0 left-0 w-screen h-screen flex items-center justify-center bg-black">
-              <div className='w-auto'>
+              <div className='max-h-svh'>
                 <Image className='max-h-svh max-w-max' src={images[currentImageIndex]} alt="Slide" 
                 sizes="100vw"
                 style={{
-                  width: '100%',
-                  height: 'auto',
+                  objectFit: 'contain'
                 }}  
                 width={7000}
                 height={7000} 
@@ -55,10 +54,10 @@ const Animals: React.FC = () => {
       <h1 className="text-center text-4xl sm:text-6xl py-4 text-purple-900">Animals</h1>
       
       <div className="flex flex-wrap justify-center">
-        <div className="bg-white rounded shadow-2xl relative">
-          <div className='w-full'>
+        <div className="bg-gray-300 rounded shadow-2xl relative">
+
             {!isModalOpen && images.length > 0 && (
-              <Image className="object-cover max-h-svh md:max-w-2xl lg:max-w-3xl xl:max-w-max px-3 py-3 z-10" src={images[currentImageIndex]}
+              <Image className="object-cover max-h-svh md:max-w-2xl lg:max-w-3xl xl:max-w-7xl 2xl:max-w-max px-3 py-3 z-10" src={images[currentImageIndex]}
                 sizes="100vw"
                 style={{
                   objectFit: 'contain'
@@ -77,7 +76,7 @@ const Animals: React.FC = () => {
                 <ArrowRightCircleIcon className="h-10 w-10 text-white opacity-75 hover:opacity-100 pointer-events-auto" onClick={nextImage} >Next</ArrowRightCircleIcon>
               </div>
             )}
-          </div>
+
         </div>
       </div>
     </>

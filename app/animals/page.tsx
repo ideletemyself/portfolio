@@ -34,31 +34,31 @@ const Animals: React.FC = () => {
 
   return (
       <>
-      {isModalOpen && (
-        <div onClick={toggleModal} className="fixed top-0 left-0 w-screen h-screen flex items-center justify-center bg-black">
-          <div className='w-auto'>
-            <Image className='h-full shrink-1 lg:max-w-xl xl:max-w-7xl' src={images[currentImageIndex]} alt="Slide" 
-            sizes="100vw"
-            style={{
-              width: '100%',
-              height: 'auto',
-            }}  
-            width={7000}
-            height={7000} 
-            placeholder="blur"
-            blurDataURL={'/images/photos/DSC01836_small.webp'}
-              />
-          </div>
-        </div>
-      )}
+        {isModalOpen && (
+            <div onClick={toggleModal} className="fixed top-0 left-0 w-screen h-screen flex items-center justify-center bg-black">
+              <div className='w-auto'>
+                <Image className='max-h-svh max-w-max' src={images[currentImageIndex]} alt="Slide" 
+                sizes="100vw"
+                style={{
+                  width: '100%',
+                  height: 'auto',
+                }}  
+                width={7000}
+                height={7000} 
+                placeholder="blur"
+                blurDataURL={'/images/photos/DSC01836_small.webp'}
+                  />
+              </div>
+            </div>
+          )}
 
       <h1 className="text-center text-4xl sm:text-6xl py-4 text-purple-900">Animals</h1>
       
       <div className="flex flex-wrap justify-center">
-        <div className="bg-white rounded overflow-hidden shadow-2xl relative">
+        <div className="bg-white rounded shadow-2xl relative">
           <div className='w-full'>
             {!isModalOpen && images.length > 0 && (
-              <Image className="object-cover w-auto h-auto shrink-1 px-3 py-4 space-x-4 z-10 xl:max-w-6xl" src={images[currentImageIndex]}
+              <Image className="object-cover max-h-svh md:max-w-2xl lg:max-w-3xl xl:max-w-max px-3 py-3 z-10" src={images[currentImageIndex]}
                 sizes="100vw"
                 style={{
                   objectFit: 'contain'
@@ -69,7 +69,7 @@ const Animals: React.FC = () => {
                 onClick={toggleModal}
                 placeholder="blur"
                 blurDataURL={'/images/photos/DSC01836_small.webp'}
-               />
+              />
             )}
             {!isModalOpen && (
               <div className="absolute inset-0 flex items-center justify-between px-4 pointer-events-none">

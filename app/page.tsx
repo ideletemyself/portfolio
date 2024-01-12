@@ -19,7 +19,7 @@ const Home: React.FC = () => {
       />
 
     <div className='flex flex-col w-full items-center bg-very-light-brown'>
-      <article className="flex w-full prose bg-very-light-brown text-left font-light 
+      <article className="prose bg-very-light-brown text-left font-light 
                         text-slate-500 text-2xl sm:max-xl:text-4xl xl:text-5xl py-8 pl-4 2xl:pl-0">
         <p>
           I am a software engineer, photographer and music producer.
@@ -33,11 +33,11 @@ const Home: React.FC = () => {
       </article>
       </div>
 
-      <div className="flex flex-col w-full bg-behr-debonair-blue py-2 px-4 sm:px-20">
+      <div className="flex flex-col bg-behr-debonair-blue py-2 px-4 sm:px-20">
 
         <main className="flex flex-col w-full text-center items-center py-4">
 
-          <div className="flex flex-col w-full md:flex-row lg:flex-row xl:flex-row justify-center">
+          <div className="flex flex-col md:flex-row lg:flex-row xl:flex-row justify-center">
 
             <Link href="/astrophotography" className="max-w-sm bg-very-light-brown rounded overflow-hidden shadow-2xl mb-4 mr-2">
               <div className="flex flex-col max-w-4xl mt-2 sm:w-full">

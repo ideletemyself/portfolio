@@ -18,7 +18,7 @@ const Home: React.FC = () => {
         backgroundImage="/images/photos/DSC01612.webp"
       />
 
-    <div className='flex flex-col w-full items-center bg-very-light-brown'>
+    <div className='flex flex-col w-full max-w-full items-center bg-very-light-brown'>
       <article className="prose bg-very-light-brown text-left font-light 
                         text-slate-500 text-2xl sm:max-xl:text-4xl xl:text-5xl py-8 pl-4 2xl:pl-0">
         <p>

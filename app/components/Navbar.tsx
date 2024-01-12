@@ -35,28 +35,28 @@ const Navbar: React.FC = () => {
                   )}
                 </Disclosure.Button>
               </div>
-              <div className="flex flex-auto flex-shrink-0 items-center justify-center sm:items-stretch sm:justify-start">
-                <div className="flex flex-shrink-0 items-center">
-                  <Link href="/" className='subpixel-antialiased font-bold text-2xl text-cyan-blue hover:bg-light-cyan-blue hover:text-white rounded-md px-3 py-2'>
+              <div className="flex flex-auto flex-shrink-1 items-center justify-center sm:items-stretch sm:justify-start">
+                <div className="flex flex-shrink-1 items-center">
+                  <Link href="/" className='subpixel-antialiased font-bold text-base sm:text-3xl text-cyan-blue hover:bg-light-cyan-blue hover:text-white rounded-md px-3 py-2'>
                       <h1>Brandon McKimmons</h1>
                   </Link>
                 </div>
                 </div>
                 <div className="hidden sm:block sm:ml-6">
-                  <div className="flex space-x-4">
+                  <div className="flex space-x-2">
                     {navigation.map((item) => {
                 const isActive = item.href === pathname;
                 return (
                       <Link key={item.name} href={item.href} className={classNames(
                         isActive ? 'bg-cyan-blue text-white' : 'text-indigo-400 hover:bg-light-cyan-blue hover:text-white',
-                        'rounded-md px-3 py-2 text-sm font-medium'
+                        'rounded-md px-2 py-2 text-sm font-medium'
                       )}
                       aria-current={isActive ? 'page' : undefined}
                     >
                           {item.name === 'Home' ? <HomeIcon className="h-5 w-5" aria-hidden="true" /> : 
-                           item.name === 'Astrophotography' ? <p className="h-5 w-30" aria-hidden="true">Astrophotography</p> :
-                           item.name === 'Nature' ? <p className="h-5 w-30" aria-hidden="true">Nature</p> :
-                           item.name === 'Animals' ? <p className="h-5 w-30" aria-hidden="true">Animals</p> : 
+                           item.name === 'Astrophotography' ? <p className="h-5 w-full text-center" aria-hidden="true">Astrophotography</p> :
+                           item.name === 'Nature' ? <p className="h-5 w-full text-center" aria-hidden="true">Nature</p> :
+                           item.name === 'Animals' ? <p className="h-5 w-full text-center" aria-hidden="true">Animals</p> : 
                            item.name}
                       </Link>
                       );
@@ -65,20 +65,20 @@ const Navbar: React.FC = () => {
                 </div>
             </div>
           </div>
-          <Disclosure.Panel className="sm:hidden">
-            <div className="space-y-1 px-2 pb-3 pt-2">
+          <Disclosure.Panel className="sm:hidden w-full h-auto">
+            <div className="space-y-1 px-20 pb-3 pt-2 w-full h-auto">
               {navigation.map((item) => {
                 const isActive = item.href === pathname;
                 return (
                 <Disclosure.Button key={item.name} as="a" href={item.href} className={classNames(
                   isActive ? 'bg-cyan-blue text-white' : 'text-cyan-blue hover:bg-light-cyan-blue hover:text-white',
-                  'flex justify-center rounded-md px-3 py-2 text-base font-medium max-w-xs mx-auto'
+                  'flex justify-center rounded-md px-3 py-2 text-base font-medium'
                 )}
                 aria-current={isActive ? 'page' : undefined}>
                     {item.name === 'Home' ? <HomeIcon className="h-5 w-5" aria-hidden="true" /> : 
-                     item.name === 'Astrophotography' ? <p className="h-5 w-30" aria-hidden="true">Astrophotography</p> :
-                     item.name === 'Nature' ? <p className="h-5 w-30" aria-hidden="true">Nature</p> :
-                     item.name === 'Animals' ? <p className="h-5 w-30" aria-hidden="true">Animals</p> : 
+                     item.name === 'Astrophotography' ? <p className="h-5 w-full text-center" aria-hidden="true">Astrophotography</p> :
+                     item.name === 'Nature' ? <p className="h-5 w-full text-center" aria-hidden="true">Nature</p> :
+                     item.name === 'Animals' ? <p className="h-5 w-full text-center" aria-hidden="true">Animals</p> : 
                      item.name}
                 </Disclosure.Button>
               );

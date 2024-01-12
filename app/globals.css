@@ -16,6 +16,11 @@
   }
 }
 
+html {
+  -webkit-text-size-adjust: 100%; /* for WebKit browsers */
+  text-size-adjust: 100%; /* for other browsers */
+}
+
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(

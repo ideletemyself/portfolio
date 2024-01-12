@@ -12,26 +12,7 @@ const Home: React.FC = () => {
 
   return (
     <>
-      <Hero
-        title="Brandon McKimmons"
-        subtitle="Photography, Programming & Producing Music"
-        backgroundImage="/images/photos/DSC01612.webp"
-      />
-
-    <div className='flex flex-col items-center bg-very-light-brown'>
-      <article className="prose bg-very-light-brown text-left font-light 
-                        text-slate-500 text-2xl sm:max-xl:text-4xl xl:text-5xl py-8 pl-4 2xl:pl-0">
-        <p className=''>
-          I am a software engineer, photographer and music producer.
-        </p>
-        <p>
-          I enjoy creating and learning new things.
-        </p>
-        <p>
-          Please enjoy my work of all types found on this website.
-        </p>
-      </article>
-      </div>
+      
 
       <div className="flex flex-col bg-behr-debonair-blue py-2 px-4 sm:px-20">
 

@@ -23,7 +23,7 @@ html {
 }
 
 /* CSS for iOS and other mobile devices */
-@media (max-width: 1024px) { /* Adjust the max-width as needed */
+@media only screen and (min-width: 428px) and (orientation: landscape) { /* Adjust the max-width as needed */
   html {
     width: 100%; /* Use percentage-based width for smaller screens */
     /* Additional responsive styles */

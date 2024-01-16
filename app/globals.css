@@ -16,9 +16,12 @@
   }
 }
 
-html {
-  -webkit-text-size-adjust: 100%; /* for WebKit browsers */
-  text-size-adjust: 100%; /* for other browsers */
+/* CSS for iOS and other mobile devices */
+@media (max-width: 768px) { /* Adjust the max-width as needed */
+  html {
+    width: 100%; /* Use percentage-based width for smaller screens */
+    /* Additional responsive styles */
+  }
 }
 
 body {

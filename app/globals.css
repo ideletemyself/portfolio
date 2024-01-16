@@ -16,6 +16,12 @@
   }
 }
 
+/* CSS for all devices */
+html {
+  width: 100vw; /* Viewport width */
+  /* Other styles */
+}
+
 /* CSS for iOS and other mobile devices */
 @media (max-width: 768px) { /* Adjust the max-width as needed */
   html {

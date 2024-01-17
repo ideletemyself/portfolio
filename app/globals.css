@@ -17,7 +17,6 @@
 }
 
 body {
-  width: 100vw;
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
       to bottom,
@@ -25,12 +24,4 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
-}
-
-/* CSS for iOS and other mobile devices */
-@media only screen and (min-width: 428px) and (orientation: landscape) { /* Adjust the max-width as needed */
-  body {
-    width: 100%; /* Use percentage-based width for smaller screens */
-    /* Additional responsive styles */
-  }
 }

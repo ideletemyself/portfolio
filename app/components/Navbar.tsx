@@ -1,7 +1,7 @@
 'use client';
 
 import { Disclosure } from '@headlessui/react';
-import { Bars3Icon, CameraIcon, FaceSmileIcon, HomeIcon, XMarkIcon } from '@heroicons/react/24/outline';
+import { Bars3Icon, HomeIcon, XMarkIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 

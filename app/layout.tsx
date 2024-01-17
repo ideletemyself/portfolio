@@ -1,33 +1,35 @@
-import type { Metadata } from 'next'
-import type { Viewport } from 'next'
-import { Inter } from 'next/font/google'
-import Navbar from './components/Navbar'
-import './globals.css'
+import type { Metadata } from "next";
+import type { Viewport } from "next";
+import { Inter } from "next/font/google";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import "./globals.css";
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'Brandon McKimmons Portfolio',
-  description: 'Brandon McKimmons Portfolio', 
-}
+  title: "Brandon McKimmons Portfolio",
+  description: "Brandon McKimmons Portfolio",
+};
 
 export const viewport: Viewport = {
   initialScale: 1,
-  width: 'device-width',
-  viewportFit: 'cover',
-}
+  width: "device-width",
+  viewportFit: "cover",
+};
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-          <Navbar />
-          {children}
+        <Navbar />
+        {children}
+        <Footer />
       </body>
     </html>
-  )
+  );
 }

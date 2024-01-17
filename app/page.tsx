@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import Hero from './components/Hero';
-import Head from 'next/head'
+
 
 const Home: React.FC = () => {
   const astroImage = '/images/photos/astrophotography/DSC01836.webp';
@@ -13,9 +13,6 @@ const Home: React.FC = () => {
 
   return (
     <>
-      <Head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-      </Head>
       <Hero
         title="Brandon McKimmons"
         subtitle="Photography, Programming & Producing Music"

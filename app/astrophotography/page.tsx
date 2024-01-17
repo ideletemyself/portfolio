@@ -51,27 +51,29 @@ const Astrophotography: React.FC = () => {
         </div>
       )}
 
-      <h1 className="bg-behr-debonair-blue subpixel-antialiased underline decoration-solid font-bold text-center text-4xl sm:text-6xl py-4 text-med-light-magenta">Astrophotography</h1>
+      <h1 className="bg-behr-debonair-blue subpixel-antialiased underline decoration-solid font-bold text-center text-4xl sm:text-6xl py-8 text-med-light-magenta">Astrophotography</h1>
 
       {!isModalOpen && images.length > 0 && (
-        <div id='hiku' className='bg-behr-debonair-blue flex flex-wrap justify-center py-8'>
-          <article className="bg-very-light-brown rounded shadow-xl relative prose text-left font-light 
+        <div className='bg-behr-debonair-blue py-8'>
+          <div id='hiku' className='bg-behr-debonair-blue flex flex-wrap justify-center py-8'>
+            <article className="bg-very-light-brown rounded shadow-lg relative prose text-left font-light 
                         text-slate-500 text-2xl sm:max-xl:text-4xl xl:text-5xl py-8 px-4">
-            <p>
-              Stars in silent spin
-            </p>
-            <p>
-              Captured in night&apos;s deep canvas
-            </p>
-            <p>
-              Cosmos drawn within
-            </p>
-          </article>
+              <p>
+                Stars in silent spin
+              </p>
+              <p>
+                Captured in night&apos;s deep canvas
+              </p>
+              <p>
+                Cosmos drawn within
+              </p>
+            </article>
+          </div>
         </div>
       )}
 
       <div className="bg-behr-debonair-blue flex flex-wrap justify-center py-8">
-        <div className="bg-very-light-brown rounded shadow-2xl relative">
+        <div className="bg-very-light-brown rounded shadow-lg relative">
 
           {!isModalOpen && images.length > 0 && (
             <Image className="object-cover max-h-svh md:max-w-2xl lg:max-w-3xl xl:max-w-7xl 2xl:max-w-max px-3 py-3 z-10" src={images[currentImageIndex]}

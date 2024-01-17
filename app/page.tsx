@@ -23,13 +23,13 @@ const Home: React.FC = () => {
         <article className="prose bg-very-light-brown text-left font-light 
                         text-slate-500 text-2xl sm:max-xl:text-4xl xl:text-5xl py-8 pl-4 2xl:pl-0">
           <p>
-            I am a software engineer, photographer and music producer.
+            Software, lens and sound
           </p>
           <p>
-            I enjoy creating and learning new things.
+            Crafting new in harmony
           </p>
           <p>
-            Please enjoy my work of all types found on this website.
+            Art blooms all around
           </p>
         </article>
       </div>

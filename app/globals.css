@@ -26,7 +26,10 @@ body {
     rgb(var(--background-start-rgb));
 }
 
-#hiku,
-#foot-nav * {
+#hiku {
   padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+}
+
+#foot-nav {
+  padding: env(safe-area-inset-left);
 }

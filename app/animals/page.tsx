@@ -53,8 +53,9 @@ const Animals: React.FC = () => {
 
       <h1 className="bg-behr-debonair-blue subpixel-antialiased underline decoration-solid font-bold text-center text-4xl sm:text-6xl py-4 text-med-light-magenta">Animals</h1>
 
-      <div id='hiku' className='bg-behr-debonair-blue flex flex-wrap justify-center py-8'>
-        <article className="bg-very-light-brown rounded shadow-xl relative prose text-left font-light 
+      {!isModalOpen && images.length > 0 && (
+        <div id='hiku' className='bg-behr-debonair-blue flex flex-wrap justify-center py-8'>
+          <article className="bg-very-light-brown rounded shadow-xl relative prose text-left font-light 
                         text-slate-500 text-2xl sm:max-xl:text-4xl xl:text-5xl py-8 px-4">
             <p>
               Through the lens, life stirs
@@ -67,6 +68,7 @@ const Animals: React.FC = () => {
             </p>
           </article>
         </div>
+      )}
 
       <div className="bg-behr-debonair-blue flex flex-wrap justify-center py-8">
         <div className="bg-very-light-brown rounded shadow-2xl relative">

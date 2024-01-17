@@ -31,5 +31,5 @@ body {
 }
 
 #foot-nav {
-  padding: env(safe-area-inset-left);
+  padding-left: env(safe-area-inset-left);
 }

@@ -11,9 +11,10 @@ const Footer = () => {
           <h2 className="font-bold text-center mb-3 text-cyan-blue">
             Pages
           </h2>
-          <ul id='foot-nav' className="flex flex-wrap text-lg sm:max-lg:text-base md:max-lg:pr-4 space-x-3 justify-center sm:pb-4 text-cyan-blue">
+          <ul className="flex flex-wrap text-lg sm:max-lg:text-base md:max-lg:pr-4 space-x-3 justify-center sm:pb-4 text-cyan-blue">
             <li>
               <Link
+                id='foot-nav'
                 className="hover:underline hover:bg-light-cyan-blue hover:text-white"
                 href="/"
               >

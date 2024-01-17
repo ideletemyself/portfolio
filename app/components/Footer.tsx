@@ -7,11 +7,11 @@ const Footer = () => {
   return (
     <footer className="bg-very-light-brown text-white py-14 px-2 h-fit md:h-56">
       <div className="flex flex-col sm:flex-row justify-around px-2">
-        <div id='foot-nav' className="text-lg sm:w-auto mb-8 sm:mb-0 text-center">
+        <div className="text-lg sm:w-auto mb-8 sm:mb-0 text-center">
           <h2 className="font-bold text-center mb-3 text-cyan-blue">
             Pages
           </h2>
-          <ul className="flex flex-wrap text-lg sm:max-lg:text-base md:max-lg:pr-4 space-x-3 justify-center sm:pb-4 text-cyan-blue">
+          <ul id='foot-nav' className="flex flex-wrap text-lg sm:max-lg:text-base md:max-lg:pr-4 space-x-3 justify-center sm:pb-4 text-cyan-blue">
             <li>
               <Link
                 className="hover:underline hover:bg-light-cyan-blue hover:text-white"

@@ -60,7 +60,7 @@ const Astrophotography: React.FC = () => {
             Stars in silent spin
           </p>
           <p>
-            Captured in night's deep canvas
+            Captured in night&apos;s deep canvas
           </p>
           <p>
             Cosmos drawn within

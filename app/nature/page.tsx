@@ -57,13 +57,13 @@ const Nature: React.FC = () => {
         <article className="bg-very-light-brown rounded shadow-xl relative prose text-left font-light 
                         text-slate-500 text-2xl sm:max-xl:text-4xl xl:text-5xl py-8 px-4">
           <p>
-            In nature's embrace
+            In nature&apos;s embrace
           </p>
           <p>
             Whispers of the Earth caught still
           </p>
           <p>
-            Time's dance in a trance
+            Time&apos;s dance in a trance
           </p>
         </article>
       </div>

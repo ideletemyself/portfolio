@@ -63,7 +63,7 @@ const Animals: React.FC = () => {
               In a frame, wild hearts captured
             </p>
             <p>
-              Nature's beauty purrs
+              Nature&apos;s beauty purrs
             </p>
           </article>
         </div>

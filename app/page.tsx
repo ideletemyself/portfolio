@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import Hero from './components/Hero';
+import Head from 'next/head'
 
 const Home: React.FC = () => {
   const astroImage = '/images/photos/astrophotography/DSC01836.webp';
@@ -12,25 +13,28 @@ const Home: React.FC = () => {
 
   return (
     <>
+      <Head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+      </Head>
       <Hero
         title="Brandon McKimmons"
         subtitle="Photography, Programming & Producing Music"
         backgroundImage="/images/photos/DSC01612.webp"
       />
 
-    <div className='flex flex-col w-full max-w-full items-center bg-very-light-brown'>
-      <article className="prose bg-very-light-brown text-left font-light 
+      <div className='flex flex-col w-full max-w-full items-center bg-very-light-brown'>
+        <article className="prose bg-very-light-brown text-left font-light 
                         text-slate-500 text-2xl sm:max-xl:text-4xl xl:text-5xl py-8 pl-4 2xl:pl-0">
-        <p>
-          I am a software engineer, photographer and music producer.
-        </p>
-        <p>
-          I enjoy creating and learning new things.
-        </p>
-        <p>
-          Please enjoy my work of all types found on this website.
-        </p>
-      </article>
+          <p>
+            I am a software engineer, photographer and music producer.
+          </p>
+          <p>
+            I enjoy creating and learning new things.
+          </p>
+          <p>
+            Please enjoy my work of all types found on this website.
+          </p>
+        </article>
       </div>
 
       <div className="flex flex-col bg-behr-debonair-blue py-2 px-4 sm:px-20">

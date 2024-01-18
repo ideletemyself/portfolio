@@ -41,7 +41,7 @@ export default function About() {
                 <h1 className="text-2xl font-semibold leading-7 tracking-tight text-slate-500">
                   Brandon McKimmons
                 </h1>
-                <p className="text-xl font-semibold leading-6 text-med-light-magenta">
+                <p className="text-xl md:text-lg font-semibold leading-6 text-med-light-magenta">
                   Photographer, Programmer and Music Producer
                 </p>
               </div>

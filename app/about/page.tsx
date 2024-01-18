@@ -8,47 +8,59 @@ export default function About() {
       </h1>
       <div className="flex flex-col w-full bg-behr-debonair-blue items-center py-4">
         <div className="bg-behr-debonair-blue">
-          <div className="bg-behr-debonair-blue flex flex-wrap justify-center py-4">
-            <article
-              className="bg-very-light-brown rounded shadow-lg relative prose text-left font-light 
-                        text-2xl sm:max-xl:text-4xl xl:text-5xl pb-6 px-4"
-            >
-              <p className="prose text-slate-500 mt-6 text-lg leading-8">
-                Born in Fullerton, California. Went to highschool at Huntington
-                Beach High School. Spent time in college at Full Sail
-                University. I&apos;ve always had a passion for photography,
-                music and programming.
-              </p>
-            </article>
+          <div className="bg-behr-debonair-blue py-4">
+            <div className="flex flex-col px-0 sm:px-2 md:px-4 lg:px-16">
+              <article className="flex bg-very-light-brown rounded shadow-lg prose text-left font-light pb-6 px-0 sm:px-4 prose-img:rounded-full">
+                <div className="flex flex-col pl-2">
+                  <p className="flex prose text-slate-500 mt-6 sm:text-2xl">
+                    Born in Fullerton, California. Went to highschool at Huntington
+                    Beach High School. Spent time in college at Full Sail
+                    University. I&apos;ve always had a passion for photography,
+                    music and programming.
+                  </p>
+                  <p className="flex prose text-slate-500 mt-6 sm:text-2xl">
+                    This is a picture of my cat, Sagan. He loves looking out windows, laying down on laps
+                    and eating some cat treats.
+                  </p>
+                </div>
+                <Image
+                  className="flex flex-col place-self-center h-40 w-40 sm:h-64 sm:w-64 pr-4"
+                  src="/images/photos/DSC01567.webp"
+                  width={4688}
+                  height={3823}
+                  alt="blank"
+                  placeholder="blur"
+                  blurDataURL={'/images/photos/DSC01836_small.webp'}
+                />
+              </article>
+            </div>
           </div>
         </div>
-        <div className="bg-behr-debonair-blue py-8">
-          <div
-            className="bg-very-light-brown rounded shadow-lg prose text-left font-light 
-                        text-2xl sm:max-xl:text-4xl xl:text-5xl px-14"
-          >
-            <div className="flex flex-wrap items-center gap-x-6">
+        <div className="bg-behr-debonair-blue py-8 px-0 sm:px-2 md:px-4">
+          <div className="flex flex-col px-0 sm:px-0 md:px-0 lg:px-12">
+            <article className="flex bg-very-light-brown rounded shadow-lg prose text-left font-light pl-4 pt-8 prose-img:rounded-full items-center">
               <Image
-                className="h-64 w-64 rounded-full"
+                className="flex flex-col px-2 h-40 w-40 sm:h-64 sm:w-64"
                 src="/images/photos/DSC01559-smaller.webp"
                 width={5997}
                 height={4000}
-                alt=""
+                alt="blank"
                 placeholder="blur"
                 blurDataURL={'/images/photos/DSC01836_small.webp'}
               />
-              <div>
-                <h1 className="text-2xl font-semibold leading-7 tracking-tight text-slate-500">
+              <div className="flex flex-col">
+                <h1 className="flex text-base sm:text-3xl font-semibold leading-4 tracking-tight text-slate-500">
                   Brandon McKimmons
                 </h1>
-                <p className="text-xl md:text-lg font-semibold leading-6 text-med-light-magenta">
+                <p className="flex text-[13px] sm:text-lg pr-2 sm:pr-0 font-semibold leading-4 text-med-light-magenta">
                   Photographer, Programmer and Music Producer
                 </p>
               </div>
-            </div>
+            </article>
           </div>
         </div>
       </div>
     </>
   );
 }
+

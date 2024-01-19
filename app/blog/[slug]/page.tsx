@@ -30,15 +30,15 @@ function getPost({ slug }: { slug: string }) {
 
 }
 
-// Define your custom components
-const components = useMDXComponents({
-    h1: ({ children }) => <h1 className='text-med-light-magenta leading-6'>{children}</h1>,
-    h2: ({ children }) => <h2 className='text-slate-500 leading-6'>{children}</h2>
-    // Add more custom components as needed
-});
-
 export default function Page({ params }: any) {
     const props = getPost(params);
+
+    // Define your custom components
+    const components = useMDXComponents({
+        h1: ({ children }) => <h1 className='text-med-light-magenta leading-6'>{children}</h1>,
+        h2: ({ children }) => <h2 className='text-slate-500 leading-6'>{children}</h2>
+        // Add more custom components as needed
+    });
 
     return (
         <div className='bg-behr-debonair-blue py-4'>

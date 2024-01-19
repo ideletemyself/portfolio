@@ -35,15 +35,14 @@ export default function Page({ params }: any) {
 
     // Define your custom components
     const components = useMDXComponents({
-        h1: ({ children }) => <h1 className='text-med-light-magenta leading-6'>{children}</h1>,
-        h2: ({ children }) => <h2 className='text-slate-500 leading-6'>{children}</h2>
-        // Add more custom components as needed
+        h1: ({ children }) => <h1 className='prose prose-2xl sm:text-7xl pb-4 text-med-light-magenta'>{children}</h1>,
+        h2: ({ children }) => <h2 className='prose prose-xl pb-4 text-slate-500'>{children}</h2>
     });
 
     return (
-        <div className='bg-behr-debonair-blue py-4'>
+        <div className='flex flex-col w-full bg-behr-debonair-blue py-4'>
             <div className='bg-behr-debonair-blue flex flex-wrap justify-center py-8'>
-                <article className="bg-very-light-brown rounded shadow-lg relative prose prose-2xl 
+                <article className="bg-very-light-brown rounded shadow-lg relative leading-normal prose prose-lg
                                     text-left font-light text-slate-500 py-8 px-4">
                     <MDXRemote source={props.content} components={components} ></MDXRemote>
                 </article>

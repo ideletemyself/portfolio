@@ -101,13 +101,13 @@ const Home: React.FC = () => {
               <article className="bg-very-light-brown rounded shadow-lg relative prose prose-xl sm:prose-2xl 
                                     text-left font-light text-slate-500 py-8 px-4">
                 <p>
-                  Ever since highschool I've loved photography. I was lucky enough to go to a school with a photography class.
-                  We used film and developed our own photos. I learned a lot about the process and how to take a good photo. I've
+                  Ever since highschool I&apos;ve loved photography. I was lucky enough to go to a school with a photography class.
+                  We used film and developed our own photos. I learned a lot about the process and how to take a good photo. I&apos;ve
                   had various cameras but only recently have I had what I consider to be a really good, professional camera. 
                 </p>
                 <p>  
-                  It's a Sony A7iv and I absolutely love it. I've been taking photos of everything I can, mostly of my cat Sagan but also
-                  of the nature around me, some animals that I can find here and there and of course the night sky. I hope you'll take
+                  It&apos;s a Sony A7iv and I absolutely love it. I&apos;ve been taking photos of everything I can, mostly of my cat Sagan but also
+                  of the nature around me, some animals that I can find here and there and of course the night sky. I hope you&apos;ll take
                   a look at some of my photos and enjoy them as much as I do.
                 </p>
               </article>

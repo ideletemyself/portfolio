@@ -3,16 +3,26 @@
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { ArrowLeftCircleIcon, ArrowRightCircleIcon } from '@heroicons/react/24/outline';
+import image1 from '../../public/images/photos/animals/DSC01132.webp';
+import image2 from '../../public/images/photos/animals/DSC01160.webp';
+import image3 from '../../public/images/photos/animals/DSC01225.webp';
+import image4 from '../../public/images/photos/animals/DSC01232.webp';
+import image5 from '../../public/images/photos/animals/DSC01270.webp';
+import image6 from '../../public/images/photos/animals/DSC01887.webp';
+import image7 from '../../public/images/photos/animals/DSC01890.webp';
+import image8 from '../../public/images/photos/animals/DSC01898.webp';
+import image9 from '../../public/images/photos/animals/DSC01903.webp';
+import image10 from '../../public/images/photos/animals/DSC01905.webp';
+import image11 from '../../public/images/photos/animals/DSC01925.webp';
+import image12 from '../../public/images/photos/animals/DSC01930.webp';
+import image13 from '../../public/images/photos/animals/DSC01944.webp';
+import image14 from '../../public/images/photos/animals/DSC01958.webp';
+
+const images = [image1, image2, image3, image4, image5, image6, image7, image8, image9, image10, image11,
+                image12, image13, image14];
 
 const Animals: React.FC = () => {
-  const [images, setImages] = useState<string[]>([]);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-
-  useEffect(() => {
-    fetch('/animals.json')
-      .then(response => response.json())
-      .then(data => setImages(data.map((item: { path: string }) => item.path)));
-  }, []);
 
   const nextImage = () => {
     if (images) {
@@ -42,10 +52,9 @@ const Animals: React.FC = () => {
               style={{
                 objectFit: 'contain'
               }}
-              width={7000}
-              height={7000}
+              width={700}
+              height={700}
               placeholder="blur"
-              blurDataURL={'/images/1x1-0707077f.png'}
             />
           </div>
         </div>
@@ -81,12 +90,11 @@ const Animals: React.FC = () => {
               style={{
                 objectFit: 'contain'
               }}
-              width={7000}
-              height={7000}
+              width={700}
+              height={700}
               alt="Slide"
               onClick={toggleModal}
               placeholder="blur"
-              blurDataURL={'/images/1x1-0707077f.png'}
             />
           )}
           {!isModalOpen && (

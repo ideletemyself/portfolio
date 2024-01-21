@@ -48,7 +48,7 @@ const Home: React.FC = () => {
                     width={500}
                     height={300}
                     placeholder="blur"
-                    blurDataURL={'/images/photos/DSC01836_small.webp'}
+                    blurDataURL={'/images/placeholder.html'}
                   />
                   <h3 className="subpixel-antialiased underline decoration-solid font-bold text-2xl sm:text-2xl md:text-xl lg:text-2xl xl:text-3xl text-med-light-magenta mb-2">Astrophotography</h3>
                   <article className="subpixel-antialiased sm:text-lg md:text-lg lg:text-2xl xl:text-2xl text-zinc-900 text-opacity-75">
@@ -67,7 +67,7 @@ const Home: React.FC = () => {
                     width={500}
                     height={300}
                     placeholder="blur"
-                    blurDataURL={'/images/photos/DSC01836_small.webp'}
+                    blurDataURL={'/images/placeholder.html'}
                   />
                   <h3 className="subpixel-antialiased underline decoration-solid font-bold text-2xl sm:text-3xl text-med-light-magenta mb-2">Nature</h3>
                   <article className="subpixel-antialiased text-lg sm:text-xl text-zinc-900 text-opacity-75">
@@ -86,7 +86,7 @@ const Home: React.FC = () => {
                     width={500}
                     height={300}
                     placeholder="blur"
-                    blurDataURL={'/images/photos/DSC01836_small.webp'}
+                    blurDataURL={'/images/placeholder.html'}
                   />
                   <h3 className="subpixel-antialiased underline decoration-solid font-bold text-2xl sm:text-3xl text-med-light-magenta mb-2">Animals</h3>
                   <article className="subpixel-antialiased text-lg sm:text-xl text-zinc-900 text-opacity-75">

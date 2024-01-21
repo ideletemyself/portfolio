@@ -45,7 +45,7 @@ const Nature: React.FC = () => {
               width={7000}
               height={7000}
               placeholder="blur"
-              blurDataURL={'/images/photos/DSC01836_small.webp'}
+              blurDataURL={'/images/placeholder.html'}
             />
           </div>
         </div>
@@ -86,7 +86,7 @@ const Nature: React.FC = () => {
               alt="Slide"
               onClick={toggleModal}
               placeholder="blur"
-              blurDataURL={'/images/photos/DSC01836_small.webp'}
+              blurDataURL={'/images/placeholder.html'}
             />
           )}
           {!isModalOpen && (

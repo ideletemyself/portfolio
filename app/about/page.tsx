@@ -30,7 +30,7 @@ export default function About() {
                   height={3823}
                   alt="blank"
                   placeholder="blur"
-                  blurDataURL={'/images/photos/DSC01836_small.webp'}
+                  blurDataURL={'/images/placeholder.html'}
                 />
               </article>
             </div>
@@ -46,7 +46,7 @@ export default function About() {
                 height={4000}
                 alt="blank"
                 placeholder="blur"
-                blurDataURL={'/images/photos/DSC01836_small.webp'}
+                blurDataURL={'/images/placeholder.html'}
               />
               <div className="flex flex-col">
                 <h1 className="flex text-base sm:text-3xl font-semibold leading-4 tracking-tight text-slate-500">

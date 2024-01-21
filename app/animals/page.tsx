@@ -45,7 +45,7 @@ const Animals: React.FC = () => {
               width={7000}
               height={7000}
               placeholder="blur"
-              blurDataURL={'/images/placeholder.html'}
+              blurDataURL={'/images/1x1-0707077f.png'}
             />
           </div>
         </div>
@@ -86,7 +86,7 @@ const Animals: React.FC = () => {
               alt="Slide"
               onClick={toggleModal}
               placeholder="blur"
-              blurDataURL={'/images/placeholder.html'}
+              blurDataURL={'/images/1x1-0707077f.png'}
             />
           )}
           {!isModalOpen && (

@@ -30,7 +30,7 @@ export default function About() {
                   height={3823}
                   alt="blank"
                   placeholder="blur"
-                  blurDataURL={'/images/placeholder.html'}
+                  blurDataURL={'/images/1x1-0707077f.png'}
                 />
               </article>
             </div>
@@ -46,7 +46,7 @@ export default function About() {
                 height={4000}
                 alt="blank"
                 placeholder="blur"
-                blurDataURL={'/images/placeholder.html'}
+                blurDataURL={'/images/1x1-0707077f.png'}
               />
               <div className="flex flex-col">
                 <h1 className="flex text-base sm:text-3xl font-semibold leading-4 tracking-tight text-slate-500">

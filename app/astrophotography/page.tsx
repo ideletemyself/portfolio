@@ -45,7 +45,7 @@ const Astrophotography: React.FC = () => {
               width={7000}
               height={7000}
               placeholder="blur"
-              blurDataURL={'/images/DSC01720_placeholder.png'}
+              blurDataURL={'/images/1x1-00ffff7f.png'}
             />
           </div>
         </div>
@@ -86,7 +86,7 @@ const Astrophotography: React.FC = () => {
               alt="Slide"
               onClick={toggleModal}
               placeholder="blur"
-              blurDataURL={'/images/DSC01720_placeholder.png'}
+              blurDataURL={'/images/1x1-00ffff7f.png'}
             />
           )}
           {!isModalOpen && (

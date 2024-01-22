@@ -4,16 +4,16 @@ import Hero from './components/Hero';
 
 
 const Home: React.FC = () => {
-  const astroImage = '/images/photos/astrophotography/DSC01836.webp';
-  const animalImage = '/images/photos/animals/DSC01225.webp';
-  const natureImage = '/images/photos/nature/DSC01776.webp';
+  const astroImage = 'https://brandonmckimmons-nextjs-563476088.imgix.net/DSC01836.webp';
+  const animalImage = 'https://brandonmckimmons-nextjs-563476088.imgix.net/DSC01225.webp';
+  const natureImage = 'https://brandonmckimmons-nextjs-563476088.imgix.net/DSC01776.webp';
 
   return (
     <>
       <Hero
         title="Brandon McKimmons"
         subtitle="Photography, Programming & Producing Music"
-        backgroundImage="/images/photos/DSC01612.webp"
+        backgroundImage="https://brandonmckimmons-nextjs-563476088.imgix.net/DSC01612-hero.webp"
       />
 
       <div className='bg-behr-debonair-blue py-8'>
@@ -48,7 +48,7 @@ const Home: React.FC = () => {
                     width={500}
                     height={300}
                     placeholder="blur"
-                    blurDataURL={'/images/1x1-0707077f.png'}
+                    blurDataURL={'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkqAcAAIUAgUW0RjgAAAAASUVORK5CYII='}
                   />
                   <h3 className="subpixel-antialiased underline decoration-solid font-bold text-2xl sm:text-2xl md:text-xl lg:text-2xl xl:text-3xl text-med-light-magenta mb-2">Astrophotography</h3>
                   <article className="subpixel-antialiased sm:text-lg md:text-lg lg:text-2xl xl:text-2xl text-zinc-900 text-opacity-75">
@@ -67,7 +67,7 @@ const Home: React.FC = () => {
                     width={500}
                     height={300}
                     placeholder="blur"
-                    blurDataURL={'/images/1x1-0707077f.png'}
+                    blurDataURL={'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkqAcAAIUAgUW0RjgAAAAASUVORK5CYII='}
                   />
                   <h3 className="subpixel-antialiased underline decoration-solid font-bold text-2xl sm:text-3xl text-med-light-magenta mb-2">Nature</h3>
                   <article className="subpixel-antialiased text-lg sm:text-xl text-zinc-900 text-opacity-75">
@@ -86,7 +86,7 @@ const Home: React.FC = () => {
                     width={500}
                     height={300}
                     placeholder="blur"
-                    blurDataURL={'/images/1x1-0707077f.png'}
+                    blurDataURL={'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkqAcAAIUAgUW0RjgAAAAASUVORK5CYII='}
                   />
                   <h3 className="subpixel-antialiased underline decoration-solid font-bold text-2xl sm:text-3xl text-med-light-magenta mb-2">Animals</h3>
                   <article className="subpixel-antialiased text-lg sm:text-xl text-zinc-900 text-opacity-75">

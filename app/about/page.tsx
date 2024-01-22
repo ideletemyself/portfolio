@@ -25,12 +25,12 @@ export default function About() {
                 </div>
                 <Image
                   className="flex flex-col place-self-center h-40 w-40 sm:h-64 sm:w-64 pr-4"
-                  src="/images/photos/DSC01567.webp"
+                  src="https://brandonmckimmons-nextjs-563476088.imgix.net/DSC01567-smaller.webp"
                   width={4688}
                   height={3823}
                   alt="blank"
                   placeholder="blur"
-                  blurDataURL={'/images/1x1-0707077f.png'}
+                  blurDataURL={'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkqAcAAIUAgUW0RjgAAAAASUVORK5CYII='}
                 />
               </article>
             </div>
@@ -41,12 +41,12 @@ export default function About() {
             <article className="flex bg-very-light-brown rounded shadow-lg prose text-left font-light pl-4 pt-8 prose-img:rounded-full items-center">
               <Image
                 className="flex flex-col px-2 h-40 w-40 sm:h-64 sm:w-64"
-                src="/images/photos/DSC01559-smaller.webp"
+                src="https://brandonmckimmons-nextjs-563476088.imgix.net/DSC01559-smaller.webp"
                 width={5997}
                 height={4000}
                 alt="blank"
                 placeholder="blur"
-                blurDataURL={'/images/1x1-0707077f.png'}
+                blurDataURL={'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkqAcAAIUAgUW0RjgAAAAASUVORK5CYII='}
               />
               <div className="flex flex-col">
                 <h1 className="flex text-base sm:text-3xl font-semibold leading-4 tracking-tight text-slate-500">

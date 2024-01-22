@@ -76,7 +76,7 @@ const Animals: React.FC = () => {
         <div className="bg-very-light-brown rounded shadow-lg relative">
 
           {!isModalOpen && images.length > 0 && (
-            <Image className="object-cover max-h-svh md:max-w-2xl lg:max-w-3xl xl:max-w-7xl 2xl:max-w-max px-3 py-3 z-10" src={images[currentImageIndex]}
+            <Image className="object-cover max-h-svh md:max-w-2xl lg:max-w-3xl xl:max-w-7xl px-3 py-3 z-10" src={images[currentImageIndex]}
               sizes="100vw"
               style={{
                 objectFit: 'contain'

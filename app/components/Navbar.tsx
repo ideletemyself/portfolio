@@ -43,12 +43,12 @@ const Navbar: React.FC = () => {
               <div className="flex flex-auto flex-shrink-1 items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="flex flex-shrink-1 items-center">
                   <Link href="/">
-                    <h1
+                    <p
                       className="subpixel-antialiased font-bold text-base sm:text-3xl 
                                  text-cyan-blue hover:bg-light-cyan-blue hover:text-white rounded-md px-3 py-2 pl-0 sm:pl-40 md:pl-0"
                     >
                       Brandon McKimmons
-                    </h1>
+                    </p>
                   </Link>
                 </div>
               </div>

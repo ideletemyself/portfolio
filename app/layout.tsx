@@ -8,8 +8,8 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Brandon McKimmons Portfolio",
-  description: "Brandon McKimmons Portfolio",
+  title: "Brandon Carrol McKimmons Portfolio Website",
+  description: "Brandon McKimmons Portfolio, talking about and showing off my photography, programming and music production.",
 };
 
 export const viewport: Viewport = {

@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
+import ImgixClient from '@imgix/js-core';
 import { ArrowLeftCircleIcon, ArrowRightCircleIcon } from '@heroicons/react/24/outline';
 
 const Astrophotography: React.FC = () => {
@@ -18,8 +19,15 @@ const Astrophotography: React.FC = () => {
     'DSC01855',
   ];
 
-  const buildURL = (imagePath: string) =>
-    `https://brandonmckimmons-nextjs-563476088.imgix.net/${imagePath}.webp`;
+  const imgixClient = new ImgixClient({
+    domain: 'brandonmckimmons-nextjs-563476088.imgix.net'
+  });
+
+  const imgUrl = (imagePath: string) => imgixClient.buildURL(`${imagePath}.webp`, {
+    fit: 'fill', // fill mode
+    auto: 'format,compress', // auto format and compress
+    // ... other Imgix parameters
+  });
 
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
@@ -45,11 +53,11 @@ const Astrophotography: React.FC = () => {
     <>
       {isModalOpen && (
         <div onClick={toggleModal} className="fixed top-0 left-0 w-screen h-screen flex items-center justify-center bg-black">
-          <div className='max-h-svh'>
-            <Image className='h-full sm:max-h-svh sm:max-w-max md:max-h-svh md:w-full'
-              src={buildURL(images[currentImageIndex])}
+          <div className='w-full'>
+            <Image className='w-full max-h-svh mx-auto'
+              src={imgUrl(images[currentImageIndex])}
               alt="Slide"
-              sizes="100vw"
+              sizes="(min-width: 1280px) 1256px, (min-width: 1040px) 744px, (min-width: 780px) 648px, calc(100vw - 24px)"
               style={{
                 objectFit: 'contain'
               }}
@@ -87,9 +95,9 @@ const Astrophotography: React.FC = () => {
         <div className="bg-very-light-brown rounded shadow-lg relative">
 
           {!isModalOpen && images.length > 0 && (
-            <Image className="object-cover max-h-svh md:max-w-2xl lg:max-w-3xl xl:max-w-7xl px-3 py-3 z-10"
-              src={buildURL(images[currentImageIndex])}
-              sizes="100vw"
+            <Image className="object-cover max-h-svh max-w-min px-3 py-3 z-10"
+              src={imgUrl(images[currentImageIndex])}
+              sizes="(min-width: 1280px) 1256px, (min-width: 1040px) 744px, (min-width: 780px) 648px, calc(100vw - 24px)"
               style={{
                 objectFit: 'contain'
               }}

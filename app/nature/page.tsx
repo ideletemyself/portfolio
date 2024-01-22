@@ -1,18 +1,50 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Image from 'next/image';
 import { ArrowLeftCircleIcon, ArrowRightCircleIcon } from '@heroicons/react/24/outline';
 
 const Nature: React.FC = () => {
-  const [images, setImages] = useState<string[]>([]);
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const images = [
+    'DSC01605',
+    'DSC01610',
+    'DSC01612',
+    'DSC01613',
+    'DSC01616',
+    'DSC01623',
+    'DSC01626',
+    'DSC01628',
+    'DSC01637',
+    'DSC01643',
+    'DSC01664',
+    'DSC01671',
+    'DSC01675',
+    'DSC01676',
+    'DSC01680',
+    'DSC01692',
+    'DSC01695',
+    'DSC01699',
+    'DSC01700',
+    'DSC01707',
+    'DSC01776',
+    'DSC01777',
+    'DSC01779',
+    'DSC01783',
+    'DSC01785',
+    'DSC01796',
+    'DSC01803',
+    'DSC01808',
+    'DSC01885',
+    'DSC01913',
+    'DSC01915',
+    'DSC01922',
+    'DSC01971',
+  ];
 
-  useEffect(() => {
-    fetch('/nature.json')
-      .then(response => response.json())
-      .then(data => setImages(data.map((item: { path: string }) => item.path)));
-  }, []);
+  const buildURL = (imagePath: string) =>
+    `https://brandonmckimmons-nextjs-563476088.imgix.net/${imagePath}.webp`;
+
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   const nextImage = () => {
     if (images) {
@@ -37,7 +69,9 @@ const Nature: React.FC = () => {
       {isModalOpen && (
         <div onClick={toggleModal} className="fixed top-0 left-0 w-screen h-screen flex items-center justify-center bg-black">
           <div className='max-h-svh'>
-            <Image className='max-h-svh max-w-max' src={images[currentImageIndex]} alt="Slide"
+            <Image className='h-full sm:max-h-svh sm:max-w-max md:max-h-svh md:w-full'
+              src={buildURL(images[currentImageIndex])}
+              alt="Slide"
               sizes="100vw"
               style={{
                 objectFit: 'contain'
@@ -45,7 +79,7 @@ const Nature: React.FC = () => {
               width={7000}
               height={7000}
               placeholder="blur"
-              blurDataURL={'/images/1x1-0707077f.png'}
+              blurDataURL={'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkqAcAAIUAgUW0RjgAAAAASUVORK5CYII='}
             />
           </div>
         </div>
@@ -76,7 +110,8 @@ const Nature: React.FC = () => {
         <div className="bg-very-light-brown rounded shadow-lg relative">
 
           {!isModalOpen && images.length > 0 && (
-            <Image className="object-cover max-h-svh md:max-w-2xl lg:max-w-3xl xl:max-w-7xl px-3 py-3 z-10" src={images[currentImageIndex]}
+            <Image className="object-cover h-full sm:max-h-svh sm:max-w-max md:max-h-svh md:w-ful px-3 py-3 z-10"
+              src={buildURL(images[currentImageIndex])}
               sizes="100vw"
               style={{
                 objectFit: 'contain'
@@ -86,9 +121,10 @@ const Nature: React.FC = () => {
               alt="Slide"
               onClick={toggleModal}
               placeholder="blur"
-              blurDataURL={'/images/1x1-0707077f.png'}
+              blurDataURL={'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkqAcAAIUAgUW0RjgAAAAASUVORK5CYII='}
             />
-          )}
+          )
+          }
           {!isModalOpen && (
             <div className="absolute inset-0 flex items-center justify-between px-4 pointer-events-none">
               <ArrowLeftCircleIcon className="h-10 w-10 text-white opacity-75 hover:opacity-100 pointer-events-auto" onClick={prevImage} >Previous</ArrowLeftCircleIcon>

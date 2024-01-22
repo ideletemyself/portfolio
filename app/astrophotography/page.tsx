@@ -1,18 +1,27 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Image from 'next/image';
 import { ArrowLeftCircleIcon, ArrowRightCircleIcon } from '@heroicons/react/24/outline';
 
 const Astrophotography: React.FC = () => {
-  const [images, setImages] = useState<string[]>([]);
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const images = [
+    'DSC01720',
+    'DSC01722',
+    'DSC01723',
+    'DSC01728',
+    'DSC01836',
+    'DSC01840',
+    'DSC01841',
+    'DSC01849',
+    'DSC01854',
+    'DSC01855',
+  ];
 
-  useEffect(() => {
-    fetch('/astrophotography.json')
-      .then(response => response.json())
-      .then(data => setImages(data.map((item: { path: string }) => item.path)));
-  }, []);
+  const buildURL = (imagePath: string) =>
+    `https://brandonmckimmons-nextjs-563476088.imgix.net/${imagePath}.webp`;
+
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   const nextImage = () => {
     if (images) {
@@ -37,7 +46,9 @@ const Astrophotography: React.FC = () => {
       {isModalOpen && (
         <div onClick={toggleModal} className="fixed top-0 left-0 w-screen h-screen flex items-center justify-center bg-black">
           <div className='max-h-svh'>
-            <Image className='max-h-svh max-w-max' src={images[currentImageIndex]} alt="Slide"
+            <Image className='h-full sm:max-h-svh sm:max-w-max md:max-h-svh md:w-full'
+              src={buildURL(images[currentImageIndex])}
+              alt="Slide"
               sizes="100vw"
               style={{
                 objectFit: 'contain'
@@ -45,13 +56,13 @@ const Astrophotography: React.FC = () => {
               width={7000}
               height={7000}
               placeholder="blur"
-              blurDataURL={'/images/1x1-0707077f.png'}
+              blurDataURL={'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkqAcAAIUAgUW0RjgAAAAASUVORK5CYII='}
             />
           </div>
         </div>
       )}
 
-      <h1 className="bg-behr-debonair-blue subpixel-antialiased underline decoration-solid font-bold text-center text-4xl sm:text-6xl py-8 text-med-light-magenta">Astrophotography</h1>
+      <h1 className="bg-behr-debonair-blue subpixel-antialiased underline decoration-solid font-bold text-center text-3xl sm:text-6xl py-8 text-med-light-magenta">Astrophotography</h1>
 
       {!isModalOpen && images.length > 0 && (
         <div className='bg-behr-debonair-blue py-8'>
@@ -76,19 +87,21 @@ const Astrophotography: React.FC = () => {
         <div className="bg-very-light-brown rounded shadow-lg relative">
 
           {!isModalOpen && images.length > 0 && (
-              <Image
-                className="object-cover max-h-svh md:max-w-2xl lg:max-w-3xl xl:max-w-7xl px-3 py-3 z-10"
-                src={images[currentImageIndex]}
-                sizes="100vw"
-                style={{ objectFit: 'contain' }}
-                width={7000}
-                height={7000}
-                alt="Slide"
-                onClick={toggleModal}
-                placeholder="blur"
-                blurDataURL={'/images/1x1-0707077f.png'}
-              />
-          )}
+            <Image className="object-cover h-full sm:max-h-svh sm:max-w-max md:max-h-svh md:w-ful px-3 py-3 z-10"
+              src={buildURL(images[currentImageIndex])}
+              sizes="100vw"
+              style={{
+                objectFit: 'contain'
+              }}
+              width={7000}
+              height={7000}
+              alt="Slide"
+              onClick={toggleModal}
+              placeholder="blur"
+              blurDataURL={'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkqAcAAIUAgUW0RjgAAAAASUVORK5CYII='}
+            />
+          )
+          }
           {!isModalOpen && (
             <div className="absolute inset-0 flex items-center justify-between px-4 pointer-events-none">
               <ArrowLeftCircleIcon className="h-10 w-10 text-white opacity-75 hover:opacity-100 pointer-events-auto" onClick={prevImage} >Previous</ArrowLeftCircleIcon>

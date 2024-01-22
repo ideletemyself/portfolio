@@ -91,7 +91,7 @@ const Animals: React.FC = () => {
         <div className="bg-very-light-brown rounded shadow-lg relative">
 
           {!isModalOpen && images.length > 0 && (
-            <Image className="object-cover h-full sm:max-h-svh sm:max-w-max md:max-h-svh md:w-full px-3 py-3 z-10"
+            <Image className="object-cover max-h-svh md:max-w-2xl lg:max-w-3xl xl:max-w-7xl px-3 py-3 z-10"
               src={buildURL(images[currentImageIndex])}
               sizes="100vw"
               style={{

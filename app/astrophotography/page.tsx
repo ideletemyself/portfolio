@@ -1,24 +1,18 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { ArrowLeftCircleIcon, ArrowRightCircleIcon } from '@heroicons/react/24/outline';
-import image1 from '../../public/images/photos/astrophotography/DSC01720.webp';
-import image2 from '../../public/images/photos/astrophotography/DSC01722.webp';
-import image3 from '../../public/images/photos/astrophotography/DSC01723.webp';
-import image4 from '../../public/images/photos/astrophotography/DSC01728.webp';
-import image5 from '../../public/images/photos/astrophotography/DSC01836.webp';
-import image6 from '../../public/images/photos/astrophotography/DSC01840.webp';
-import image7 from '../../public/images/photos/astrophotography/DSC01841.webp';
-import image8 from '../../public/images/photos/astrophotography/DSC01849.webp';
-import image9 from '../../public/images/photos/astrophotography/DSC01854.webp';
-import image10 from '../../public/images/photos/astrophotography/DSC01855.webp';
-import image11 from '../../public/images/photos/astrophotography/Astro1.webp';
-
-const images = [image1, image2, image3, image4, image5, image6, image7, image8, image9, image10, image11];
 
 const Astrophotography: React.FC = () => {
+  const [images, setImages] = useState<string[]>([]);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  useEffect(() => {
+    fetch('/astrophotography.json')
+      .then(response => response.json())
+      .then(data => setImages(data.map((item: { path: string }) => item.path)));
+  }, []);
 
   const nextImage = () => {
     if (images) {
@@ -51,6 +45,7 @@ const Astrophotography: React.FC = () => {
               width={7000}
               height={7000}
               placeholder="blur"
+              blurDataURL={'/images/1x1-0707077f.png'}
             />
           </div>
         </div>
@@ -91,6 +86,7 @@ const Astrophotography: React.FC = () => {
                 alt="Slide"
                 onClick={toggleModal}
                 placeholder="blur"
+                blurDataURL={'/images/1x1-0707077f.png'}
               />
           )}
           {!isModalOpen && (

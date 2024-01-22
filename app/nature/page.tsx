@@ -110,7 +110,7 @@ const Nature: React.FC = () => {
         <div className="bg-very-light-brown rounded shadow-lg relative">
 
           {!isModalOpen && images.length > 0 && (
-            <Image className="object-cover h-full sm:max-h-svh sm:max-w-max md:max-h-svh md:w-ful px-3 py-3 z-10"
+            <Image className="object-cover h-full sm:max-h-svh sm:max-w-max md:max-h-svh md:w-full px-3 py-3 z-10"
               src={buildURL(images[currentImageIndex])}
               sizes="100vw"
               style={{

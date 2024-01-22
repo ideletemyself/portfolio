@@ -40,7 +40,7 @@ const Nature: React.FC = () => {
             <Image className='max-h-svh max-w-max' src={images[currentImageIndex]} alt="Slide"
               sizes="100vw"
               style={{
-                objectFit: 'contain'
+                objectFit: 'fill'
               }}
               width={7000}
               height={7000}

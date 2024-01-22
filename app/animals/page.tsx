@@ -40,10 +40,10 @@ const Animals: React.FC = () => {
             <Image className='max-h-svh max-w-max' src={images[currentImageIndex]} alt="Slide"
               sizes="100vw"
               style={{
-                objectFit: 'contain'
+                objectFit: 'fill'
               }}
-              width={700}
-              height={700}
+              width={7000}
+              height={7000}
               placeholder="blur"
               blurDataURL={'/images/1x1-0707077f.png'}
             />
@@ -81,8 +81,8 @@ const Animals: React.FC = () => {
               style={{
                 objectFit: 'contain'
               }}
-              width={700}
-              height={700}
+              width={7000}
+              height={7000}
               alt="Slide"
               onClick={toggleModal}
               placeholder="blur"

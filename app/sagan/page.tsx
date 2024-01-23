@@ -63,7 +63,7 @@ const Sagan: React.FC = () => {
             <Image className='w-full max-h-svh mx-auto'
               src={imgUrl(images[currentImageIndex])}
               alt="Slide"
-              sizes="calc(37.52vw - 16px)"
+              sizes="(min-width: 1280px) 1256px, (min-width: 1040px) 744px, (min-width: 780px) 648px, calc(100vw - 24px)"
               style={{
                 objectFit: 'contain'
               }}
@@ -103,7 +103,7 @@ const Sagan: React.FC = () => {
           {!isModalOpen && images.length > 0 && (
             <Image className="object-cover max-h-svh max-w-min px-3 py-3 z-10"
               src={imgUrl(images[currentImageIndex])}
-              sizes="calc(37.52vw - 16px)"
+              sizes="(min-width: 1280px) 1256px, (min-width: 1040px) 744px, (min-width: 780px) 648px, calc(100vw - 24px)"
               style={{
                 objectFit: 'contain'
               }}

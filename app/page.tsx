@@ -9,6 +9,7 @@ const Home: React.FC = () => {
     'DSC01836_small',
     'DSC01776_small',
     'DSC01225_smaller',
+    'DSC01586_small',
   ];
 
   const imgixClient = new ImgixClient({
@@ -59,14 +60,14 @@ const Home: React.FC = () => {
                     src={imgUrl(images[0])}
                     sizes="(min-width: 1240px) 352px, (min-width: 1040px) calc(25vw + 47px), (min-width: 780px) calc(33.75vw - 96px), (min-width: 640px) 306px, (min-width: 380px) 274px, 76.67vw"
                     alt="Astrophotography"
-                    width={3530}
-                    height={2330}
+                    width={353}
+                    height={233}
                     placeholder="blur"
                     blurDataURL={'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkqAcAAIUAgUW0RjgAAAAASUVORK5CYII='}
                   />
                   <p className="subpixel-antialiased underline decoration-solid font-bold text-2xl sm:text-2xl md:text-xl lg:text-2xl xl:text-3xl text-med-light-magenta mb-2">Astrophotography</p>
                   <article className="subpixel-antialiased sm:text-lg md:text-lg lg:text-2xl xl:text-2xl text-zinc-900 text-opacity-75">
-                    My collections of astrophotography.
+                    Astrophotography photos I&apos;ve taken so far.
                   </article>
                 </div>
               </div>
@@ -79,14 +80,14 @@ const Home: React.FC = () => {
                     src={imgUrl(images[1])}
                     sizes="(min-width: 1300px) 304px, (min-width: 1040px) calc(32.5vw - 112px), (min-width: 780px) calc(33.33vw - 94px), (min-width: 640px) 306px, (min-width: 380px) 274px, 76.67vw"
                     alt="Animals"
-                    width={3530}
-                    height={2330}
+                    width={353}
+                    height={233}
                     placeholder="blur"
                     blurDataURL={'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkqAcAAIUAgUW0RjgAAAAASUVORK5CYII='}
                   />
                   <p className="subpixel-antialiased underline decoration-solid font-bold text-2xl sm:text-3xl text-med-light-magenta mb-2">Nature</p>
                   <article className="subpixel-antialiased text-lg sm:text-xl text-zinc-900 text-opacity-75">
-                    My collections of nature photos.
+                    Nature photos, or something close to nature.
                   </article>
                 </div>
               </div>
@@ -99,14 +100,34 @@ const Home: React.FC = () => {
                     src={imgUrl(images[2])}
                     sizes="(min-width: 1300px) 304px, (min-width: 1040px) calc(32.08vw - 107px), (min-width: 780px) calc(33.33vw - 94px), (min-width: 640px) 306px, (min-width: 380px) 274px, 76.67vw"
                     alt="Animals"
-                    width={3530}
-                    height={2330}
+                    width={353}
+                    height={233}
                     placeholder="blur"
                     blurDataURL={'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkqAcAAIUAgUW0RjgAAAAASUVORK5CYII='}
                   />
                   <p className="subpixel-antialiased underline decoration-solid font-bold text-2xl sm:text-3xl text-med-light-magenta mb-2">Animals</p>
                   <article className="subpixel-antialiased text-lg sm:text-xl text-zinc-900 text-opacity-75">
-                    My collections of animal photos.
+                    Photos of animals I&apos;ve been able to snap.
+                  </article>
+                </div>
+              </div>
+            </Link>
+
+            <Link href="/animals" className="max-w-sm bg-very-light-brown rounded overflow-hidden shadow-lg mb-4 mr-2">
+              <div className="flex flex-col max-w-4xl mt-2 sm:w-full">
+                <div className="px-4 py-4">
+                  <Image className="w-full rounded"
+                    src={imgUrl(images[3])}
+                    sizes="(min-width: 1300px) 304px, (min-width: 1040px) calc(32.08vw - 107px), (min-width: 780px) calc(33.33vw - 94px), (min-width: 640px) 306px, (min-width: 380px) 274px, 76.67vw"
+                    alt="Animals"
+                    width={353}
+                    height={235}
+                    placeholder="blur"
+                    blurDataURL={'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkqAcAAIUAgUW0RjgAAAAASUVORK5CYII='}
+                  />
+                  <p className="subpixel-antialiased underline decoration-solid font-bold text-2xl sm:text-3xl text-med-light-magenta mb-2">Sagan</p>
+                  <article className="subpixel-antialiased text-lg sm:text-xl text-zinc-900 text-opacity-75">
+                    Collections of photos of my cat, Sagan.
                   </article>
                 </div>
               </div>

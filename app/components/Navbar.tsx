@@ -10,6 +10,7 @@ const navigation = [
   { name: "Astrophotography", href: "/astrophotography", current: false },
   { name: "Nature", href: "/nature", current: false },
   { name: "Animals", href: "/animals", current: false },
+  { name: "Sagan", href: "/sagan", current: false },
   { name: "Blog", href: "/blog", current: false },
   { name: "About", href: "/about", current: false },
 ];
@@ -91,6 +92,13 @@ const Navbar: React.FC = () => {
                           >
                             Animals
                           </p>
+                        ) : item.name === "Sagan" ? (
+                          <p
+                            className="h-5 w-full text-center"
+                            aria-hidden="true"
+                          >
+                            Sagan
+                          </p>
                         ) : item.name === "Blog" ? (
                           <p
                             className="h-5 w-full text-center"
@@ -145,6 +153,10 @@ const Navbar: React.FC = () => {
                     ) : item.name === "Animals" ? (
                       <p className="h-5 w-full text-center" aria-hidden="true">
                         Animals
+                      </p>
+                    ) : item.name === "Sagan" ? (
+                      <p className="h-5 w-full text-center" aria-hidden="true">
+                        Sagan
                       </p>
                     ) : item.name === "Blog" ? (
                       <p className="h-5 w-full text-center" aria-hidden="true">

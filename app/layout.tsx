@@ -9,7 +9,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Brandon Carrol McKimmons Portfolio Website",
-  description: "Brandon McKimmons Portfolio, talking about and showing off my photography, programming and music production.",
+  description: "Brandon McKimmons Portfolio, talking about and showing off my photography, programming and music production. I also have a blog where I talk about various related topics.",
 };
 
 export const viewport: Viewport = {

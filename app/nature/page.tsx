@@ -125,12 +125,13 @@ const Nature: React.FC = () => {
               style={{
                 objectFit: 'contain'
               }}
-              width={7028}
+              width={4688}
               height={7028}
               alt="Slide"
               onClick={toggleModal}
               placeholder="blur"
               blurDataURL={'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkqAcAAIUAgUW0RjgAAAAASUVORK5CYII='}
+              priority
             />
           )
           }

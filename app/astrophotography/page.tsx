@@ -108,6 +108,7 @@ const Astrophotography: React.FC = () => {
               onClick={toggleModal}
               placeholder="blur"
               blurDataURL={'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkqAcAAIUAgUW0RjgAAAAASUVORK5CYII='}
+              priority
             />
           )
           }

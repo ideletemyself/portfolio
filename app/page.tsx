@@ -113,13 +113,13 @@ const Home: React.FC = () => {
               </div>
             </Link>
 
-            <Link href="/animals" className="max-w-sm bg-very-light-brown rounded overflow-hidden shadow-lg mb-4 mr-2">
+            <Link href="/sagan" className="max-w-sm bg-very-light-brown rounded overflow-hidden shadow-lg mb-4 mr-2">
               <div className="flex flex-col max-w-4xl mt-2 sm:w-full">
                 <div className="px-4 py-4">
                   <Image className="w-full rounded"
                     src={imgUrl(images[3])}
                     sizes="(min-width: 1300px) 304px, (min-width: 1040px) calc(32.08vw - 107px), (min-width: 780px) calc(33.33vw - 94px), (min-width: 640px) 306px, (min-width: 380px) 274px, 76.67vw"
-                    alt="Animals"
+                    alt="Sagan"
                     width={353}
                     height={235}
                     placeholder="blur"

@@ -63,6 +63,14 @@ const Footer = () => {
             <li>
               <Link
                 className="hover:underline hover:bg-light-cyan-blue hover:text-white"
+                href="/sagan"
+              >
+                Sagan
+              </Link>
+            </li>
+            <li>
+              <Link
+                className="hover:underline hover:bg-light-cyan-blue hover:text-white"
                 href="/astrophotography"
               >
                 Astrophotography

@@ -18,8 +18,7 @@ const Home: React.FC = () => {
   const imgUrl = (imagePath: string) => imgixClient.buildURL(`${imagePath}.webp`, {
     fit: 'fill', // fill mode
     auto: 'format,compress', // auto format and compress
-    w: '353',
-    h: '233',
+    lossless: 1,
     // ... other Imgix parameters
   });
 
@@ -58,9 +57,10 @@ const Home: React.FC = () => {
                 <div className="px-4 py-4">
                   <Image className="w-full rounded"
                     src={imgUrl(images[0])}
+                    sizes="(min-width: 1240px) 352px, (min-width: 1040px) calc(25vw + 47px), (min-width: 780px) calc(33.75vw - 96px), (min-width: 640px) 306px, (min-width: 380px) 274px, 76.67vw"
                     alt="Astrophotography"
-                    width={353}
-                    height={233}
+                    width={3530}
+                    height={2330}
                     placeholder="blur"
                     blurDataURL={'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkqAcAAIUAgUW0RjgAAAAASUVORK5CYII='}
                   />
@@ -77,9 +77,10 @@ const Home: React.FC = () => {
                 <div className="px-4 py-4">
                   <Image className="w-full rounded"
                     src={imgUrl(images[1])}
+                    sizes="(min-width: 1300px) 304px, (min-width: 1040px) calc(32.5vw - 112px), (min-width: 780px) calc(33.33vw - 94px), (min-width: 640px) 306px, (min-width: 380px) 274px, 76.67vw"
                     alt="Animals"
-                    width={353}
-                    height={233}
+                    width={3530}
+                    height={2330}
                     placeholder="blur"
                     blurDataURL={'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkqAcAAIUAgUW0RjgAAAAASUVORK5CYII='}
                   />
@@ -96,9 +97,10 @@ const Home: React.FC = () => {
                 <div className="px-4 py-4">
                   <Image className="w-full rounded"
                     src={imgUrl(images[2])}
+                    sizes="(min-width: 1300px) 304px, (min-width: 1040px) calc(32.08vw - 107px), (min-width: 780px) calc(33.33vw - 94px), (min-width: 640px) 306px, (min-width: 380px) 274px, 76.67vw"
                     alt="Animals"
-                    width={353}
-                    height={233}
+                    width={3530}
+                    height={2330}
                     placeholder="blur"
                     blurDataURL={'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkqAcAAIUAgUW0RjgAAAAASUVORK5CYII='}
                   />

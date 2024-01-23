@@ -30,6 +30,7 @@ const Animals: React.FC = () => {
   const imgUrl = (imagePath: string) => imgixClient.buildURL(`${imagePath}.webp`, {
     fit: 'fill', // fill mode
     auto: 'format,compress', // auto format and compress
+    lossless: 1,
     // ... other Imgix parameters
   });
 

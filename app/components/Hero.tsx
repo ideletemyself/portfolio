@@ -15,7 +15,8 @@ const imgixClient = new ImgixClient({
 
 const imgUrl = imgixClient.buildURL(`/DSC01612-hero.webp`, {
   fit: 'fill', // fill mode
-  auto: 'compress', // auto format and compress
+  auto: 'format, compress', // auto format and compress
+  lossless: 1,
   // ... other Imgix parameters
 });
 
@@ -25,12 +26,12 @@ const Hero: React.FC<HeroProps> = ({ title, subtitle }) => {
       <div className="relative h-1/2 w-full">
         <Image className="object-cover w-full -z-1"
           src={imgUrl}
-          sizes="(min-width: 1280px) 1256px, (min-width: 1040px) 744px, (min-width: 780px) 648px, calc(100vw - 24px)"
+          sizes="100vw"
           style={{
             objectFit: 'contain'
           }}
-          width={1900}
-          height={900}
+          width={1600}
+          height={500}
           alt="Slide"
           placeholder="blur"
           blurDataURL={'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkqAcAAIUAgUW0RjgAAAAASUVORK5CYII='}

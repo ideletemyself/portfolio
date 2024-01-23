@@ -1,6 +1,23 @@
 import Image from "next/image";
+import ImgixClient from '@imgix/js-core';
 
 export default function About() {
+  const images = [
+    'DSC01567-smaller',
+    'DSC01559-smaller',
+  ];
+
+  const imgixClient = new ImgixClient({
+    domain: 'brandonmckimmons-nextjs-563476088.imgix.net'
+  });
+
+  const imgUrl = (imagePath: string) => imgixClient.buildURL(`${imagePath}.webp`, {
+    fit: 'fill', // fill mode
+    auto: 'format,compress', // auto format and compress
+    lossless: 1,
+    // ... other Imgix parameters
+  });
+
   return (
     <>
       <h1 className="bg-behr-debonair-blue subpixel-antialiased underline decoration-solid font-bold text-center text-4xl sm:text-6xl py-8 text-med-light-magenta">
@@ -25,7 +42,7 @@ export default function About() {
                 </div>
                 <Image
                   className="flex flex-col place-self-center h-40 w-40 sm:h-64 sm:w-64 pr-4"
-                  src="https://brandonmckimmons-nextjs-563476088.imgix.net/DSC01567-smaller.webp"
+                  src={imgUrl(images[0])}
                   width={4688}
                   height={3823}
                   alt="blank"
@@ -41,7 +58,7 @@ export default function About() {
             <article className="flex bg-very-light-brown rounded shadow-lg prose text-left font-light pl-4 pt-8 prose-img:rounded-full items-center">
               <Image
                 className="flex flex-col px-2 h-40 w-40 sm:h-64 sm:w-64"
-                src="https://brandonmckimmons-nextjs-563476088.imgix.net/DSC01559-smaller.webp"
+                src={imgUrl(images[1])}
                 width={5997}
                 height={4000}
                 alt="blank"

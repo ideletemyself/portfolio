@@ -67,7 +67,7 @@ const Animals: React.FC = () => {
                 objectFit: 'contain'
               }}
               width={7000}
-              height={7000}
+              height={6728}
               placeholder="blur"
               blurDataURL={'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkqAcAAIUAgUW0RjgAAAAASUVORK5CYII='}
             />
@@ -106,8 +106,8 @@ const Animals: React.FC = () => {
               style={{
                 objectFit: 'contain'
               }}
-              width={7000}
-              height={7000}
+              width={7028}
+              height={6728}
               alt="Slide"
               onClick={toggleModal}
               placeholder="blur"

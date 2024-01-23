@@ -30,8 +30,8 @@ const Hero: React.FC<HeroProps> = ({ title, subtitle }) => {
           style={{
             objectFit: 'contain'
           }}
-          width={1600}
-          height={500}
+          width={3840}
+          height={2561}
           alt="Slide"
           placeholder="blur"
           blurDataURL={'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkqAcAAIUAgUW0RjgAAAAASUVORK5CYII='}

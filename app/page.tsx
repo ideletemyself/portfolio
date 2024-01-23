@@ -1,19 +1,33 @@
 import Image from 'next/image';
+import ImgixClient from '@imgix/js-core';
 import Link from 'next/link';
 import Hero from './components/Hero';
 
 
 const Home: React.FC = () => {
-  const astroImage = 'https://brandonmckimmons-nextjs-563476088.imgix.net/DSC01836.webp';
-  const animalImage = 'https://brandonmckimmons-nextjs-563476088.imgix.net/DSC01225.webp';
-  const natureImage = 'https://brandonmckimmons-nextjs-563476088.imgix.net/DSC01776.webp';
+  const images = [
+    'DSC01836_small',
+    'DSC01776_small',
+    'DSC01225_smaller',
+  ];
+
+  const imgixClient = new ImgixClient({
+    domain: 'brandonmckimmons-nextjs-563476088.imgix.net'
+  });
+
+  const imgUrl = (imagePath: string) => imgixClient.buildURL(`${imagePath}.webp`, {
+    fit: 'fill', // fill mode
+    auto: 'format,compress', // auto format and compress
+    w: '353',
+    h: '233',
+    // ... other Imgix parameters
+  });
 
   return (
     <>
       <Hero
         title="Brandon McKimmons"
         subtitle="Photography, Programming & Producing Music"
-        backgroundImage="https://brandonmckimmons-nextjs-563476088.imgix.net/DSC01612-hero.webp"
       />
 
       <div className='bg-behr-debonair-blue py-8'>
@@ -43,10 +57,10 @@ const Home: React.FC = () => {
               <div className="flex flex-col max-w-4xl mt-2 sm:w-full">
                 <div className="px-4 py-4">
                   <Image className="w-full rounded"
-                    src={astroImage}
+                    src={imgUrl(images[0])}
                     alt="Astrophotography"
-                    width={500}
-                    height={300}
+                    width={353}
+                    height={233}
                     placeholder="blur"
                     blurDataURL={'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkqAcAAIUAgUW0RjgAAAAASUVORK5CYII='}
                   />
@@ -62,10 +76,10 @@ const Home: React.FC = () => {
               <div className="flex flex-col max-w-4xl mt-2 sm:w-full">
                 <div className="px-4 py-4">
                   <Image className="w-full rounded"
-                    src={natureImage}
+                    src={imgUrl(images[1])}
                     alt="Animals"
-                    width={500}
-                    height={300}
+                    width={353}
+                    height={233}
                     placeholder="blur"
                     blurDataURL={'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkqAcAAIUAgUW0RjgAAAAASUVORK5CYII='}
                   />
@@ -81,10 +95,10 @@ const Home: React.FC = () => {
               <div className="flex flex-col max-w-4xl mt-2 sm:w-full">
                 <div className="px-4 py-4">
                   <Image className="w-full rounded"
-                    src={animalImage}
+                    src={imgUrl(images[2])}
                     alt="Animals"
-                    width={500}
-                    height={300}
+                    width={353}
+                    height={233}
                     placeholder="blur"
                     blurDataURL={'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkqAcAAIUAgUW0RjgAAAAASUVORK5CYII='}
                   />

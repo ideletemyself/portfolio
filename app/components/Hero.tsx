@@ -2,19 +2,29 @@
 
 import React from 'react';
 import Image from 'next/image';
+import ImgixClient from '@imgix/js-core';
 
 interface HeroProps {
   title: string;
   subtitle: string;
-  backgroundImage: string;
 }
 
-const Hero: React.FC<HeroProps> = ({ title, subtitle, backgroundImage }) => {
+const imgixClient = new ImgixClient({
+  domain: 'brandonmckimmons-nextjs-563476088.imgix.net'
+});
+
+const imgUrl = imgixClient.buildURL(`/DSC01612-hero.webp`, {
+  fit: 'fill', // fill mode
+  auto: 'compress', // auto format and compress
+  // ... other Imgix parameters
+});
+
+const Hero: React.FC<HeroProps> = ({ title, subtitle }) => {
   return (
     <>
       <div className="relative h-1/2 w-full">
         <Image className="object-cover w-full -z-1"
-          src={backgroundImage}
+          src={imgUrl}
           sizes="(min-width: 1280px) 1256px, (min-width: 1040px) 744px, (min-width: 780px) 648px, calc(100vw - 24px)"
           style={{
             objectFit: 'contain'
@@ -24,6 +34,7 @@ const Hero: React.FC<HeroProps> = ({ title, subtitle, backgroundImage }) => {
           alt="Slide"
           placeholder="blur"
           blurDataURL={'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkqAcAAIUAgUW0RjgAAAAASUVORK5CYII='}
+          priority
         />
         <div className="absolute inset-0 bg-black opacity-50">
           <div className="relative flex items-center justify-center h-full">

@@ -65,8 +65,8 @@ const Home: React.FC = () => {
                     placeholder="blur"
                     blurDataURL={'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkqAcAAIUAgUW0RjgAAAAASUVORK5CYII='}
                   />
-                  <p className="subpixel-antialiased underline decoration-solid font-bold text-2xl sm:text-2xl md:text-xl lg:text-2xl xl:text-3xl text-med-light-magenta mb-2">Astrophotography</p>
-                  <article className="subpixel-antialiased sm:text-lg md:text-lg lg:text-2xl xl:text-2xl text-zinc-900 text-opacity-75">
+                  <p className="subpixel-antialiased underline decoration-solid font-bold text-2xl sm:text-2xl md:text-base lg:text-2xl xl:text-3xl text-med-light-magenta mb-2">Astrophotography</p>
+                  <article className="subpixel-antialiased sm:text-lg md:text-lg md:text-left md:pr-16 lg:text-2xl xl:text-2xl text-zinc-900 text-opacity-75">
                     Astrophotography photos I&apos;ve taken so far.
                   </article>
                 </div>

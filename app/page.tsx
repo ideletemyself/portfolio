@@ -90,7 +90,7 @@ const Home: React.FC = () => {
                   <p className="subpixel-antialiased underline decoration-solid font-bold text-2xl sm:text-2xl md:text-base lg:text-2xl xl:text-3xl text-med-light-magenta mb-2">
                     Astrophotography
                   </p>
-                  <article className="subpixel-antialiased sm:text-lg md:text-lg md:text-left md:pr-16 lg:text-2xl xl:text-2xl text-zinc-900 text-opacity-75">
+                  <article className="subpixel-antialiased lg:pr-0 lg:text-center sm:text-lg md:text-lg md:text-left md:pr-16 lg:text-2xl xl:text-2xl text-slate-500 text-opacity-75">
                     Astrophotography photos I&apos;ve taken so far.
                   </article>
                 </div>
@@ -118,7 +118,7 @@ const Home: React.FC = () => {
                   <p className="subpixel-antialiased underline decoration-solid font-bold text-2xl sm:text-3xl text-med-light-magenta mb-2">
                     Nature
                   </p>
-                  <article className="subpixel-antialiased text-lg sm:text-xl text-zinc-900 text-opacity-75">
+                  <article className="subpixel-antialiased text-lg sm:text-xl lg:text-2xl xl:text-2xl text-slate-500 text-opacity-75">
                     Nature photos, or something close to nature.
                   </article>
                 </div>
@@ -146,7 +146,7 @@ const Home: React.FC = () => {
                   <p className="subpixel-antialiased underline decoration-solid font-bold text-2xl sm:text-3xl text-med-light-magenta mb-2">
                     Animals
                   </p>
-                  <article className="subpixel-antialiased text-lg sm:text-xl text-zinc-900 text-opacity-75">
+                  <article className="subpixel-antialiased text-lg sm:text-xl lg:text-2xl xl:text-2xl text-slate-500 text-opacity-75">
                     Photos of animals I&apos;ve been able to snap.
                   </article>
                 </div>
@@ -174,7 +174,7 @@ const Home: React.FC = () => {
                   <p className="subpixel-antialiased underline decoration-solid font-bold text-2xl sm:text-3xl text-med-light-magenta mb-2">
                     Sagan
                   </p>
-                  <article className="subpixel-antialiased text-lg sm:text-xl text-zinc-900 text-opacity-75">
+                  <article className="subpixel-antialiased text-lg sm:text-xl lg:text-2xl xl:text-2xl text-slate-500 text-opacity-75">
                     Collections of photos of my cat, Sagan.
                   </article>
                 </div>

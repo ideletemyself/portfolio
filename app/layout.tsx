@@ -21,9 +21,6 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://brandonmckimmons.com/'),
   alternates: {
     canonical: '/',
-    languages: {
-      'en-US': '/en-US',
-    },
   },
   openGraph: {
     title: 'Brandon Carrol McKimmons Photography, Video, Music and Software Portfolio Website',

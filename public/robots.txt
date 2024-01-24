@@ -1,8 +1,0 @@
-# robots.txt for https://brandonmckimmons.com
-
-User-agent: *
-Disallow: /private/
-Disallow: /tmp/
-Disallow: /logs/
-
-Sitemap: https://brandonmckimmons.com/sitemap.xml

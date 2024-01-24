@@ -47,6 +47,13 @@ export const metadata: Metadata = {
     locale: 'en_US',
     type: 'website',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Brandon Carrol McKimmons Photography, Video, Music and Software Portfolio Website',
+    description: 'Brandon McKimmons Portfolio, talking about and showing off my photography, programming and music production. I also have a blog where I talk about various related topics.',
+    creator: '@nextjs',
+    images: ['https://brandonmckimmons-nextjs-563476088.imgix.net/OG-SunSky-1200x630.jpg'],
+  },
 };
 
 export const viewport: Viewport = {

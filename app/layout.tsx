@@ -36,12 +36,6 @@ export const metadata: Metadata = {
         type: 'image/jpeg',
         width: 1200,
         height: 630,
-      },
-      {
-        url: 'https://brandonmckimmons-nextjs-563476088.imgix.net/OG-SunSky-600x315.jpg',
-        type: 'image/jpeg',
-        width: 600,
-        height: 315,
         alt: 'Brandon McKimmons Portfolio, talking about and showing off my photography, programming and music production. I also have a blog where I talk about various related topics.',
       },
     ],

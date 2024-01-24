@@ -17,7 +17,7 @@ const imgixClient = new ImgixClient({
   domain: 'brandonmckimmons-nextjs-563476088.imgix.net'
 });
 
-const imgUrl = (imagePath: string) => imgixClient.buildURL(`${imagePath}.webp`, {
+const imgUrl = (imagePath: string) => imgixClient.buildURL(`${imagePath}.jpg`, {
   fit: 'fill', // fill mode
   auto: 'format,compress', // auto format and compress
   lossless: 1,

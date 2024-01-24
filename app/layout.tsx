@@ -41,7 +41,7 @@ export const metadata: Metadata = {
         url: 'https://brandonmckimmons-nextjs-563476088.imgix.net/OG-SunSky-600x315.jpg',
         width: 600,
         height: 315,
-        alt: 'Minimum size is 600x315px',
+        alt: 'Brandon McKimmons Portfolio, talking about and showing off my photography, programming and music production. I also have a blog where I talk about various related topics.',
       },
     ],
     locale: 'en_US',
@@ -49,6 +49,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
+    site: '@ideletemyself',
     title: 'Brandon Carrol McKimmons Photography, Video, Music and Software Portfolio Website',
     description: 'Brandon McKimmons Portfolio, talking about and showing off my photography, programming and music production. I also have a blog where I talk about various related topics.',
     creator: '@ideletemyself',

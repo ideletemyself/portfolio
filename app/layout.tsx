@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     siteName: 'brandonmckimmons.com',
     images: [
       {
-        url: OGimage,
+        url: OGimage.src,
         type: 'image/jpeg',
         width: 1200,
         height: 630,

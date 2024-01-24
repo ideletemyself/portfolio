@@ -3,26 +3,9 @@ import type { Viewport } from "next";
 import { Inter } from "next/font/google";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import ImgixClient from "@imgix/js-core";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
-
-const images = [
-  'OG-SunSky-1200x630.jpg',
-  'OG-SunSky-600x315.jpg',
-];
-
-const imgixClient = new ImgixClient({
-  domain: 'brandonmckimmons-nextjs-563476088.imgix.net'
-});
-
-const imgUrl = (imagePath: string) => imgixClient.buildURL(`${imagePath}.jpg`, {
-  fit: 'fill', // fill mode
-  auto: 'format,compress', // auto format and compress
-  lossless: 1,
-  // ... other Imgix parameters
-});
 
 export const metadata: Metadata = {
   title: "Brandon Carrol McKimmons Photography, Video, Music and Software Portfolio Website",
@@ -52,12 +35,12 @@ export const metadata: Metadata = {
     siteName: 'brandonmckimmons.com',
     images: [
       {
-        url: imgUrl(images[0]),
+        url: 'https://brandonmckimmons-nextjs-563476088.imgix.net/OG-SunSky-1200x630.jpg',
         width: 1200,
         height: 630,
       },
       {
-        url: imgUrl(images[1]),
+        url: 'https://brandonmckimmons-nextjs-563476088.imgix.net/OG-SunSky-600x315.jpg',
         width: 600,
         height: 315,
         alt: 'Minimum size is 600x315px',

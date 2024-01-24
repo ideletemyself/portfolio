@@ -48,8 +48,8 @@ export const metadata: Metadata = {
       {
         url: 'https://brandonmckimmons-nextjs-563476088.imgix.net/OG-SunSky-220x114.jpg',
         type: 'image/jpeg',
-        width: 220,
-        height: 114,
+        width: 200,
+        height: 104,
       },
     ],
     locale: 'en_US',

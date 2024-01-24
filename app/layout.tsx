@@ -45,6 +45,12 @@ export const metadata: Metadata = {
         height: 315,
         alt: 'Brandon McKimmons Portfolio, talking about and showing off my photography, programming and music production. I also have a blog where I talk about various related topics.',
       },
+      {
+        url: 'https://brandonmckimmons-nextjs-563476088.imgix.net/OG-SunSky-220x114.jpg',
+        type: 'image/jpeg',
+        width: 220,
+        height: 114,
+      },
     ],
     locale: 'en_US',
     type: 'website',

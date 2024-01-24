@@ -8,7 +8,7 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Brandon McKimmons Photography, Video, Music & Software Portfolio",
+  title: "Brandon McKimmons Photo, Video, Music and Programming Portfolio",
   description: "Brandon McKimmons Portfolio, talking about and showing off my photography, programming and music production. I also have a blog where I talk about various related topics.",
   robots: {
     index: true,

@@ -1,6 +1,6 @@
 # robots.txt for https://brandonmckimmons.com
 
 User-agent: *
-Allow: /
+Disallow:
 
 Sitemap: https://brandonmckimmons.com/sitemap.xml

@@ -3,4 +3,5 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://brandonmckimmons.com/sitemap.xml
+User-agent: *
+Allow: /

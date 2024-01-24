@@ -3,7 +3,6 @@ import type { Viewport } from "next";
 import { Inter } from "next/font/google";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import OGimage from "/public/images/OG-SunSky-1200x630.jpg";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -34,7 +33,7 @@ export const metadata: Metadata = {
     siteName: 'brandonmckimmons.com',
     images: [
       {
-        url: OGimage.src,
+        url: 'https://brandonmckimmons-nextjs-563476088.imgix.net/OG-SunSky-1200x630.jpg',
         type: 'image/jpeg',
         width: 1200,
         height: 630,

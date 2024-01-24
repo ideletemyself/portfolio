@@ -34,12 +34,14 @@ export const metadata: Metadata = {
     images: [
       {
         url: 'https://brandonmckimmons-nextjs-563476088.imgix.net/OG-SunSky-1200x630.jpg',
+        secureUrl: 'https://brandonmckimmons-nextjs-563476088.imgix.net/OG-SunSky-1200x630.jpg',
         type: 'image/jpeg',
         width: 1200,
         height: 630,
       },
       {
         url: 'https://brandonmckimmons-nextjs-563476088.imgix.net/OG-SunSky-600x315.jpg',
+        secureUrl: 'https://brandonmckimmons-nextjs-563476088.imgix.net/OG-SunSky-600x315.jpg',
         type: 'image/jpeg',
         width: 600,
         height: 315,

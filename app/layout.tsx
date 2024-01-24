@@ -3,7 +3,7 @@ import type { Viewport } from "next";
 import { Inter } from "next/font/google";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import OGimage from "./images/OG-SunSky-1200x630.jpg";
+import OGimage from "/public/images/OG-SunSky-1200x630.jpg";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });

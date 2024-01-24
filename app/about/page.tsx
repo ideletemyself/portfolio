@@ -66,9 +66,9 @@ export default function About() {
                 blurDataURL={'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkqAcAAIUAgUW0RjgAAAAASUVORK5CYII='}
               />
               <div className="flex flex-col">
-                <h1 className="flex text-base sm:text-3xl font-semibold leading-4 tracking-tight text-slate-500">
+                <p className="flex text-base sm:text-3xl font-semibold leading-4 tracking-tight text-slate-500">
                   Brandon McKimmons
-                </h1>
+                </p>
                 <p className="flex text-[13px] sm:text-lg pr-2 sm:pr-0 font-semibold leading-4 text-med-light-magenta">
                   Photographer, Programmer and Music Producer
                 </p>

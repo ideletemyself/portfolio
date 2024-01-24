@@ -51,9 +51,9 @@ export default function Blog() {
                   href={"/blog/" + blog.slug}
                   passHref
                 >
-                  <h1 className="font-light text-4xl sm:text-6xl text-med-light-magenta hover:opacity-60 pb-4">
+                  <p className="font-light text-4xl sm:text-6xl text-med-light-magenta hover:opacity-60 pb-4">
                     {blog.meta.title}
-                  </h1>
+                  </p>
                 </Link>
                 <Image className='place-self-center py-4' src={blog.meta.image} alt='NextJS Logo'
                        width={300}

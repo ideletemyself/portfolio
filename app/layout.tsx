@@ -39,12 +39,6 @@ export const metadata: Metadata = {
         width: 1200,
         height: 630,
       },
-      {
-        url: 'https://brandonmckimmons-nextjs-563476088.imgix.net/OG-SunSky-600x315.jpg',
-        width: 600,
-        height: 315,
-        alt: 'Minimum size is 600x315px',
-      },
     ],
     locale: 'en_US',
     type: 'website',

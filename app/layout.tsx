@@ -31,7 +31,6 @@ export const metadata: Metadata = {
     description: 'Brandon McKimmons Portfolio, talking about and showing off my photography, programming and music production. I also have a blog where I talk about various related topics.',
     url: 'https://brandonmckimmons.com/',
     siteName: 'brandonmckimmons.com',
-    type: 'website',
     images: [
       {
         url: 'https://brandonmckimmons-nextjs-563476088.imgix.net/OG-SunSky-1200x630.jpg',

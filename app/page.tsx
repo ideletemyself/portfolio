@@ -48,7 +48,7 @@ const Home: React.FC = () => {
 
       <div className="bg-behr-debonair-blue py-8">
         <div
-          id="hiku"
+          id="front-page-text-top"
           className="bg-behr-debonair-blue flex flex-wrap justify-center py-8"
         >
           <article
@@ -183,7 +183,7 @@ const Home: React.FC = () => {
           </div>
           <div className="bg-behr-debonair-blue py-8">
             <div
-              id="hiku"
+              id="front-page-text-bottom"
               className="bg-behr-debonair-blue flex flex-wrap justify-center py-8"
             >
               <article

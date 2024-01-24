@@ -17,7 +17,6 @@ export const metadata: Metadata = {
     googleBot: {
       index: true,
       follow: true,
-      noimageindex: true,
     },
   },
   metadataBase: new URL('https://brandonmckimmons.com/'),

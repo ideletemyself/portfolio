@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     icon: [
       {
         rel: "mask-icon",
-        url: "https://brandonmckimmons-nextjs-563476088.imgix.net/safari-pinned-tab.svg",
+        url: "https://brandonmckimmons-nextjs-563476088.imgix.net/safari-icon.svg",
         color: "#0217d6",
       },
     ]

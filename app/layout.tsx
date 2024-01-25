@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import Head from "next/head";
 import { Inter } from "next/font/google";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -9,15 +10,13 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Brandon McKimmons Photo, Video, Music and Programming Portfolio",
   description: "Brandon McKimmons Portfolio, talking about and showing off my photography, programming and music production. I also have a blog where I talk about various related topics.",
-  icons: {
-    icon: [
-      {
-        rel: "mask-icon",
-        url: "/safari-icon.svg",
-        color: "#0217d6",
-      },
-    ]
-  },
+  icons: [
+    {
+      rel: "mask-icon",
+      url: "https://brandonmckimmons-nextjs-563476088.imgix.net/safari-icon.svg",
+      color: "#0217d6",
+    },
+  ],
   robots: {
     index: true,
     follow: true,

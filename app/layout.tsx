@@ -9,6 +9,15 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Brandon McKimmons Photo, Video, Music and Programming Portfolio",
   description: "Brandon McKimmons Portfolio, talking about and showing off my photography, programming and music production. I also have a blog where I talk about various related topics.",
+  icons: {
+    icon: [
+      {
+        rel: "mask-icon",
+        url: "https://brandonmckimmons-nextjs-563476088.imgix.net/safari-pinned-tab.svg",
+        color: "#0217d6",
+      },
+    ]
+  },
   robots: {
     index: true,
     follow: true,
@@ -46,15 +55,6 @@ export const metadata: Metadata = {
     creator: '@ideletemyself',
     images: ['https://brandonmckimmons-nextjs-563476088.imgix.net/OG-SunSky-1200x630.jpg'],
   },
-  icons: {
-    icon: [
-      {
-        rel: "mask-icon",
-        url: "https://brandonmckimmons-nextjs-563476088.imgix.net/safari-pinned-tab.svg",
-        color: "#0217d6",
-      },
-    ]
-  }
 };
 
 export const viewport: Viewport = {

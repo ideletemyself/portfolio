@@ -63,7 +63,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <Head>
-        <link rel="mask-icon" href="/safari-icon.svg" />
+        <link rel="mask-icon" href="/public/safari-icon.svg" />
       </Head>
       <body className={inter.className}>
         <Navbar />

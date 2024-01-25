@@ -1,5 +1,5 @@
-import type { Metadata } from "next";
-import type { Viewport } from "next";
+import type { Metadata, Viewport } from "next";
+import Head from "next/head";
 import { Inter } from "next/font/google";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -62,6 +62,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <Head>
+        <link rel="mask-icon" href="/safari-icon.svg" />
+      </Head>
       <body className={inter.className}>
         <Navbar />
         {children}

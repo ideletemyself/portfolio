@@ -1,5 +1,4 @@
 import type { Metadata, Viewport } from "next";
-import Head from "next/head";
 import { Inter } from "next/font/google";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -47,6 +46,15 @@ export const metadata: Metadata = {
     creator: '@ideletemyself',
     images: ['https://brandonmckimmons-nextjs-563476088.imgix.net/OG-SunSky-1200x630.jpg'],
   },
+  icons: {
+    icon: [
+      {
+        rel: "mask-icon",
+        url: "/safari-icon.svg",
+        color: "#0217d6",
+      },
+    ]
+  }
 };
 
 export const viewport: Viewport = {
@@ -62,9 +70,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <Head>
-        <link rel="mask-icon" href="/public/safari-icon.svg" />
-      </Head>
       <body className={inter.className}>
         <Navbar />
         {children}

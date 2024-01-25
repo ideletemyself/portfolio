@@ -1,10 +1,9 @@
-"use client";
+
 
 import Image from "next/image";
 import ImgixClient from "@imgix/js-core";
 import Link from "next/link";
 import Hero from "./components/Hero";
-import Client from './pinned-tab';
 
 const Home: React.FC = () => {
   const images = [
@@ -28,7 +27,6 @@ const Home: React.FC = () => {
 
   return (
     <>
-      <Client />
       <Hero
         title="Brandon McKimmons"
         subtitle="Photography, Programming & Producing Music"

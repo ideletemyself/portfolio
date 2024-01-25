@@ -1,9 +1,9 @@
 ---
-title: "Creating an Image Slider with NextJS and TailwindCSS"
-date: "01-18-2024"
-author: "Brandon McKimmons"
-description: "A short story of the trials and tribulations of creating an image slider in NextJS with TailwindCSS."
-image: "/images/blog-images/DontLaugh.webp"
+title: 'Creating an Image Slider with NextJS and TailwindCSS'
+date: '01-18-2024'
+author: 'Brandon McKimmons'
+description: 'A short story of the trials and tribulations of creating an image slider in NextJS with TailwindCSS.'
+image: '/images/blog-images/DontLaugh.webp'
 ---
 
 # Creating an Image Slider with NextJS and TailwindCSS
@@ -24,7 +24,7 @@ to full screen, displaying the image in all it's glory. With those requirements 
 
 It should come as no surprise that I used [Github Copilot](https://github.com/features/copilot) to help me build this. In general, there are a few issues with using
 Copilot or [ChatGPT](https://chat.openai.com/) to generate code. The first is that it's not always correct. The second is that it's not always the best way to do things.
-But most importantly, since it's knowledge stopped somewhere back in 2021 I believe, it doesn't know about the latest version of just about anything 
+But most importantly, since it's knowledge stopped somewhere back in 2021 I believe, it doesn't know about the latest version of just about anything
 in the web development world. So, it's not going to be able to help you with the latest version of [NextJS](https://nextjs.org/) or [TailwindCSS](https://tailwindcss.com/). That can be a problem.
 
 However, it can be a pretty good starting point and really where it shines is asking it to explain things to you. For example, I asked it to explain
@@ -38,13 +38,13 @@ They even give you a link to the documentation that explains the error and how t
 So, I began by asking Copilot to give me the code to create and image slider using the same JSON file that I had setup to create the image cards on the home page.
 Out came it's result and I went to refining it and making it look how I wanted it to. I imported [Heroicons](https://heroicons.com/) to the page since I used that
 for the navbar as well. The ole left and right arrows in tow I went about placing them in the center of each image and on their respective sides. Then I started playing
-with different colors to see what would look best. White was the obvious choice but I did try some browns and blues but they tended to blend in with the images too much. 
+with different colors to see what would look best. White was the obvious choice but I did try some browns and blues but they tended to blend in with the images too much.
 So, I went with white and added a hover effect that changed the opacity to show that it was clickable.
 
 The real issue came with the responsive nature of the image slider. Whenever the image sizes changed, depending on the devices the arrows would move out from over the images.
 At the time I had another "card" as the background and it used the color white as well. This was obviously a problem. I really spent too much time on this issue. It really annoyed
 me that for one I couldn't get the arrows to stay over the image and two that essentially the white arrows would disappear into the white background. I tried many different things
-to fix this. I tried changing the color of the arrows like I mentioned before. I watched [YouTube](https://www.youtube.com/) after YouTube video on image sliders. 
+to fix this. I tried changing the color of the arrows like I mentioned before. I watched [YouTube](https://www.youtube.com/) after YouTube video on image sliders.
 
 Don't get me started on web dev YouTube videos either.
 The big secret about those videos is that they show very specific use cases and they don't really explain how to do things. They just show you how they did it. Which is fine but the real
@@ -55,7 +55,7 @@ video pointless in my opinion.
 ## The Solution
 
 Actually, the solution was pretty simple and I'm sure many of you are screaming it at your screen right now. I just needed to change the background color to the image slider from white to really
-anything else. I ended up going with a color pallette that I found on what I could've sworn was an article on Davey & Krista but clicking that link 
+anything else. I ended up going with a color pallette that I found on what I could've sworn was an article on Davey & Krista but clicking that link
 yields an, "Oops! It looks like this page is missing." message. However, looking at the little Google blurb for the link it does mention something about Benjamin Moore's 2023 color of the year.
 Which was Raspberry Blush and I distinctly remember that color as being from the site I got my palette from. Because I tried using that color along with the rest of the palette it belonged to but ended up
 going with another. Anyways, I digress.
@@ -71,7 +71,7 @@ That's pretty much it. There was some adjusting with making things fully respons
 Which is exactly what I wanted. You can watch a million YouTube videos but at the end of the day it just ends up being way better if you try coming up with the
 solution yourself. You'll learn a lot more and you'll be able to solve problems on your own. Which is really what being a developer is all about. Solving problems.
 
-Yes, I did use Copilot but I'm not at all embarrassed about that. AI is here to stay and either you're going to embrace the new tools we have or you aren't. It's 
-a personal choice and if you can get by without it then more power to you. But I like new and useful tools. I like that NPM and NextJS tell me exactly what the issue 
+Yes, I did use Copilot but I'm not at all embarrassed about that. AI is here to stay and either you're going to embrace the new tools we have or you aren't. It's
+a personal choice and if you can get by without it then more power to you. But I like new and useful tools. I like that NPM and NextJS tell me exactly what the issue
 is and gives me the link to solve it. These are good things. At some point I'd like to setup a local, open source AI and train that for my specific use cases. But that's
 a story for another day.

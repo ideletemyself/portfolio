@@ -1,24 +1,24 @@
-import Image from "next/image";
-import ImgixClient from "@imgix/js-core";
-import Link from "next/link";
-import Hero from "./components/Hero";
+import Image from 'next/image';
+import ImgixClient from '@imgix/js-core';
+import Link from 'next/link';
+import Hero from './components/Hero';
 
 const Home: React.FC = () => {
   const images = [
-    "DSC01836_small",
-    "DSC01776_small",
-    "DSC01225_smaller",
-    "DSC01586_small",
+    'DSC01836_small',
+    'DSC01776_small',
+    'DSC01225_smaller',
+    'DSC01586_small',
   ];
 
   const imgixClient = new ImgixClient({
-    domain: "brandonmckimmons-nextjs-563476088.imgix.net",
+    domain: 'brandonmckimmons-nextjs-563476088.imgix.net',
   });
 
   const imgUrl = (imagePath: string) =>
     imgixClient.buildURL(`${imagePath}.webp`, {
-      fit: "fill", // fill mode
-      auto: "format,compress", // auto format and compress
+      fit: 'fill', // fill mode
+      auto: 'format,compress', // auto format and compress
       lossless: 1,
       // ... other Imgix parameters
     });
@@ -58,9 +58,9 @@ const Home: React.FC = () => {
             <p>
               Welcome to my site. I&apos;m a software developer, photographer,
               videographer and musician. Here you&apos;ll find my photography,
-              videos, music and software projects. Projects like this very website and
-              blog. Enjoy your stay and please come back as I&apos;ll be adding
-              more content as I create it.
+              videos, music and software projects. Projects like this very
+              website and blog. Enjoy your stay and please come back as
+              I&apos;ll be adding more content as I create it.
             </p>
           </article>
         </div>
@@ -84,7 +84,7 @@ const Home: React.FC = () => {
                     height={233}
                     placeholder="blur"
                     blurDataURL={
-                      "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkqAcAAIUAgUW0RjgAAAAASUVORK5CYII="
+                      'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkqAcAAIUAgUW0RjgAAAAASUVORK5CYII='
                     }
                   />
                   <p className="subpixel-antialiased underline decoration-solid font-bold text-2xl sm:text-2xl md:text-base lg:text-2xl xl:text-3xl text-med-light-magenta mb-2">
@@ -112,7 +112,7 @@ const Home: React.FC = () => {
                     height={233}
                     placeholder="blur"
                     blurDataURL={
-                      "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkqAcAAIUAgUW0RjgAAAAASUVORK5CYII="
+                      'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkqAcAAIUAgUW0RjgAAAAASUVORK5CYII='
                     }
                   />
                   <p className="subpixel-antialiased underline decoration-solid font-bold text-2xl sm:text-3xl text-med-light-magenta mb-2">
@@ -140,7 +140,7 @@ const Home: React.FC = () => {
                     height={233}
                     placeholder="blur"
                     blurDataURL={
-                      "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkqAcAAIUAgUW0RjgAAAAASUVORK5CYII="
+                      'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkqAcAAIUAgUW0RjgAAAAASUVORK5CYII='
                     }
                   />
                   <p className="subpixel-antialiased underline decoration-solid font-bold text-2xl sm:text-3xl text-med-light-magenta mb-2">
@@ -168,7 +168,7 @@ const Home: React.FC = () => {
                     height={235}
                     placeholder="blur"
                     blurDataURL={
-                      "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkqAcAAIUAgUW0RjgAAAAASUVORK5CYII="
+                      'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkqAcAAIUAgUW0RjgAAAAASUVORK5CYII='
                     }
                   />
                   <p className="subpixel-antialiased underline decoration-solid font-bold text-2xl sm:text-3xl text-med-light-magenta mb-2">

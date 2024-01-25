@@ -1,5 +1,3 @@
-
-
 import Image from "next/image";
 import ImgixClient from "@imgix/js-core";
 import Link from "next/link";

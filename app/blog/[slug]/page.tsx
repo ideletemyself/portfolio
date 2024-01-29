@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
+import Image from 'next/image';
 import { useMDXComponents } from '../../../mdx-components';
 
 import { MDXRemote } from 'next-mdx-remote/rsc';
@@ -43,8 +44,8 @@ export default function Page({ params }: any) {
     h2: ({ children }) => (
       <h2 className='prose prose-xl pb-4 text-slate-500'>{children}</h2>
     ),
-    img: ({ src, alt }) => (
-      <img
+    Image: ({ src, alt }) => (
+      <Image
         className='rounded'
         src={src}
         alt={alt}

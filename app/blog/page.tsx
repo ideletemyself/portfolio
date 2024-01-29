@@ -39,44 +39,48 @@ export default function Blog() {
             </article>
           </div>
         </div>
-        {blogs.map((blog) => (
-          <div
-            className='flex flex-col bg-behr-debonair-blue py-2'
-            key={blog.slug}
-          >
-            <div className='bg-behr-debonair-blue flex flex-wrap justify-center py-2 pb-8'>
-              <article
-                className='bg-very-light-brown rounded shadow-lg relative text-center sm:text-left font-light 
-                              text-slate-500 py-4 sm:py-8 px-4'
-              >
-                <Link
-                  className='text-med-light-magenta'
-                  href={'/blog/' + blog.slug}
-                  passHref
+        <div className='flex flex-col md:flex-row lg:flex-row xl:flex-row justify-center'>
+          {blogs.map((blog) => (
+            <div className='bg-behr-debonair-blue px-2 py-2' key={blog.slug}>
+              <div className='bg-behr-debonair-blue py-2 pb-8'>
+                <article
+                  className='bg-very-light-brown rounded overflow-hidden shadow-lg relative text-center sm:text-left font-light 
+                              text-slate-500 max-w-sm'
                 >
-                  <p className='font-light text-4xl sm:text-6xl text-med-light-magenta hover:opacity-60 pb-4'>
-                    {blog.meta.title}
-                  </p>
-                </Link>
-                <Image
-                  className='place-self-center py-4'
-                  src={blog.meta.image}
-                  alt='NextJS Logo'
-                  width={300}
-                  height={100}
-                  placeholder='blur'
-                  blurDataURL={'/images/photos/DSC01836_small.webp'}
-                />
-                <p className='prose prose-lg leading-normal text-slate-500 text-left no-underline pl-2 sm:pl-0'>
-                  {blog.meta.description}
-                </p>
-                <p className='prose prose-lg text-slate-500 text-left no-underline pl-2 sm:pl-0'>
-                  {blog.meta.date}
-                </p>
-              </article>
+                  <Image
+                    className='w-full object-cover rounded'
+                    src={blog.meta.image}
+                    alt='NextJS Logo'
+                    width={300}
+                    height={300}
+                    placeholder='blur'
+                    blurDataURL={
+                      'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkqAcAAIUAgUW0RjgAAAAASUVORK5CYII='
+                    }
+                  />
+
+                  <Link
+                    className='text-med-light-magenta'
+                    href={'/blog/' + blog.slug}
+                    passHref
+                  >
+                    <p className='font-light text-4xl text-center text-med-light-magenta hover:opacity-60 pb-4 px-2'>
+                      {blog.meta.title}
+                    </p>
+                  </Link>
+                  <div className='flex flex-col items-center  px-4'>
+                    <p className='prose prose-lg leading-normal text-slate-500 text-left no-underline pl-2 sm:pl-0'>
+                      {blog.meta.description}
+                    </p>
+                    <p className='prose prose-lg text-slate-500 text-left no-underline pl-2 sm:pl-0'>
+                      {blog.meta.date}
+                    </p>
+                  </div>
+                </article>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </>
   );

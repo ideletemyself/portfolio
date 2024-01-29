@@ -43,13 +43,21 @@ export default function Page({ params }: any) {
     h2: ({ children }) => (
       <h2 className='prose prose-xl pb-4 text-slate-500'>{children}</h2>
     ),
+    img: ({ src, alt }) => (
+      <img
+        className='rounded'
+        src={src}
+        alt={alt}
+        style={{ maxWidth: '100%' }}
+      />
+    ),
   });
 
   return (
     <div className='flex flex-col w-full bg-behr-debonair-blue py-4'>
       <div className='bg-behr-debonair-blue flex flex-wrap justify-center py-8'>
         <article
-          className='bg-very-light-brown rounded shadow-lg relative leading-normal prose prose-lg
+          className='flex flex-col items-center bg-very-light-brown rounded shadow-lg relative leading-normal prose prose-lg
                                     text-left font-light text-slate-500 py-8 px-4'
         >
           <MDXRemote source={props.content} components={components}></MDXRemote>

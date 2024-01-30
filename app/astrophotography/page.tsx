@@ -10,24 +10,24 @@ import {
 
 const Astrophotography: React.FC = () => {
   const images = [
-    'DSC01720',
-    'DSC01722',
-    'DSC01723',
-    'DSC01728',
-    'DSC01836',
-    'DSC01840',
-    'DSC01841',
-    'DSC01849',
-    'DSC01854',
-    'DSC01855',
+    { src: 'Blue_Orion_Shot1', alt: 'The Orion constellation with a blue hue, 1st photo' },
+    { src: 'Blue_Starry_Night_Shot1', alt: 'A random shot of a section of the night sky with a blue hue' },
+    { src: 'Purple_Orion_Shot1', alt: 'The Orion constellation with a purple hue, 1st photo' },
+    { src: 'Purple_Orion_Shot2', alt: 'The Orion constellation with a purple hue, 2nd photo' },
+    { src: 'Purple_Orion_Shot3', alt: 'The Orion constellation with a purple hue, 3rd photo' },
+    { src: 'Starry_Night_Sky_with_Clouds_Shot1', alt: 'A colorful photo of a cloudy night sky, 1st photo' },
+    { src: 'Starry_Night_Sky_with_Clouds_Shot2', alt: 'A colorful photo of a cloudy night sky, 2nd photo' },
+    { src: 'Starry_Night_Sky_with_Clouds_Shot3', alt: 'A colorful photo of a cloudy night sky, 3rd photo' },
+    { src: 'Starry_Night_Sky_with_Clouds_Shot4', alt: 'A colorful photo of a cloudy night sky, 4th photo' },
+    { src: 'Night_Streetlight_Gate', alt: 'A photo of a street light behind a gate with the night sky in the background' },
   ];
 
   const imgixClient = new ImgixClient({
     domain: 'brandonmckimmons-nextjs-563476088.imgix.net',
   });
 
-  const imgUrl = (imagePath: string) =>
-    imgixClient.buildURL(`${imagePath}.webp`, {
+  const imgUrl = (image: { src: string; alt: string }) =>
+    imgixClient.buildURL(`${image.src}.webp`, {
       fit: 'fill', // fill mode
       auto: 'format,compress', // auto format and compress
       lossless: 1,
@@ -67,7 +67,7 @@ const Astrophotography: React.FC = () => {
             <Image
               className='w-full max-h-svh mx-auto'
               src={imgUrl(images[currentImageIndex])}
-              alt='Slide'
+              alt={images[currentImageIndex].alt}
               sizes='(min-width: 1280px) 1256px, (min-width: 1040px) 744px, (min-width: 780px) 648px, calc(100vw - 24px)'
               style={{
                 objectFit: 'contain',
@@ -111,13 +111,13 @@ const Astrophotography: React.FC = () => {
             <Image
               className='object-cover max-h-svh max-w-min px-3 py-3 z-10'
               src={imgUrl(images[currentImageIndex])}
+              alt={images[currentImageIndex].alt}
               sizes='(min-width: 1280px) 1256px, (min-width: 1040px) 744px, (min-width: 780px) 648px, calc(100vw - 24px)'
               style={{
                 objectFit: 'contain',
               }}
               width={7028}
               height={4688}
-              alt='Slide'
               onClick={toggleModal}
               placeholder='blur'
               blurDataURL={

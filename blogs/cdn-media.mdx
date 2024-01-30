@@ -11,5 +11,44 @@ image: 'https://brandonmckimmons-nextjs-563476088.imgix.net/image_serve_CDN.webp
 ## Switching to serving images and other media from a CDN and where the real gains come from.
 
 In my journey creating this website and blog I was having real issues with image load times. Especially the images in my image sliders.
-There was a 5-6 second delay before the images would load. I was using the NextJS Image component and I also installed the NPM packages
-it recommended to use with it.
+There was a 5-6 second delay before the images would load. Granted, they were pretty high resolution images, but still, that's a long time to wait for an image to load.
+The [NextJS](https://nextjs.org) CLI suggested that I use the Sharp library to optimize my images. After taking a look at what was involved however I decided it was time to look at other options.
+I know that CDNs are pretty much the standard for serving images and other media, but I was hoping to avoid the extra cost and complexity of setting one up.
+
+After doing some initial research I was able to find a free option that would work for me. [Imgix](https://www.imgix.com/) is a service that will host your images and serve them from a CDN.
+They have a free tier that includes 1,000 origin images, infinite transformations, included bandwidth, 2 unique sources and 2 unique users. Which for my
+use case was absolutely perfect. I signed up for an account and started the process of moving my images over to Imgix. In their setup guide they require a public facing
+URL for your images. Since NextJS doesn't expose the images in the public folder by default I had to go another route. Luckily, [Linode](https://www.linode.com/) has a
+Object Storage service that I was able to use to host my images. I created a bucket and uploaded all of my images to it. Once that was done I was able to continue with the
+Imgix setup.
+
+Now with my Imgix address in hand I was able to start the process of moving my images over to Imgix. I started with the images in my image slider. After looking through the Imgix API, I was able to
+find some options that would be ideal to use. I also saw that it would probably be best to use the [@imgix/js-core](https://github.com/imgix/js-core) library to help with things.
+I installed the library and started to work on the code to get the images to load. I came up with this approach to get it done:
+
+```
+const images = [
+    'DSC01720',
+    'DSC01722',
+    'DSC01723',
+    'DSC01728',
+    'DSC01836',
+    'DSC01840',
+    'DSC01841',
+    'DSC01849',
+    'DSC01854',
+    'DSC01855',
+  ];
+
+  const imgixClient = new ImgixClient({
+    domain: 'brandonmckimmons-nextjs-563476088.imgix.net',
+  });
+
+  const imgUrl = (imagePath: string) =>
+    imgixClient.buildURL(`${imagePath}.webp`, {
+      fit: 'fill', // fill mode
+      auto: 'format,compress', // auto format and compress
+      lossless: 1,
+      // ... other Imgix parameters
+    });
+```

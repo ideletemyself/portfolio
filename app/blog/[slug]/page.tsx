@@ -3,6 +3,7 @@ import path from 'path';
 import matter from 'gray-matter';
 import Image from 'next/image';
 import { useMDXComponents } from '../../../mdx-components';
+import PrismLoader from "../../components/PrismLoader";
 
 import { MDXRemote } from 'next-mdx-remote/rsc';
 
@@ -22,10 +23,10 @@ function getPost({ slug }: { slug: string }) {
     'utf-8'
   );
 
-  const { data: fontMatter, content } = matter(markdownFile);
+  const { data: frontMatter, content } = matter(markdownFile);
 
   return {
-    fontMatter,
+    frontMatter,
     slug,
     content,
   };
@@ -44,12 +45,13 @@ export default function Page({ params }: any) {
     h2: ({ children }) => (
       <h2 className='prose prose-xl pb-4 text-slate-500'>{children}</h2>
     ),
-    Image: ({ src, alt }) => (
+    Image: ({ src, alt, width, height }) => (
       <Image
         className='rounded'
         src={src}
         alt={alt}
-        style={{ maxWidth: '100%' }}
+        width={width}
+        height={height}
       />
     ),
   });
@@ -59,9 +61,10 @@ export default function Page({ params }: any) {
       <div className='bg-behr-debonair-blue flex flex-wrap justify-center py-8'>
         <article
           className='flex flex-col items-center bg-very-light-brown rounded shadow-lg relative leading-normal prose prose-lg
-                                    text-left font-light text-slate-500 py-8 px-4'
+                                    text-left font-light text-slate-500 py-8 px-4 language-ts'
         >
           <MDXRemote source={props.content} components={components}></MDXRemote>
+          <PrismLoader />
         </article>
       </div>
     </div>

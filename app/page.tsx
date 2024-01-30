@@ -5,7 +5,7 @@ import Hero from './components/Hero';
 
 const Home: React.FC = () => {
   const images = [
-    'DSC01836_small',
+    'Blue_Orion_Shot1_Small',
     'DSC01776_small',
     'DSC01225_smaller',
     'DSC01586_small',

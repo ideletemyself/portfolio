@@ -9,6 +9,7 @@ const Home: React.FC = () => {
     'DSC01776_small',
     'DSC01225_smaller',
     'DSC01586_small',
+    'blog-writing',
   ];
 
   const imgixClient = new ImgixClient({
@@ -68,7 +69,7 @@ const Home: React.FC = () => {
 
       <div className="flex flex-col bg-behr-debonair-blue py-2 px-4 sm:px-20">
         <main className="flex flex-col w-full text-center items-center py-4">
-          <div className="flex flex-col md:flex-row lg:flex-row xl:flex-row justify-center">
+          <div className="flex flex-wrap md:flex-row lg:flex-row xl:flex-row justify-center">
             <Link
               href="/astrophotography"
               className="max-w-sm bg-very-light-brown rounded overflow-hidden shadow-lg mb-4 mr-2"
@@ -176,6 +177,34 @@ const Home: React.FC = () => {
                   </p>
                   <article className="subpixel-antialiased text-lg sm:text-xl lg:text-2xl xl:text-2xl text-slate-500 text-opacity-75">
                     Collections of photos of my cat, Sagan.
+                  </article>
+                </div>
+              </div>
+            </Link>
+
+            <Link
+              href="/blog"
+              className="max-w-sm bg-very-light-brown rounded overflow-hidden shadow-lg mb-4 mr-2"
+            >
+              <div className="flex flex-col max-w-4xl mt-2 sm:w-full">
+                <div className="px-4 py-4">
+                  <Image
+                    className="w-full rounded"
+                    src={imgUrl(images[4])}
+                    sizes="(min-width: 1300px) 304px, (min-width: 1040px) calc(32.08vw - 107px), (min-width: 780px) calc(33.33vw - 94px), (min-width: 640px) 306px, (min-width: 380px) 274px, 76.67vw"
+                    alt="Blog"
+                    width={353}
+                    height={235}
+                    placeholder="blur"
+                    blurDataURL={
+                      'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkqAcAAIUAgUW0RjgAAAAASUVORK5CYII='
+                    }
+                  />
+                  <p className="subpixel-antialiased underline decoration-solid font-bold text-2xl sm:text-3xl text-med-light-magenta mb-2">
+                    The Blog
+                  </p>
+                  <article className="subpixel-antialiased text-lg sm:text-xl lg:text-2xl xl:text-2xl text-slate-500 text-opacity-75">
+                    My blog articles on various things this site covers.
                   </article>
                 </div>
               </div>

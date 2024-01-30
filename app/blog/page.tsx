@@ -4,20 +4,44 @@ import matter from 'gray-matter';
 import Link from 'next/link';
 import Image from 'next/image';
 
+type Blog = {
+  slug: string;
+  meta: {
+    date: string;
+    image: string;
+    title: string;
+    description: string;
+    // Add other properties of the meta object here
+  };
+  // Add other properties of the blog object here
+};
+
 export default function Blog() {
   const blogDir = 'blogs';
 
   const files = fs.readdirSync(path.join(blogDir));
 
-  const blogs = files.map((filename) => {
+  const blogs: Blog[] = files.map((filename) => {
     const fileContent = fs.readFileSync(path.join(blogDir, filename), 'utf-8');
-
+  
     const { data: frontMatter } = matter(fileContent);
     return {
-      meta: frontMatter,
+      meta: {
+        date: frontMatter.date,
+        image: frontMatter.image,
+        title: frontMatter.title,
+        description: frontMatter.description,
+        // Add other properties of the meta object here
+      },
       slug: filename.replace('.mdx', ''),
+      // Add other properties of the blog object here
     };
   });
+
+  const sortedBlogs = blogs.sort((a: Blog, b: Blog) => {
+    return new Date(b.meta.date).getTime() - new Date(a.meta.date).getTime();
+  });
+
   return (
     <>
       <h1 className='bg-behr-debonair-blue subpixel-antialiased underline decoration-solid font-bold text-center text-4xl sm:text-6xl py-8 text-med-light-magenta'>
@@ -40,7 +64,7 @@ export default function Blog() {
           </div>
         </div>
         <div className='flex flex-col md:flex-row lg:flex-row xl:flex-row justify-center'>
-          {blogs.map((blog) => (
+          {sortedBlogs.map((blog: Blog) => (
             <div className='bg-behr-debonair-blue px-2 py-2' key={blog.slug}>
               <div className='bg-behr-debonair-blue py-2 pb-8'>
                 <article

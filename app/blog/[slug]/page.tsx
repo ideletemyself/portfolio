@@ -3,7 +3,7 @@ import path from 'path';
 import matter from 'gray-matter';
 import Image from 'next/image';
 import { useMDXComponents } from '../../../mdx-components';
-import PrismLoader from "../../components/PrismLoader";
+import PrismLoader from '../../components/PrismLoader';
 
 import { MDXRemote } from 'next-mdx-remote/rsc';
 
@@ -47,7 +47,7 @@ export default function Page({ params }: any) {
     ),
     Image: ({ src, alt, width, height }) => (
       <Image
-        className='rounded'
+        className='items-center rounded'
         src={src}
         alt={alt}
         width={width}
@@ -57,16 +57,14 @@ export default function Page({ params }: any) {
   });
 
   return (
-    <div className='flex flex-col w-full bg-behr-debonair-blue py-4'>
-      <div className='bg-behr-debonair-blue flex flex-wrap justify-center py-8'>
-        <article
-          className='flex flex-col items-center bg-very-light-brown rounded shadow-lg relative leading-normal prose prose-lg
-                                    text-left font-light text-slate-500 py-8 px-4 language-ts'
-        >
-          <MDXRemote source={props.content} components={components}></MDXRemote>
-          <PrismLoader />
-        </article>
-      </div>
+    <div className='flex flex-col bg-behr-debonair-blue items-center py-4'>
+      <article
+        className='flex flex-wrap w-full justify-center items-center bg-very-light-brown rounded shadow-lg 
+                  prose prose-sm sm:prose-lg text-left font-light text-slate-500 py-8 px-4 language-ts'
+      >
+        <MDXRemote source={props.content} components={components}></MDXRemote>
+        <PrismLoader />
+      </article>
     </div>
   );
 }

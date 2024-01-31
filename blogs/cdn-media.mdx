@@ -8,12 +8,22 @@ image: 'https://brandonmckimmons-nextjs-563476088.imgix.net/Blog/image_serve_CDN
 
 # Serving Images and Other Media From a CDN in NextJS
 
-## Switching to serving images and other media from a CDN and where the real gains come from.
+## Switching to serving images and other media from a CDN and where the real gains come from
 
-In my journey creating this website and blog I was having real issues with image load times. Especially the images in my image sliders.
+In my journey creating this website and blog I was having real issues with image load times. Especially the photos in my image sliders.
 There was a 5-6 second delay before the images would load. Granted, they were pretty high resolution images, but still, that's a long time to wait for an image to load.
-The [NextJS](https://nextjs.org) CLI suggested that I use the Sharp library to optimize my images. After taking a look at what was involved however I decided it was time to look at other options.
-I know that CDNs are pretty much the standard for serving images and other media, but I was hoping to avoid the extra cost and complexity of setting one up.
+The [NextJS](https://nextjs.org) CLI suggested that I use the [Sharp](https://sharp.pixelplumbing.com/) library to optimize my images. After taking a look at what was involved however I decided it was time to look at other options.
+
+There's going to be some amount of work that needs to be done either going with Sharp to code the image conversions and edits or setting up a CDN to serve the images.
+Setting up a CDN seemed like it would be less work overall and if I ever needed to move away from a CDN because of cost or whatever else I could alway fall back to using Sharp.
+I know that CDNs are pretty much the standard for serving images and other media, so I might as well get some experience with them now.
+
+<Image
+  src='https://brandonmckimmons-nextjs-563476088.imgix.net/Blog/imgix-press-kit.webp'
+  alt='TailwindCSS Logo'
+  width={320}
+  height={183}
+/>
 
 After doing some initial research I was able to find a free option that would work for me. [Imgix](https://www.imgix.com/) is a service that will host your images and serve them from a CDN.
 They have a free tier that includes 1,000 origin images, infinite transformations, included bandwidth, 2 unique sources and 2 unique users. Which for my
@@ -22,33 +32,118 @@ URL for your images. Since NextJS doesn't expose the images in the public folder
 Object Storage service that I was able to use to host my images. I created a bucket and uploaded all of my images to it. Once that was done I was able to continue with the
 Imgix setup.
 
-Now with my Imgix address in hand I was able to start the process of moving my images over to Imgix. I started with the images in my image slider. After looking through the Imgix API, I was able to
-find some options that would be ideal to use. I also saw that it would probably be best to use the [@imgix/js-core](https://github.com/imgix/js-core) library to help with things.
+Now with my Imgix address in hand I was able to start the process of moving my images over to Imgix in the code. I started with the images in my image slider. After looking through the Imgix API, I was able to
+find some options that would be best to use. I also saw that it would probably be best to use the [@imgix/js-core](https://github.com/imgix/js-core) library to help with things.
 I installed the library and started to work on the code to get the images to load. I came up with this approach to get it done:
 
 ```
 const images = [
-    'DSC01720',
-    'DSC01722',
-    'DSC01723',
-    'DSC01728',
-    'DSC01836',
-    'DSC01840',
-    'DSC01841',
-    'DSC01849',
-    'DSC01854',
-    'DSC01855',
+    {
+      src: 'Astrophotography/Blue_Orion_Shot1',
+      alt: 'The Orion constellation with a blue hue, 1st photo',
+    },
+    {
+      src: 'Astrophotography/Blue_Starry_Night_Shot1',
+      alt: 'A random shot of a section of the night sky with a blue hue',
+    },
+    {
+      src: 'Astrophotography/Purple_Orion_Shot1',
+      alt: 'The Orion constellation with a purple hue, 1st photo',
+    },
+    {
+      src: 'Astrophotography/Purple_Orion_Shot2',
+      alt: 'The Orion constellation with a purple hue, 2nd photo',
+    },
+    {
+      src: 'Astrophotography/Purple_Orion_Shot3',
+      alt: 'The Orion constellation with a purple hue, 3rd photo',
+    },
+    {
+      src: 'Astrophotography/Starry_Night_Sky_with_Clouds_Shot1',
+      alt: 'A colorful photo of a cloudy night sky, 1st photo',
+    },
+    {
+      src: 'Astrophotography/Starry_Night_Sky_with_Clouds_Shot2',
+      alt: 'A colorful photo of a cloudy night sky, 2nd photo',
+    },
+    {
+      src: 'Astrophotography/Starry_Night_Sky_with_Clouds_Shot3',
+      alt: 'A colorful photo of a cloudy night sky, 3rd photo',
+    },
+    {
+      src: 'Astrophotography/Starry_Night_Sky_with_Clouds_Shot4',
+      alt: 'A colorful photo of a cloudy night sky, 4th photo',
+    },
+    {
+      src: 'Astrophotography/Night_Streetlight_Gate',
+      alt: 'A photo of a street light behind a gate with the night sky in the background',
+    },
   ];
 
   const imgixClient = new ImgixClient({
     domain: 'brandonmckimmons-nextjs-563476088.imgix.net',
   });
 
-  const imgUrl = (imagePath: string) =>
-    imgixClient.buildURL(`${imagePath}.webp`, {
+  const imgUrl = (image: { src: string; alt: string }) =>
+    imgixClient.buildURL(`${image.src}.webp`, {
       fit: 'fill', // fill mode
       auto: 'format,compress', // auto format and compress
       lossless: 1,
       // ... other Imgix parameters
     });
 ```
+
+I created an array of the images with both a src and an alt for SEO purposes and then created a function to build the URL for the images using the imgixClient helper to configure some default settings.
+A slight digression, initially I hadn't done this and just had one property which was the original generic file name my camera spits out.
+This is something Imgix specifically advises against doing, again for SEO purposes. While going back and making these changes wasn't too much of a headache it still was annoying.
+It may have ended up being the same amount of work in the end but I would've preferred to do all the original, descriptive adjustments in the first place instead of having to go back and revise everything.
+Once you get in the groove though, I personally just want to get the thing working and so at the time was okay with going back and revising or so I thought at the time, lol.
+
+At any rate, I then used the `imgUrl` function to build the URL for the photos in the image slider. To show the rest of my process more thoroughly I'll show the code for how each
+photo in the image slider is selected:
+
+```
+const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  const nextImage = () => {
+    if (images) {
+      setCurrentImageIndex((currentImageIndex + 1) % images.length);
+    }
+  };
+
+  const prevImage = () => {
+    if (images) {
+      setCurrentImageIndex(
+        (currentImageIndex - 1 + images.length) % images.length
+      );
+    }
+  };
+```
+
+Here I'm using the `useState` hook to set the current image index and then using the `nextImage` and `prevImage` functions to change the current image index.
+Pretty straightforward stuff. Now I'll show the code for how the images are displayed:
+
+```
+<Image
+  className='object-cover max-h-svh max-w-min px-3 py-3 z-10'
+  src={imgUrl(images[currentImageIndex])}
+  alt={images[currentImageIndex].alt}
+  sizes='(min-width: 1280px) 1256px, (min-width: 1040px) 744px, (min-width: 780px) 648px, calc(100vw - 24px)'
+  style={{
+    objectFit: 'contain',
+  }}
+  width={7028}
+  height={4688}
+  onClick={toggleModal}
+  placeholder='blur'
+  blurDataURL={
+    'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkqAcAAIUAgUW0RjgAAAAASUVORK5CYII='
+  }
+  priority
+/>
+```
+
+Then here I'm using the `Image` component from NextJS to display the images. I'm using the `imgUrl` function to get the URL for the image and then using `currentImageIndex` to select the current image.
+Please take note that what I failed to mention in my previous post is that I got the proper `sizes` vaule using the [RespImageLint](https://ausi.github.io/respimagelint/) tool.
+I've only had one instance that the sizes it recommended weren't correct or perhaps in my specific use case it wasn't displaying the images how I wanted it. Overall though you trust the values it gives you.
+I'm also setting the `width` and `height` properties to the original dimensions of the first photo the image slider will display. This is important to accomidate for the LCP (Largest Contentful Paint) metric.

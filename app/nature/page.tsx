@@ -11,6 +11,10 @@ import {
 const Nature: React.FC = () => {
   const images = [
     {
+      src: 'Nature/Solitary_Tree_Against_Blue_Sky',
+      alt: 'A solitary tree in a golden field with blue sky',
+    },
+    {
       src: 'Nature/Autumn_Scrubland_with_Blue_Sky',
       alt: 'Autumn scrubland with a blue sky background',
     },
@@ -106,10 +110,6 @@ const Nature: React.FC = () => {
     {
       src: 'Nature/Pine_Tree_by_Lake_with_Cloudy_Sky',
       alt: 'A pine tree at a park with water and stormy clouds in the background',
-    },
-    {
-      src: 'Nature/Solitary_Tree_Against_Blue_Sky',
-      alt: 'A solitary tree in a golden field with blue sky',
     },
     {
       src: 'Nature/Sunset_Above_Trees_and_Bushes',

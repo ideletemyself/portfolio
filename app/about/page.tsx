@@ -49,8 +49,8 @@ export default function About() {
                 </div>
                 <Image
                   className='flex flex-col place-self-center h-40 w-40 sm:h-64 sm:w-64 pr-4'
-                  src={imgUrl(images[0])}
-                  alt={images[0].alt}
+                  src={imgUrl(images[1])}
+                  alt={images[1].alt}
                   width={4688}
                   height={3823}
                   placeholder='blur'
@@ -67,8 +67,8 @@ export default function About() {
             <article className='flex bg-very-light-brown rounded shadow-lg prose text-left font-light pl-4 pt-8 prose-img:rounded-full items-center'>
               <Image
                 className='flex flex-col px-2 h-40 w-40 sm:h-64 sm:w-64'
-                src={imgUrl(images[1])}
-                alt={images[1].alt}
+                src={imgUrl(images[0])}
+                alt={images[0].alt}
                 width={5997}
                 height={4000}
                 placeholder='blur'

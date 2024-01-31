@@ -10,28 +10,28 @@ import {
 
 const Animals: React.FC = () => {
   const images = [
-    'DSC01132',
-    'DSC01160',
-    'DSC01225',
-    'DSC01232',
-    'DSC01270',
-    'DSC01887',
-    'DSC01890',
-    'DSC01898',
-    'DSC01903',
-    'DSC01905',
-    'DSC01925',
-    'DSC01930',
-    'DSC01944',
-    'DSC01958',
+    { src: 'Grey_Crowned_Crane_by_Water', alt: 'A grey crowned crane by a pond at the zoo' },
+    { src: 'Black_Ostrich_Mating_Dance', alt: 'A male ostrich trying to mate by dancing' },
+    { src: 'Green_Parrot_On_Branch', alt: 'A green parrot trying to get attention on a branch' },
+    { src: 'Yellow_And_Blue_Parrot_On_Branch', alt: 'A yellow and blue parrot on a branch' },
+    { src: 'Flamingo_Preening_By_Water', alt: 'A white flamingo preening by a pond at the zoo' },
+    { src: 'Birds_Flying_Above_Park_Water', alt: 'A flock of birds flying above a pond at a park' },
+    { src: 'Park_Water_with_Birds_and_University_Building', alt: 'A bunch of different birds on an alcove at a park pond' },
+    { src: 'Seagulls_Perched_on_Lake_Shoreline_with_Cloudy_Skies', alt: 'Another shot of a bunch of birds on an alcove at a park pond' },
+    { src: 'Geese_on_Grassland_with_Buildings_and_Cloudy_Sky', alt: 'A flock of geese on some grass at a park' },
+    { src: 'Geese_Flying_Above_Water', alt: 'A flock of geese flying above water' },
+    { src: 'Two_Geese_Swimming_in_Rippled_Water', alt: 'Two geese swimming in a pond of rippled water' },
+    { src: 'Heron_and_Geese_by_Park_Water', alt: 'A heron and geese behind a tree at a park' },
+    { src: 'Pelican_and_Cormorants_Swimming', alt: 'A group of cormorants and a pelican swimming in a pond' },
+    { src: 'Duck_On_Rippled_Water', alt: 'A duck swimming on rippled pond water' },
   ];
 
   const imgixClient = new ImgixClient({
     domain: 'brandonmckimmons-nextjs-563476088.imgix.net',
   });
 
-  const imgUrl = (imagePath: string) =>
-    imgixClient.buildURL(`${imagePath}.webp`, {
+  const imgUrl = (image: { src: string; alt: string }) =>
+    imgixClient.buildURL(`${image.src}.webp`, {
       fit: 'fill', // fill mode
       auto: 'format,compress', // auto format and compress
       lossless: 1,
@@ -71,7 +71,7 @@ const Animals: React.FC = () => {
             <Image
               className='w-full max-h-svh mx-auto'
               src={imgUrl(images[currentImageIndex])}
-              alt='Slide'
+              alt={images[currentImageIndex].alt}
               sizes='(min-width: 1280px) 1256px, (min-width: 1040px) 744px, (min-width: 780px) 648px, calc(100vw - 24px)'
               style={{
                 objectFit: 'contain',
@@ -115,13 +115,13 @@ const Animals: React.FC = () => {
             <Image
               className='object-cover max-h-svh max-w-min px-3 py-3 z-10'
               src={imgUrl(images[currentImageIndex])}
+              alt={images[currentImageIndex].alt}
               sizes='(min-width: 1280px) 1256px, (min-width: 1040px) 744px, (min-width: 780px) 648px, calc(100vw - 24px)'
               style={{
                 objectFit: 'contain',
               }}
               width={1501}
               height={1687}
-              alt='Slide'
               onClick={toggleModal}
               placeholder='blur'
               blurDataURL={

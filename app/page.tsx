@@ -7,7 +7,7 @@ const Home: React.FC = () => {
   const images = [
     'Blue_Orion_Shot1_Small',
     'DSC01776_small',
-    'DSC01225_smaller',
+    'Green_Parrot_On_Branch_Small',
     'DSC01586_small',
     'blog-writing',
   ];

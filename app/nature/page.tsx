@@ -10,47 +10,143 @@ import {
 
 const Nature: React.FC = () => {
   const images = [
-    'DSC01605',
-    'DSC01610',
-    'DSC01612',
-    'DSC01613',
-    'DSC01616',
-    'DSC01623',
-    'DSC01626',
-    'DSC01628',
-    'DSC01637',
-    'DSC01643',
-    'DSC01664',
-    'DSC01671',
-    'DSC01675',
-    'DSC01676',
-    'DSC01680',
-    'DSC01692',
-    'DSC01695',
-    'DSC01699',
-    'DSC01700',
-    'DSC01707',
-    'DSC01776',
-    'DSC01777',
-    'DSC01779',
-    'DSC01783',
-    'DSC01785',
-    'DSC01796',
-    'DSC01803',
-    'DSC01808',
-    'DSC01885',
-    'DSC01913',
-    'DSC01915',
-    'DSC01922',
-    'DSC01971',
+    {
+      src: 'Nature/Autumn_Scrubland_with_Blue_Sky',
+      alt: 'Autumn scrubland with a blue sky background',
+    },
+    {
+      src: 'Nature/Birds_on_Dead_Trees_Blue_Sky',
+      alt: 'Birds on top of dead trees with blue sky background',
+    },
+    {
+      src: 'Nature/Blocked_Dirt_Path_at_Park',
+      alt: 'A blocked dirt path with trees on each side',
+    },
+    {
+      src: 'Nature/Cactus_at_Park',
+      alt: 'A small patch of cactus with wood chips',
+    },
+    {
+      src: 'Nature/Cement_Path_at_Sunset',
+      alt: 'A cement path with trees and a sunset',
+    },
+    { src: 'Nature/Closeup_of_Cactus', alt: 'Closeup of some cactus' },
+    {
+      src: 'Nature/Closeup_of_Dried_Thistle',
+      alt: 'Closeup of some dried thistle',
+    },
+    {
+      src: 'Nature/Closeup_of_Golden_Thistle',
+      alt: 'Closeup of some golden thistle',
+    },
+    {
+      src: 'Nature/Closeup_of_Split_Tree_Trunk',
+      alt: 'Closeup of a split tree trunk',
+    },
+    {
+      src: 'Nature/Closeup_of_Thistle_or_Burdock',
+      alt: 'Closeup of some thistle or perhaps burdock',
+    },
+    {
+      src: 'Nature/Dead_Leaves_on_Ground_of_Park',
+      alt: 'Dead leaves on a winter park ground with trees',
+    },
+    {
+      src: 'Nature/Dirt_Path_at_Park',
+      alt: 'Dirt path with mostly dead trees on each side',
+    },
+    {
+      src: 'Nature/Dirt_Path_With_Trees_at_Park',
+      alt: 'Wide shot of a dirt path with mostly dead trees',
+    },
+    {
+      src: 'Nature/Dried_Plants_at_Sunset',
+      alt: 'A field of mostly golden and dried plants at sunset',
+    },
+    {
+      src: 'Nature/Dry_Brush_and_Trees_in_Early_Winter',
+      alt: 'Some dry bush and trees in early winter',
+    },
+    {
+      src: 'Nature/Fallen_Tree_in_Deciduous_Forest',
+      alt: 'A fallen tree with dead leaves on the ground and other mostly dead trees',
+    },
+    {
+      src: 'Nature/Golden_Bush_with_Blue_Sky',
+      alt: 'Golden bushes with a blue sky background',
+    },
+    {
+      src: 'Nature/Green_Path_at_Sunset',
+      alt: 'A green path with dead trees, bushes, blue sky and the sun',
+    },
+    {
+      src: 'Nature/Lone_Bush_on_Path',
+      alt: 'Lone evergreen bush next to a cement path',
+    },
+    {
+      src: 'Nature/Lone_Dead_Tree_Blue_Sky',
+      alt: 'A lone dead tree with a blue sky background',
+    },
+    {
+      src: 'Nature/Lone_Evergreen_at_Park',
+      alt: 'Lone evergreen tree at a park with water and clouds in the background',
+    },
+    {
+      src: 'Nature/Lone_Golden_Tree_at_Park',
+      alt: 'A lone golden tree at a park with water and stormy clouds in the background',
+    },
+    {
+      src: 'Nature/Mesquite_Tree_and_Red_Rocks',
+      alt: 'A small mesquite tree behind some red rocks',
+    },
+    {
+      src: 'Nature/Overcast_at_Winter_Park',
+      alt: 'Some mostly dead trees in a park on an overcast day',
+    },
+    {
+      src: 'Nature/Pine_Tree_by_Lake_with_Cloudy_Sky',
+      alt: 'A pine tree at a park with water and stormy clouds in the background',
+    },
+    {
+      src: 'Nature/Solitary_Tree_Against_Blue_Sky',
+      alt: 'A solitary tree in a golden field with blue sky',
+    },
+    {
+      src: 'Nature/Sunset_Above_Trees_and_Bushes',
+      alt: 'A sunset above small green trees and bushes',
+    },
+    {
+      src: 'Nature/Tall_Reeds_Against_Clear_Blue_Sky',
+      alt: 'Closeup of tall reeds against a clear blue sky',
+    },
+    {
+      src: 'Nature/Thick_Dead_Tree_Blue_Sky',
+      alt: 'A thick dead tree with clear blue sky',
+    },
+    {
+      src: 'Nature/Three_Dead_Trees_Early_Winter',
+      alt: 'Three dead trees in a field with blue sky',
+    },
+    {
+      src: 'Nature/Two_Dead_Trees_at_Park',
+      alt: 'Two dead trees at a park with water and stormy clouds in the background',
+    },
+    {
+      src: 'Nature/Wetland_Area_with_Bare_Trees',
+      alt: 'Wetland area with bare trees on an overcast day',
+    },
+    {
+      src: 'Nature/Young_Pine_Sapling_on_Forest_Floor',
+      alt: 'Closeup of a young pine sapling in a park',
+    },
   ];
 
   const imgixClient = new ImgixClient({
     domain: 'brandonmckimmons-nextjs-563476088.imgix.net',
   });
 
-  const imgUrl = (imagePath: string) =>
-    imgixClient.buildURL(`${imagePath}.webp`, {
+  const imgUrl = (image: { src: string; alt: string }) =>
+    imgixClient.buildURL(`${image.src}.webp`, {
       fit: 'fill', // fill mode
       auto: 'format,compress', // auto format and compress
       lossless: 1,
@@ -90,7 +186,7 @@ const Nature: React.FC = () => {
             <Image
               className='w-full max-h-svh mx-auto'
               src={imgUrl(images[currentImageIndex])}
-              alt='Slide'
+              alt={images[currentImageIndex].alt}
               sizes='(min-width: 1280px) 1256px, (min-width: 1040px) 744px, (min-width: 780px) 648px, calc(100vw - 24px)'
               style={{
                 objectFit: 'contain',
@@ -134,13 +230,13 @@ const Nature: React.FC = () => {
             <Image
               className='object-cover max-h-svh max-w-min px-3 py-3 z-10'
               src={imgUrl(images[currentImageIndex])}
+              alt={images[currentImageIndex].alt}
               sizes='(min-width: 1280px) 1256px, (min-width: 1040px) 744px, (min-width: 780px) 648px, calc(100vw - 24px)'
               style={{
                 objectFit: 'contain',
               }}
               width={4688}
               height={7028}
-              alt='Slide'
               onClick={toggleModal}
               placeholder='blur'
               blurDataURL={

@@ -10,16 +10,46 @@ import {
 
 const Astrophotography: React.FC = () => {
   const images = [
-    { src: 'Blue_Orion_Shot1', alt: 'The Orion constellation with a blue hue, 1st photo' },
-    { src: 'Blue_Starry_Night_Shot1', alt: 'A random shot of a section of the night sky with a blue hue' },
-    { src: 'Purple_Orion_Shot1', alt: 'The Orion constellation with a purple hue, 1st photo' },
-    { src: 'Purple_Orion_Shot2', alt: 'The Orion constellation with a purple hue, 2nd photo' },
-    { src: 'Purple_Orion_Shot3', alt: 'The Orion constellation with a purple hue, 3rd photo' },
-    { src: 'Starry_Night_Sky_with_Clouds_Shot1', alt: 'A colorful photo of a cloudy night sky, 1st photo' },
-    { src: 'Starry_Night_Sky_with_Clouds_Shot2', alt: 'A colorful photo of a cloudy night sky, 2nd photo' },
-    { src: 'Starry_Night_Sky_with_Clouds_Shot3', alt: 'A colorful photo of a cloudy night sky, 3rd photo' },
-    { src: 'Starry_Night_Sky_with_Clouds_Shot4', alt: 'A colorful photo of a cloudy night sky, 4th photo' },
-    { src: 'Night_Streetlight_Gate', alt: 'A photo of a street light behind a gate with the night sky in the background' },
+    {
+      src: 'Astrophotography/Blue_Orion_Shot1',
+      alt: 'The Orion constellation with a blue hue, 1st photo',
+    },
+    {
+      src: 'Astrophotography/Blue_Starry_Night_Shot1',
+      alt: 'A random shot of a section of the night sky with a blue hue',
+    },
+    {
+      src: 'Astrophotography/Purple_Orion_Shot1',
+      alt: 'The Orion constellation with a purple hue, 1st photo',
+    },
+    {
+      src: 'Astrophotography/Purple_Orion_Shot2',
+      alt: 'The Orion constellation with a purple hue, 2nd photo',
+    },
+    {
+      src: 'Astrophotography/Purple_Orion_Shot3',
+      alt: 'The Orion constellation with a purple hue, 3rd photo',
+    },
+    {
+      src: 'Astrophotography/Starry_Night_Sky_with_Clouds_Shot1',
+      alt: 'A colorful photo of a cloudy night sky, 1st photo',
+    },
+    {
+      src: 'Astrophotography/Starry_Night_Sky_with_Clouds_Shot2',
+      alt: 'A colorful photo of a cloudy night sky, 2nd photo',
+    },
+    {
+      src: 'Astrophotography/Starry_Night_Sky_with_Clouds_Shot3',
+      alt: 'A colorful photo of a cloudy night sky, 3rd photo',
+    },
+    {
+      src: 'Astrophotography/Starry_Night_Sky_with_Clouds_Shot4',
+      alt: 'A colorful photo of a cloudy night sky, 4th photo',
+    },
+    {
+      src: 'Astrophotography/Night_Streetlight_Gate',
+      alt: 'A photo of a street light behind a gate with the night sky in the background',
+    },
   ];
 
   const imgixClient = new ImgixClient({

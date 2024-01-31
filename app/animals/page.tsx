@@ -10,20 +10,62 @@ import {
 
 const Animals: React.FC = () => {
   const images = [
-    { src: 'Grey_Crowned_Crane_by_Water', alt: 'A grey crowned crane by a pond at the zoo' },
-    { src: 'Black_Ostrich_Mating_Dance', alt: 'A male ostrich trying to mate by dancing' },
-    { src: 'Green_Parrot_On_Branch', alt: 'A green parrot trying to get attention on a branch' },
-    { src: 'Yellow_And_Blue_Parrot_On_Branch', alt: 'A yellow and blue parrot on a branch' },
-    { src: 'Flamingo_Preening_By_Water', alt: 'A white flamingo preening by a pond at the zoo' },
-    { src: 'Birds_Flying_Above_Park_Water', alt: 'A flock of birds flying above a pond at a park' },
-    { src: 'Park_Water_with_Birds_and_University_Building', alt: 'A bunch of different birds on an alcove at a park pond' },
-    { src: 'Seagulls_Perched_on_Lake_Shoreline_with_Cloudy_Skies', alt: 'Another shot of a bunch of birds on an alcove at a park pond' },
-    { src: 'Geese_on_Grassland_with_Buildings_and_Cloudy_Sky', alt: 'A flock of geese on some grass at a park' },
-    { src: 'Geese_Flying_Above_Water', alt: 'A flock of geese flying above water' },
-    { src: 'Two_Geese_Swimming_in_Rippled_Water', alt: 'Two geese swimming in a pond of rippled water' },
-    { src: 'Heron_and_Geese_by_Park_Water', alt: 'A heron and geese behind a tree at a park' },
-    { src: 'Pelican_and_Cormorants_Swimming', alt: 'A group of cormorants and a pelican swimming in a pond' },
-    { src: 'Duck_On_Rippled_Water', alt: 'A duck swimming on rippled pond water' },
+    {
+      src: 'Animals/Grey_Crowned_Crane_by_Water',
+      alt: 'A grey crowned crane by a pond at the zoo',
+    },
+    {
+      src: 'Animals/Black_Ostrich_Mating_Dance',
+      alt: 'A male ostrich trying to mate by dancing',
+    },
+    {
+      src: 'Animals/Green_Parrot_On_Branch',
+      alt: 'A green parrot trying to get attention on a branch',
+    },
+    {
+      src: 'Animals/Yellow_And_Blue_Parrot_On_Branch',
+      alt: 'A yellow and blue parrot on a branch',
+    },
+    {
+      src: 'Animals/Flamingo_Preening_By_Water',
+      alt: 'A white flamingo preening by a pond at the zoo',
+    },
+    {
+      src: 'Animals/Birds_Flying_Above_Park_Water',
+      alt: 'A flock of birds flying above a pond at a park',
+    },
+    {
+      src: 'Animals/Park_Water_with_Birds_and_University_Building',
+      alt: 'A bunch of different birds on an alcove at a park pond',
+    },
+    {
+      src: 'Animals/Seagulls_Perched_on_Lake_Shoreline_with_Cloudy_Skies',
+      alt: 'Another shot of a bunch of birds on an alcove at a park pond',
+    },
+    {
+      src: 'Animals/Geese_on_Grassland_with_Buildings_and_Cloudy_Sky',
+      alt: 'A flock of geese on some grass at a park',
+    },
+    {
+      src: 'Animals/Geese_Flying_Above_Water',
+      alt: 'A flock of geese flying above water',
+    },
+    {
+      src: 'Animals/Two_Geese_Swimming_in_Rippled_Water',
+      alt: 'Two geese swimming in a pond of rippled water',
+    },
+    {
+      src: 'Animals/Heron_and_Geese_by_Park_Water',
+      alt: 'A heron and geese behind a tree at a park',
+    },
+    {
+      src: 'Animals/Pelican_and_Cormorants_Swimming',
+      alt: 'A group of cormorants and a pelican swimming in a pond',
+    },
+    {
+      src: 'Animals/Duck_On_Rippled_Water',
+      alt: 'A duck swimming on rippled pond water',
+    },
   ];
 
   const imgixClient = new ImgixClient({

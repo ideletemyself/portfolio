@@ -59,8 +59,8 @@ export default function Page({ params }: any) {
   return (
     <div className='flex flex-col bg-behr-debonair-blue items-center py-4'>
       <article
-        className='flex flex-wrap w-full justify-center items-center bg-very-light-brown rounded shadow-lg 
-                  prose prose-sm sm:prose-lg text-left font-light text-slate-500 py-8 px-4 language-ts'
+        id='blog-page-cards' className='flex flex-wrap w-full justify-center items-center bg-very-light-brown
+            rounded shadow-lg prose prose-sm sm:prose-lg text-left font-light text-slate-500 py-8 px-4 language-ts'
       >
         <MDXRemote source={props.content} components={components}></MDXRemote>
         <PrismLoader />

@@ -1,6 +1,6 @@
 ---
 title: 'Serving Images and Other Media From a CDN in NextJS'
-date: '01-29-2024'
+date: '01-31-2024'
 author: 'Brandon McKimmons'
 description: 'Switching to serving images and other media from a CDN and where the real gains come from.'
 image: 'https://brandonmckimmons-nextjs-563476088.imgix.net/Blog/image_serve_CDN.webp'
@@ -26,124 +26,31 @@ I know that CDNs are pretty much the standard for serving images and other media
 />
 
 After doing some initial research I was able to find a free option that would work for me. [Imgix](https://www.imgix.com/) is a service that will host your images and serve them from a CDN.
-They have a free tier that includes 1,000 origin images, infinite transformations, included bandwidth, 2 unique sources and 2 unique users. Which for my
+They have a free tier that includes 1,000 origin images, infinite transformations, included bandwidth, two unique sources and two unique users. Which for my
 use case was absolutely perfect. I signed up for an account and started the process of moving my images over to Imgix. In their setup guide they require a public facing
-URL for your images. Since NextJS doesn't expose the images in the public folder by default I had to go another route. Luckily, [Linode](https://www.linode.com/) has a
-Object Storage service that I was able to use to host my images. I created a bucket and uploaded all of my images to it. Once that was done I was able to continue with the
-Imgix setup.
+URL for your images. Since NextJS doesn't expose the images in the public folder by default I had to go another route. 
+
+## Akamai Object Storage
+
+Luckily, [Linode](https://www.linode.com/) has a [Object Storage](https://www.linode.com/lp/object-storage/?promo=sitelin100-02162023&promo_value=100&promo_length=60&utm_source=google&utm_medium=cpc&utm_campaign=builder_pilot&utm_term=g_aud-2187602242764:kwd-959451010310_e_linode%20object%20storage%20pricing&utm_content=675097361193&gad_source=1&gclid=CjwKCAiA_OetBhAtEiwAPTeQZ7nYbOZoajK7ACeJa0ApcO8-D-TUtf5KBvVLieBK60U8PnZ-u8MWWRoCOzYQAvD_BwE) 
+service that I was able to use to host my images. I created a bucket and uploaded all of my images to it. I will say here that initially I didn't make a seperate folder for the images and so I had to go back and do that later on.
+Which was kind of a hassle and super tedious because that's when I changed all the filenames to be descriptive instead of the generic names my camera gives them. 
+However, once that was done I was able to continue with the Imgix setup.
 
 Now with my Imgix address in hand I was able to start the process of moving my images over to Imgix in the code. I started with the images in my image slider. After looking through the Imgix API, I was able to
 find some options that would be best to use. I also saw that it would probably be best to use the [@imgix/js-core](https://github.com/imgix/js-core) library to help with things.
-I installed the library and started to work on the code to get the images to load. I came up with this approach to get it done:
+For a more detailed rundown of the complete process please refer to the previous [post](https://brandonmckimmons.com/blog/image-slider) about the image slider's creation.
 
-```
-const images = [
-    {
-      src: 'Astrophotography/Blue_Orion_Shot1',
-      alt: 'The Orion constellation with a blue hue, 1st photo',
-    },
-    {
-      src: 'Astrophotography/Blue_Starry_Night_Shot1',
-      alt: 'A random shot of a section of the night sky with a blue hue',
-    },
-    {
-      src: 'Astrophotography/Purple_Orion_Shot1',
-      alt: 'The Orion constellation with a purple hue, 1st photo',
-    },
-    {
-      src: 'Astrophotography/Purple_Orion_Shot2',
-      alt: 'The Orion constellation with a purple hue, 2nd photo',
-    },
-    {
-      src: 'Astrophotography/Purple_Orion_Shot3',
-      alt: 'The Orion constellation with a purple hue, 3rd photo',
-    },
-    {
-      src: 'Astrophotography/Starry_Night_Sky_with_Clouds_Shot1',
-      alt: 'A colorful photo of a cloudy night sky, 1st photo',
-    },
-    {
-      src: 'Astrophotography/Starry_Night_Sky_with_Clouds_Shot2',
-      alt: 'A colorful photo of a cloudy night sky, 2nd photo',
-    },
-    {
-      src: 'Astrophotography/Starry_Night_Sky_with_Clouds_Shot3',
-      alt: 'A colorful photo of a cloudy night sky, 3rd photo',
-    },
-    {
-      src: 'Astrophotography/Starry_Night_Sky_with_Clouds_Shot4',
-      alt: 'A colorful photo of a cloudy night sky, 4th photo',
-    },
-    {
-      src: 'Astrophotography/Night_Streetlight_Gate',
-      alt: 'A photo of a street light behind a gate with the night sky in the background',
-    },
-  ];
+After I had the photos in the image slider being served from Imgix I was able to see the difference in load times. The images were faster but not as fast as I was expecting.
+This led me down a rabbit hole of research and testing. I did find that Imgix was serving the images properly sized for all the various devices. So, they were much smaller on 
+mobile devices and larger on desktops. This was a massive improvement. I also found that Imgix was degrading the quality of the images as needed. Still, though with those and other optimizations load times were still more than a couple of seconds.
 
-  const imgixClient = new ImgixClient({
-    domain: 'brandonmckimmons-nextjs-563476088.imgix.net',
-  });
+## Where the real gains come from
 
-  const imgUrl = (image: { src: string; alt: string }) =>
-    imgixClient.buildURL(`${image.src}.webp`, {
-      fit: 'fill', // fill mode
-      auto: 'format,compress', // auto format and compress
-      lossless: 1,
-      // ... other Imgix parameters
-    });
-```
+In the end the biggest improvements came from two completely different sources. First, in my falling down the rabbit hole I was able to find out that my [NGINX](https://www.nginx.com/) config file wasn't using TLS1.2 or TLS1.3.
+This alone made a huge difference in load times. The second improvement came from actually upgrading my [Linode](https://www.linode.com/) server. I was using the cheapest server they had, the nanode and it was just not able to keep up with the demand.
+After upgrading to the next tier up, the Linode 2GB, I was able to see the images load in less than a second. This was a massive improvement and I was very happy with the results. Now, this was on my gigabit ethernet and so actual load times will vary
+depending on the user's internet connection. Still, I was very happy with the results and I'm glad that I was able to get the images loading faster.
 
-I created an array of the images with both a src and an alt for SEO purposes and then created a function to build the URL for the images using the imgixClient helper to configure some default settings.
-A slight digression, initially I hadn't done this and just had one property which was the original generic file name my camera spits out.
-This is something Imgix specifically advises against doing, again for SEO purposes. While going back and making these changes wasn't too much of a headache it still was annoying.
-It may have ended up being the same amount of work in the end but I would've preferred to do all the original, descriptive adjustments in the first place instead of having to go back and revise everything.
-Once you get in the groove though, I personally just want to get the thing working and so at the time was okay with going back and revising or so I thought at the time, lol.
-
-At any rate, I then used the `imgUrl` function to build the URL for the photos in the image slider. To show the rest of my process more thoroughly I'll show the code for how each
-photo in the image slider is selected:
-
-```
-const [currentImageIndex, setCurrentImageIndex] = useState(0);
-
-  const nextImage = () => {
-    if (images) {
-      setCurrentImageIndex((currentImageIndex + 1) % images.length);
-    }
-  };
-
-  const prevImage = () => {
-    if (images) {
-      setCurrentImageIndex(
-        (currentImageIndex - 1 + images.length) % images.length
-      );
-    }
-  };
-```
-
-Here I'm using the `useState` hook to set the current image index and then using the `nextImage` and `prevImage` functions to change the current image index.
-Pretty straightforward stuff. Now I'll show the code for how the images are displayed:
-
-```
-<Image
-  className='object-cover max-h-svh max-w-min px-3 py-3 z-10'
-  src={imgUrl(images[currentImageIndex])}
-  alt={images[currentImageIndex].alt}
-  sizes='(min-width: 1280px) 1256px, (min-width: 1040px) 744px, (min-width: 780px) 648px, calc(100vw - 24px)'
-  style={{
-    objectFit: 'contain',
-  }}
-  width={7028}
-  height={4688}
-  onClick={toggleModal}
-  placeholder='blur'
-  blurDataURL={
-    'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkqAcAAIUAgUW0RjgAAAAASUVORK5CYII='
-  }
-  priority
-/>
-```
-
-Then here I'm using the `Image` component from NextJS to display the images. I'm using the `imgUrl` function to get the URL for the image and then using `currentImageIndex` to select the current image.
-Please take note that what I failed to mention in my previous post is that I got the proper `sizes` vaule using the [RespImageLint](https://ausi.github.io/respimagelint/) tool.
-I've only had one instance that the sizes it recommended weren't correct or perhaps in my specific use case it wasn't displaying the images how I wanted it. Overall though you trust the values it gives you.
-I'm also setting the `width` and `height` properties to the original dimensions of the first photo the image slider will display. This is important to accomidate for the LCP (Largest Contentful Paint) metric.
+You can do all the optimizations you want but if the server can't keep up then it's all for naught. I'm glad that I was able to find the real source of the problem and fix it. I'm also glad that I was able to get some experience with a CDN and see some of the benefits it provides. 
+This whole process took more than a few days. From the initial research to the final implementation it was a lot of work. From SEO optimization to image optimization to server optimization. Needless to say, there was a lot of optimizing and an equal amount of coffee involved.

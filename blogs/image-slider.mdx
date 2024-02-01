@@ -71,9 +71,136 @@ Which was Raspberry Blush and I distinctly remember that color as being from the
 going with another. Anyways, I digress.
 
 With the color palette in hand and in use on the site you're reading this on, I was able to get the image slider to look how I wanted it to. With the very light brown as the card's background the white arrows
-showed up perfectly no matter what the resolution of the device it was being viewed on. The next step was to display the images in their full glory when clicked on. This was where Copilot came in handy. It was
-able to spit out a perfectly good solution where I'd flip a boolean value to true when the image was clicked and then display the image in a modal. It still did take some tinkering and refining but I got it
-to work the way I wanted fairly easily after that.
+showed up perfectly no matter what the resolution of the device it was being viewed on. The next step was to display the images in their full glory when clicked on. I came up with this approach to get it done:
+
+```
+const images = [
+    {
+      src: 'Astrophotography/Blue_Orion_Shot1',
+      alt: 'The Orion constellation with a blue hue, 1st photo',
+    },
+    {
+      src: 'Astrophotography/Blue_Starry_Night_Shot1',
+      alt: 'A random shot of a section of the night sky with a blue hue',
+    },
+    {
+      src: 'Astrophotography/Purple_Orion_Shot1',
+      alt: 'The Orion constellation with a purple hue, 1st photo',
+    },
+    {
+      src: 'Astrophotography/Purple_Orion_Shot2',
+      alt: 'The Orion constellation with a purple hue, 2nd photo',
+    },
+    {
+      src: 'Astrophotography/Purple_Orion_Shot3',
+      alt: 'The Orion constellation with a purple hue, 3rd photo',
+    },
+    {
+      src: 'Astrophotography/Starry_Night_Sky_with_Clouds_Shot1',
+      alt: 'A colorful photo of a cloudy night sky, 1st photo',
+    },
+    {
+      src: 'Astrophotography/Starry_Night_Sky_with_Clouds_Shot2',
+      alt: 'A colorful photo of a cloudy night sky, 2nd photo',
+    },
+    {
+      src: 'Astrophotography/Starry_Night_Sky_with_Clouds_Shot3',
+      alt: 'A colorful photo of a cloudy night sky, 3rd photo',
+    },
+    {
+      src: 'Astrophotography/Starry_Night_Sky_with_Clouds_Shot4',
+      alt: 'A colorful photo of a cloudy night sky, 4th photo',
+    },
+    {
+      src: 'Astrophotography/Night_Streetlight_Gate',
+      alt: 'A photo of a street light behind a gate with the night sky in the background',
+    },
+  ];
+
+  const imgixClient = new ImgixClient({
+    domain: 'brandonmckimmons-nextjs-563476088.imgix.net',
+  });
+
+  const imgUrl = (image: { src: string; alt: string }) =>
+    imgixClient.buildURL(`${image.src}.webp`, {
+      fit: 'fill', // fill mode
+      auto: 'format,compress', // auto format and compress
+      lossless: 1,
+      // ... other Imgix parameters
+    });
+```
+
+I created an array of the images with both a `src` and an `alt` for SEO purposes and then created a function to build the URL for the images using the `imgixClient` helper to configure some default settings.
+`imgixClient` is a helper that I got from the [Imgix](https://www.imgix.com/) documentation that recommends to use [@imgix/js-core](https://www.npmjs.com/package/@imgix/js-core) to generate the image URLs.
+
+I'll talk more about Imgix in another post but for now I'll just say that it's a really cool service that I'm using to serve the images on this site. It's really easy to setup and they do have a free tier which I'm using.
+
+Anyways, initially I hadn't set a `src` and an `alt` for each image and just had one property which was the original generic file name my camera spits out.
+This is something Imgix specifically advises against doing, again for SEO purposes. While going back and making these changes wasn't too much of a headache it still was annoying.
+It may have ended up being the same amount of work in the end but I would've preferred to do all the original, descriptive adjustments in the first place instead of having to go back and revise everything.
+Once you get in the groove though, I personally just want to get the thing working and so at the time was okay with going back and revising or so I thought at the time, lol.
+
+At any rate, I then used the `imgUrl` function to build the URL for the photos in the image slider. To show the rest of my process more thoroughly I'll show the code for how each
+photo in the image slider is selected:
+
+```
+const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  const nextImage = () => {
+    if (images) {
+      setCurrentImageIndex((currentImageIndex + 1) % images.length);
+    }
+  };
+
+  const prevImage = () => {
+    if (images) {
+      setCurrentImageIndex(
+        (currentImageIndex - 1 + images.length) % images.length
+      );
+    }
+  };
+```
+
+Here I'm using the `useState` hook to set the current image index and then using the `nextImage` and `prevImage` functions to change the current image index.
+Pretty straightforward stuff. Now I'll show the code for how the images are displayed:
+
+```
+<Image
+  className='object-cover max-h-svh max-w-min px-3 py-3 z-10'
+  src={imgUrl(images[currentImageIndex])}
+  alt={images[currentImageIndex].alt}
+  sizes='(min-width: 1280px) 1256px, (min-width: 1040px) 744px, (min-width: 780px) 648px, calc(100vw - 24px)'
+  style={{
+    objectFit: 'contain',
+  }}
+  width={7028}
+  height={4688}
+  onClick={toggleModal}
+  placeholder='blur'
+  blurDataURL={
+    'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkqAcAAIUAgUW0RjgAAAAASUVORK5CYII='
+  }
+  priority
+/>
+```
+
+Then here I'm using the `Image` component from NextJS to display the images. I'm using the `imgUrl` function to get the URL for the image and then using `currentImageIndex` to select the current image.
+I got the proper `sizes` vaule using the [RespImageLint](https://ausi.github.io/respimagelint/) tool.
+I've only had one instance that the sizes it recommended weren't correct or perhaps in my specific use case it wasn't displaying the images how I wanted it. Overall though I think you can trust the values it gives you.
+I'm also setting the `priority` as well as the `width` and `height` properties to the original dimensions of the first photo the image slider will display. This is important to accomidate for the LCP (Largest Contentful Paint) metric
+and potential layout shift.
+
+These are things, again, too help with your lighthouse scores and so potentially your SEO. I'm also using the `placeholder` and `blurDataURL` properties that I'd hoped would display a blurred version of the image while it's loading.
+However, I couldn't get this to work and so I'm not sure if it's a bug or if I'm doing something wrong and I did try using [Plaiceholder](https://plaiceholder.co/docs) which NextJS recommends. I'll have to look into it more later. 
+I'm also using the `onClick` property to open a modal to display the image in full screen. This is done using the `useState` hook again this time to set the modal state and then using the `toggleModal` function to change the modal state.
+
+```
+const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+
+  const toggleModal = () => {
+    setIsModalOpen(!isModalOpen);
+  };
+```
 
 ## This Is The End
 

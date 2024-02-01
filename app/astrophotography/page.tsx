@@ -1,68 +1,90 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
-import ImgixClient from '@imgix/js-core';
+import { imgixLoader } from '../components/ImgixLoader';
 import {
   ArrowLeftCircleIcon,
   ArrowRightCircleIcon,
 } from '@heroicons/react/24/outline';
 
 const Astrophotography: React.FC = () => {
-  const images = [
+  const [images, setImages] = useState([
     {
-      src: 'Astrophotography/Blue_Orion_Shot1',
+      src: '/Astrophotography/Blue_Orion_Shot1',
       alt: 'The Orion constellation with a blue hue, 1st photo',
+      blurHash: '',
     },
     {
-      src: 'Astrophotography/Blue_Starry_Night_Shot1',
+      src: '/Astrophotography/Blue_Starry_Night_Shot1',
       alt: 'A random shot of a section of the night sky with a blue hue',
+      blurHash: '',
     },
     {
-      src: 'Astrophotography/Purple_Orion_Shot1',
+      src: '/Astrophotography/Purple_Orion_Shot1',
       alt: 'The Orion constellation with a purple hue, 1st photo',
+      blurHash: '',
     },
     {
-      src: 'Astrophotography/Purple_Orion_Shot2',
+      src: '/Astrophotography/Purple_Orion_Shot2',
       alt: 'The Orion constellation with a purple hue, 2nd photo',
+      blurHash: '',
     },
     {
-      src: 'Astrophotography/Purple_Orion_Shot3',
+      src: '/Astrophotography/Purple_Orion_Shot3',
       alt: 'The Orion constellation with a purple hue, 3rd photo',
+      blurHash: '',
     },
     {
-      src: 'Astrophotography/Starry_Night_Sky_with_Clouds_Shot1',
+      src: '/Astrophotography/Starry_Night_Sky_with_Clouds_Shot1',
       alt: 'A colorful photo of a cloudy night sky, 1st photo',
+      blurHash: '',
     },
     {
-      src: 'Astrophotography/Starry_Night_Sky_with_Clouds_Shot2',
+      src: '/Astrophotography/Starry_Night_Sky_with_Clouds_Shot2',
       alt: 'A colorful photo of a cloudy night sky, 2nd photo',
+      blurHash: '',
     },
     {
-      src: 'Astrophotography/Starry_Night_Sky_with_Clouds_Shot3',
+      src: '/Astrophotography/Starry_Night_Sky_with_Clouds_Shot3',
       alt: 'A colorful photo of a cloudy night sky, 3rd photo',
+      blurHash: '',
     },
     {
-      src: 'Astrophotography/Starry_Night_Sky_with_Clouds_Shot4',
+      src: '/Astrophotography/Starry_Night_Sky_with_Clouds_Shot4',
       alt: 'A colorful photo of a cloudy night sky, 4th photo',
+      blurHash: '',
     },
     {
-      src: 'Astrophotography/Night_Streetlight_Gate',
+      src: '/Astrophotography/Night_Streetlight_Gate',
       alt: 'A photo of a street light behind a gate with the night sky in the background',
+      blurHash: '',
     },
-  ];
+  ]);
 
-  const imgixClient = new ImgixClient({
-    domain: 'brandonmckimmons-nextjs-563476088.imgix.net',
-  });
+  useEffect(() => {
+    const loadImages = async () => {
+      try {
+        const loadedImages = await imgixLoader(images);
+        console.log('Loaded images:', loadedImages); // Log the loaded images
 
-  const imgUrl = (image: { src: string; alt: string }) =>
-    imgixClient.buildURL(`${image.src}.webp`, {
-      fit: 'fill', // fill mode
-      auto: 'format,compress', // auto format and compress
-      lossless: 1,
-      // ... other Imgix parameters
-    });
+        const processedImages = loadedImages.map((image, index) => {
+          console.log(`Processing image ${index}:`, image); // Log each image
+          return {
+            src: image.url, // map 'url' to 'src'
+            alt: image.alt, // include 'alt' in the object
+            blurHash: image.blurHash, // include 'blurHash' in the object
+          };
+        });
+
+        setImages(processedImages);
+      } catch (error) {
+        console.error('Error loading images:', error); // Log any errors
+      }
+    };
+
+    loadImages();
+  }, []);
 
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
@@ -96,7 +118,7 @@ const Astrophotography: React.FC = () => {
           <div className='w-full'>
             <Image
               className='w-full max-h-svh mx-auto'
-              src={imgUrl(images[currentImageIndex])}
+              src={images[currentImageIndex].src}
               alt={images[currentImageIndex].alt}
               sizes='(min-width: 1280px) 1256px, (min-width: 1040px) 744px, (min-width: 780px) 648px, calc(100vw - 24px)'
               style={{
@@ -105,9 +127,7 @@ const Astrophotography: React.FC = () => {
               width={7028}
               height={4688}
               placeholder='blur'
-              blurDataURL={
-                'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkqAcAAIUAgUW0RjgAAAAASUVORK5CYII='
-              }
+              blurDataURL={`data:image/png;base64,${images[currentImageIndex].blurHash}`}
             />
           </div>
         </div>
@@ -138,23 +158,23 @@ const Astrophotography: React.FC = () => {
       <div className='bg-behr-debonair-blue flex flex-wrap justify-center py-8'>
         <div className='bg-very-light-brown rounded shadow-lg relative'>
           {!isModalOpen && images.length > 0 && (
-            <Image
-              className='object-cover max-h-svh max-w-min px-3 py-3 z-10'
-              src={imgUrl(images[currentImageIndex])}
-              alt={images[currentImageIndex].alt}
-              sizes='(min-width: 1280px) 1256px, (min-width: 1040px) 744px, (min-width: 780px) 648px, calc(100vw - 24px)'
-              style={{
-                objectFit: 'contain',
-              }}
-              width={7028}
-              height={4688}
-              onClick={toggleModal}
-              placeholder='blur'
-              blurDataURL={
-                'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkqAcAAIUAgUW0RjgAAAAASUVORK5CYII='
-              }
-              priority
-            />
+            <div>
+              <Image
+                className='object-cover max-h-svh max-w-min px-3 py-3 z-10'
+                src={images[currentImageIndex].src}
+                alt={images[currentImageIndex].alt}
+                sizes='(min-width: 1280px) 1256px, (min-width: 1040px) 744px, (min-width: 780px) 648px, calc(100vw - 24px)'
+                style={{
+                  objectFit: 'contain',
+                }}
+                width={7028}
+                height={4688}
+                onClick={toggleModal}
+                placeholder='blur'
+                blurDataURL={`data:image/png;base64,${images[currentImageIndex].blurHash}`}
+                priority
+              />
+            </div>
           )}
           {!isModalOpen && (
             <div className='absolute inset-0 flex items-center justify-between px-4 pointer-events-none'>

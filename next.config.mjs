@@ -1,4 +1,7 @@
-const withMDX = require('@next/mdx')({
+import withMDX from '@next/mdx';
+import withPlaiceholder from '@plaiceholder/next';
+
+const mdx = withMDX({
     extension: /\.mdx?$/
 });
 
@@ -13,4 +16,4 @@ const nextConfig = {
     },
 }
 
-module.exports = withMDX(nextConfig)
+export default withPlaiceholder(mdx(nextConfig));

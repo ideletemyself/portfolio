@@ -63,7 +63,7 @@ export default function Blog() {
             </article>
           </div>
         </div>
-        <div className='flex flex-col md:flex-row lg:flex-row xl:flex-row justify-center'>
+        <div id='blog-page-cards' className='flex flex-col md:flex-row lg:flex-row xl:flex-row justify-center items-center'>
           {sortedBlogs.map((blog: Blog) => (
             <div className='bg-behr-debonair-blue px-2 py-2' key={blog.slug}>
               <div className='bg-behr-debonair-blue py-2 pb-8'>

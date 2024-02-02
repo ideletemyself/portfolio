@@ -1,5 +1,4 @@
 import withMDX from '@next/mdx';
-import withPlaiceholder from '@plaiceholder/next';
 
 const mdx = withMDX({
     extension: /\.mdx?$/
@@ -16,4 +15,4 @@ const nextConfig = {
     },
 }
 
-export default withPlaiceholder(mdx(nextConfig));
+export default mdx(nextConfig);

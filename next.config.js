@@ -1,6 +1,6 @@
-import withMDX from '@next/mdx';
+const { ModuleResolutionKind } = require('typescript');
 
-const mdx = withMDX({
+const withMDX = require('@next/mdx')({
     extension: /\.mdx?$/
 });
 
@@ -15,4 +15,4 @@ const nextConfig = {
     },
 }
 
-export default mdx(nextConfig);
+module.exports = withMDX(nextConfig);

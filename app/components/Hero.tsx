@@ -1,24 +1,32 @@
 // components/Hero.tsx
+"use client";
 
 import React from 'react';
 import Image from 'next/image';
-import ImgixClient from '@imgix/js-core';
 
 interface HeroProps {
   title: string;
   subtitle: string;
 }
 
-const imgixClient = new ImgixClient({
-  domain: 'brandonmckimmons-nextjs-563476088.imgix.net',
-});
+interface LoaderProps {
+  src: string;
+  width: number;
+  quality: number;
+}
 
-const imgUrl = imgixClient.buildURL(`/DSC01612-hero.webp`, {
-  fit: 'fill', // fill mode
-  auto: 'format, compress', // auto format and compress
-  lossless: 1,
-  // ... other Imgix parameters
-});
+const imgixLoader = ({ src, width, quality }: LoaderProps) => {
+  const url = new URL(`https://brandonmckimmons-nextjs-563476088.imgix.net${src}`);
+  const params = url.searchParams;
+  params.set(
+    'auto',
+    params.getAll('auto').concat(['format', 'compress']).join(',')
+  );
+  params.set('fit', 'fill');
+  params.set('w', params.get('w') || width.toString());
+  params.set('h', params.get('h') || width.toString());
+  return url.href;
+}
 
 const Hero: React.FC<HeroProps> = ({ title, subtitle }) => {
   return (
@@ -26,7 +34,8 @@ const Hero: React.FC<HeroProps> = ({ title, subtitle }) => {
       <div className='relative h-1/2 w-full'>
         <Image
           className='object-cover w-full -z-1'
-          src={imgUrl}
+          src={'/Website/DSC01612-hero.webp'}
+          loader={imgixLoader}
           sizes='100vw'
           style={{
             objectFit: 'contain',

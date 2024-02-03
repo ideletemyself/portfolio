@@ -1,29 +1,37 @@
+"use client";
+
 import Image from 'next/image';
-import ImgixClient from '@imgix/js-core';
+
+interface LoaderProps {
+  src: string;
+  width: number;
+  quality?: number;
+}
+
+const imgixLoader = ({ src, width, quality }: LoaderProps) => {
+  const url = new URL(`https://brandonmckimmons-nextjs-563476088.imgix.net${src}`);
+  const params = url.searchParams;
+  params.set(
+    'auto',
+    params.getAll('auto').concat(['format', 'compress']).join(',')
+  );
+  params.set('fit', 'fill');
+  params.set('w', params.get('w') || width.toString());
+  params.set('h', params.get('h') || width.toString());
+  return url.href;
+}
 
 export default function About() {
   const images = [
     {
-      src: 'Website/Me_Under_Colored_Lights',
+      src: '/Website/Me_Under_Colored_Lights.webp',
       alt: 'A closeup of myself under colored lights.',
     },
     {
-      src: 'Website/Sagan_Peering_Over_On_Blue_Sofa',
+      src: '/Website/Sagan_Peering_Over_On_Blue_Sofa.webp',
       alt: 'Sagan peering over the top corner of a blue sofa.',
     },
   ];
-
-  const imgixClient = new ImgixClient({
-    domain: 'brandonmckimmons-nextjs-563476088.imgix.net',
-  });
-
-  const imgUrl = (image: { src: string; alt: string }) =>
-    imgixClient.buildURL(`${image.src}.webp`, {
-      fit: 'fill', // fill mode
-      auto: 'format,compress', // auto format and compress
-      lossless: 1,
-      // ... other Imgix parameters
-    });
 
   return (
     <>
@@ -49,8 +57,9 @@ export default function About() {
                 </div>
                 <Image
                   className='flex flex-col place-self-center h-40 w-40 sm:h-64 sm:w-64 pr-4'
-                  src={imgUrl(images[1])}
+                  src={images[1].src}
                   alt={images[1].alt}
+                  loader={imgixLoader}
                   width={4688}
                   height={3823}
                   placeholder='blur'
@@ -67,8 +76,9 @@ export default function About() {
             <article className='flex bg-very-light-brown rounded shadow-lg prose text-left font-light pl-4 pt-8 prose-img:rounded-full items-center'>
               <Image
                 className='flex flex-col px-2 h-40 w-40 sm:h-64 sm:w-64'
-                src={imgUrl(images[0])}
+                src={images[0].src}
                 alt={images[0].alt}
+                loader={imgixLoader}
                 width={5997}
                 height={4000}
                 placeholder='blur'

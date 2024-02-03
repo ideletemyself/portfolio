@@ -46,13 +46,15 @@ export default function Page({ params }: any) {
       <h2 className='prose prose-xl pb-4 text-slate-500'>{children}</h2>
     ),
     Image: ({ src, alt, width, height }) => (
-      <Image
-        className='items-center rounded'
-        src={src}
-        alt={alt}
-        width={width}
-        height={height}
-      />
+      <div className='w-full flex justify-center'>
+        <Image
+          className='rounded'
+          src={src}
+          alt={alt}
+          width={width}
+          height={height}
+        />
+      </div>
     ),
   });
 

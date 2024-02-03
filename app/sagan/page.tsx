@@ -2,84 +2,90 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
-import ImgixClient from '@imgix/js-core';
 import {
   ArrowLeftCircleIcon,
   ArrowRightCircleIcon,
 } from '@heroicons/react/24/outline';
 
+interface LoaderProps {
+  src: string;
+  width: number;
+  quality?: number;
+}
+
+const imgixLoader = ({ src, width, quality }: LoaderProps) => {
+  const url = new URL(`https://brandonmckimmons-nextjs-563476088.imgix.net${src}`);
+  const params = url.searchParams;
+  params.set(
+    'auto',
+    params.getAll('auto').concat(['format', 'compress']).join(',')
+  );
+  params.set('fit', 'fill');
+  params.set('w', params.get('w') || width.toString());
+  params.set('h', params.get('h') || width.toString());
+  return url.href;
+}
+
 const Sagan: React.FC = () => {
   const images = [
     {
-      src: 'Sagan/Closeup_Front_Shot_Of_Sagan',
+      src: '/Sagan/Closeup_Front_Shot_Of_Sagan.webp',
       alt: 'Closeup of Sagan in colored lights',
     },
     {
-      src: 'Sagan/Closeup_Side_Shot_Of_Sagan',
+      src: '/Sagan/Closeup_Side_Shot_Of_Sagan.webp',
       alt: 'Closeup of Sagan at a side shot in colored lights',
     },
     {
-      src: 'Sagan/Lounging_Sagan_On_Wood_Floor',
+      src: '/Sagan/Lounging_Sagan_On_Wood_Floor.webp',
       alt: 'Sagan lounging on a wooden floor',
     },
     {
-      src: 'Sagan/Sagan_Below_Colored_Ceiling_Fan',
+      src: '/Sagan/Sagan_Below_Colored_Ceiling_Fan.webp',
       alt: 'Sagan below a ceiling fan with colored lights',
     },
     {
-      src: 'Sagan/Sagan_In_Box_Colored_Lights',
+      src: '/Sagan/Sagan_In_Box_Colored_Lights.webp',
       alt: 'Sagan in a box in colored lights',
     },
     {
-      src: 'Sagan/Sagan_In_Small_Box',
+      src: '/Sagan/Sagan_In_Small_Box.webp',
       alt: 'Sagan in a small box with a blue sofa in the background',
     },
-    { src: 'Sagan/Sagan_Licking_His_Chops', alt: 'Sagan licking his chops' },
+    { src: '/Sagan/Sagan_Licking_His_Chops.webp', alt: 'Sagan licking his chops' },
     {
-      src: 'Sagan/Sagan_Lounging_On_Black_Chair',
+      src: '/Sagan/Sagan_Lounging_On_Black_Chair.webp',
       alt: 'Sagan lounging on a black computer chair',
     },
     {
-      src: 'Sagan/Sagan_On_Edge_Of_Blue_Sofa',
+      src: '/Sagan/Sagan_On_Edge_Of_Blue_Sofa.webp',
       alt: 'Sagan looking down from the edge of a blue sofa',
     },
     {
-      src: 'Sagan/Sagan_On_Edge_Of_Blue_Sofa_Posing',
+      src: '/Sagan/Sagan_On_Edge_Of_Blue_Sofa_Posing.webp',
       alt: 'Sagan looking down posing cutely from the edge of a blue sofa',
     },
     {
-      src: 'Sagan/Sagan_On_Green_Material_On_Blue_Sofa',
+      src: '/Sagan/Sagan_On_Green_Material_On_Blue_Sofa.webp',
       alt: 'Sagan on a green canvas material on a blue sofa',
     },
     {
-      src: 'Sagan/Sagan_Posing_On_Black_Chair',
+      src: '/Sagan/Sagan_Posing_On_Black_Chair.webp',
       alt: 'Sagan posing from a black computer chair in colored lights',
     },
     {
-      src: 'Sagan/Sagan_Posing_On_Wood_Floor',
+      src: '/Sagan/Sagan_Posing_On_Wood_Floor.webp',
       alt: 'Sagan posing on a wooden floor at night time',
     },
     {
-      src: 'Sagan/Sagan_Yawning_On_Blue_Sofa',
+      src: '/Sagan/Sagan_Yawning_On_Blue_Sofa.webp',
       alt: 'Sagan having a big yawn on the top of a blue sofa',
     },
     {
-      src: 'Sagan/Surprised_Sagan_In_Doorway',
+      src: '/Sagan/Surprised_Sagan_In_Doorway.webp',
       alt: 'Sagan surprised in a doorway with colored lights above',
     },
   ];
-
-  const imgixClient = new ImgixClient({
-    domain: 'brandonmckimmons-nextjs-563476088.imgix.net',
-  });
-
-  const imgUrl = (image: { src: string; alt: string }) =>
-    imgixClient.buildURL(`${image.src}.webp`, {
-      fit: 'fill', // fill mode
-      auto: 'format,compress', // auto format and compress
-      lossless: 1,
-      // ... other Imgix parameters
-    });
 
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
@@ -113,8 +119,9 @@ const Sagan: React.FC = () => {
           <div className='w-full'>
             <Image
               className='w-full max-h-svh mx-auto'
-              src={imgUrl(images[currentImageIndex])}
+              src={images[currentImageIndex].src}
               alt={images[currentImageIndex].alt}
+              loader={imgixLoader}
               sizes='(min-width: 1280px) 1256px, (min-width: 1040px) 744px, (min-width: 780px) 648px, calc(100vw - 24px)'
               style={{
                 objectFit: 'contain',
@@ -157,8 +164,9 @@ const Sagan: React.FC = () => {
           {!isModalOpen && images.length > 0 && (
             <Image
               className='object-cover max-h-svh max-w-min px-3 py-3 z-10'
-              src={imgUrl(images[currentImageIndex])}
+              src={images[currentImageIndex].src}
               alt={images[currentImageIndex].alt}
+              loader={imgixLoader}
               sizes='(min-width: 1280px) 1256px, (min-width: 1040px) 744px, (min-width: 780px) 648px, calc(100vw - 24px)'
               style={{
                 objectFit: 'contain',

@@ -12,7 +12,7 @@ interface HeroProps {
 interface LoaderProps {
   src: string;
   width: number;
-  quality: number;
+  quality?: number;
 }
 
 const imgixLoader = ({ src, width, quality }: LoaderProps) => {

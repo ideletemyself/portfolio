@@ -8,7 +8,7 @@ import ScrollToTop from './components/ScrollToTop';
 interface LoaderProps {
   src: string;
   width: number;
-  quality: number;
+  quality?: number;
 }
 
 const imgixLoader = ({ src, width, quality }: LoaderProps) => {

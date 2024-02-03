@@ -16,6 +16,7 @@
     "@mdx-js/react": "^3.0.0",
     "@next/bundle-analyzer": "^14.1.0",
     "@next/mdx": "^14.1.0",
+    "@next/third-parties": "^14.1.0",
     "@react-icons/all-files": "^4.1.0",
     "@types/mdx": "^2.0.10",
     "gray-matter": "^4.0.3",

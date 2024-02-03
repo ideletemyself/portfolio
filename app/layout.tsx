@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from 'next';
 import { Inter } from 'next/font/google';
+import { GoogleAnalytics } from '@next/third-parties/google'
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
@@ -82,6 +83,7 @@ export default function RootLayout({
         <Footer />
       </body>
       <ScrollToTop />
+      <GoogleAnalytics gaId="G-S3Y26H227T" />
     </html>
   );
 }

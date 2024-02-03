@@ -1,34 +1,13 @@
-"use client";
-
 import Image from 'next/image';
-
-interface LoaderProps {
-  src: string;
-  width: number;
-  quality?: number;
-}
-
-const imgixLoader = ({ src, width, quality }: LoaderProps) => {
-  const url = new URL(`https://brandonmckimmons-nextjs-563476088.imgix.net${src}`);
-  const params = url.searchParams;
-  params.set(
-    'auto',
-    params.getAll('auto').concat(['format', 'compress']).join(',')
-  );
-  params.set('fit', 'fill');
-  params.set('w', params.get('w') || width.toString());
-  params.set('h', params.get('h') || width.toString());
-  return url.href;
-}
 
 export default function About() {
   const images = [
     {
-      src: '/Website/Me_Under_Colored_Lights.webp',
+      src: 'https://brandonmckimmons-nextjs-563476088.imgix.net/Website/Me_Under_Colored_Lights.webp',
       alt: 'A closeup of myself under colored lights.',
     },
     {
-      src: '/Website/Sagan_Peering_Over_On_Blue_Sofa.webp',
+      src: 'https://brandonmckimmons-nextjs-563476088.imgix.net/Website/Sagan_Peering_Over_On_Blue_Sofa.webp',
       alt: 'Sagan peering over the top corner of a blue sofa.',
     },
   ];
@@ -59,7 +38,6 @@ export default function About() {
                   className='flex flex-col place-self-center h-40 w-40 sm:h-64 sm:w-64 pr-4'
                   src={images[1].src}
                   alt={images[1].alt}
-                  loader={imgixLoader}
                   width={4688}
                   height={3823}
                   placeholder='blur'
@@ -78,7 +56,6 @@ export default function About() {
                 className='flex flex-col px-2 h-40 w-40 sm:h-64 sm:w-64'
                 src={images[0].src}
                 alt={images[0].alt}
-                loader={imgixLoader}
                 width={5997}
                 height={4000}
                 placeholder='blur'

@@ -1,6 +1,3 @@
-// components/Hero.tsx
-"use client";
-
 import React from 'react';
 import Image from 'next/image';
 
@@ -9,33 +6,13 @@ interface HeroProps {
   subtitle: string;
 }
 
-interface LoaderProps {
-  src: string;
-  width: number;
-  quality?: number;
-}
-
-const imgixLoader = ({ src, width, quality }: LoaderProps) => {
-  const url = new URL(`https://brandonmckimmons-nextjs-563476088.imgix.net${src}`);
-  const params = url.searchParams;
-  params.set(
-    'auto',
-    params.getAll('auto').concat(['format', 'compress']).join(',')
-  );
-  params.set('fit', 'fill');
-  params.set('w', params.get('w') || width.toString());
-  params.set('h', params.get('h') || width.toString());
-  return url.href;
-}
-
 const Hero: React.FC<HeroProps> = ({ title, subtitle }) => {
   return (
     <>
       <div className='relative h-1/2 w-full'>
         <Image
           className='object-cover w-full -z-1'
-          src={'/Website/DSC01612-hero.webp'}
-          loader={imgixLoader}
+          src={'https://brandonmckimmons-nextjs-563476088.imgix.net/Website/DSC01612-hero.webp'}
           sizes='100vw'
           style={{
             objectFit: 'contain',

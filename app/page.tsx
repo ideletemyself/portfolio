@@ -1,49 +1,28 @@
-"use client";
-
 import Image from 'next/image';
 import Link from 'next/link';
 import Hero from './components/Hero';
 import ScrollToTop from './components/ScrollToTop';
 
-interface LoaderProps {
-  src: string;
-  width: number;
-  quality?: number;
-}
-
-const imgixLoader = ({ src, width, quality }: LoaderProps) => {
-  const url = new URL(`https://brandonmckimmons-nextjs-563476088.imgix.net${src}`);
-  const params = url.searchParams;
-  params.set(
-    'auto',
-    params.getAll('auto').concat(['format', 'compress']).join(',')
-  );
-  params.set('fit', 'fill');
-  params.set('w', params.get('w') || width.toString());
-  params.set('h', params.get('h') || width.toString());
-  return url.href;
-}
-
 const Home: React.FC = () => {
   const images = [
     {
-      src: '/Astrophotography/Blue_Orion_Shot1_Small.webp',
+      src: 'https://brandonmckimmons-nextjs-563476088.imgix.net/Astrophotography/Blue_Orion_Shot1_Small.webp',
       alt: 'The constellation Orion with a blue hue. Small version.',
     },
     {
-      src: '/Nature/Green_Path_at_Sunset_Small.webp',
+      src: 'https://brandonmckimmons-nextjs-563476088.imgix.net/Nature/Green_Path_at_Sunset_Small.webp',
       alt: 'A green path at sunset with a blue sky. Small version.',
     },
     {
-      src: '/Animals/Green_Parrot_On_Branch_Small.webp',
+      src: 'https://brandonmckimmons-nextjs-563476088.imgix.net/Animals/Green_Parrot_On_Branch_Small.webp',
       alt: 'A green parrot trying to get attention on a branch. Small version.',
     },
     {
-      src: '/Sagan/Sagan_Yawning_On_Blue_Sofa_Small.webp',
+      src: 'https://brandonmckimmons-nextjs-563476088.imgix.net/Sagan/Sagan_Yawning_On_Blue_Sofa_Small.webp',
       alt: 'Sagan yawning on the top of a blue sofa. Small version.',
     },
     {
-      src: '/Blog/blog-writing.webp',
+      src: 'https://brandonmckimmons-nextjs-563476088.imgix.net/Blog/blog-writing.webp',
       alt: 'A colorful illustration of a desk with a laptop and other things on it.',
     },
   ];
@@ -105,7 +84,6 @@ const Home: React.FC = () => {
                     className='w-full rounded'
                     src={images[0].src}
                     alt={images[0].alt}
-                    loader={imgixLoader}
                     sizes='(min-width: 1240px) 352px, (min-width: 1040px) calc(25vw + 47px), (min-width: 780px) calc(33.75vw - 96px), (min-width: 640px) 306px, (min-width: 380px) 274px, 76.67vw'
                     width={353}
                     height={233}
@@ -134,7 +112,6 @@ const Home: React.FC = () => {
                     className='w-full rounded'
                     src={images[1].src}
                     alt={images[1].alt}
-                    loader={imgixLoader}
                     sizes='(min-width: 1300px) 304px, (min-width: 1040px) calc(32.5vw - 112px), (min-width: 780px) calc(33.33vw - 94px), (min-width: 640px) 306px, (min-width: 380px) 274px, 76.67vw'
                     width={353}
                     height={233}
@@ -163,7 +140,6 @@ const Home: React.FC = () => {
                     className='w-full rounded'
                     src={images[2].src}
                     alt={images[2].alt}
-                    loader={imgixLoader}
                     sizes='(min-width: 1300px) 304px, (min-width: 1040px) calc(32.08vw - 107px), (min-width: 780px) calc(33.33vw - 94px), (min-width: 640px) 306px, (min-width: 380px) 274px, 76.67vw'
                     width={353}
                     height={233}
@@ -192,7 +168,6 @@ const Home: React.FC = () => {
                     className='w-full rounded'
                     src={images[3].src}
                     alt={images[3].alt}
-                    loader={imgixLoader}
                     sizes='(min-width: 1300px) 304px, (min-width: 1040px) calc(32.08vw - 107px), (min-width: 780px) calc(33.33vw - 94px), (min-width: 640px) 306px, (min-width: 380px) 274px, 76.67vw'
                     width={353}
                     height={235}
@@ -221,7 +196,6 @@ const Home: React.FC = () => {
                     className='w-full rounded'
                     src={images[4].src}
                     alt={images[4].alt}
-                    loader={imgixLoader}
                     sizes='(min-width: 1300px) 304px, (min-width: 1040px) calc(32.08vw - 107px), (min-width: 780px) calc(33.33vw - 94px), (min-width: 640px) 306px, (min-width: 380px) 274px, 76.67vw'
                     width={353}
                     height={235}

@@ -3,6 +3,9 @@ const { ModuleResolutionKind } = require('typescript');
 const withMDX = require('@next/mdx')({
     extension: /\.mdx?$/
 });
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+  enabled: process.env.ANALYZE === 'true',
+});
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -15,4 +18,4 @@ const nextConfig = {
     },
 }
 
-module.exports = withMDX(nextConfig);
+module.exports = withBundleAnalyzer(withMDX(nextConfig));

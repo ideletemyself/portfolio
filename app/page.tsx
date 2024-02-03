@@ -2,6 +2,8 @@ import Image from 'next/image';
 import ImgixClient from '@imgix/js-core';
 import Link from 'next/link';
 import Hero from './components/Hero';
+import ScrollToTop from './components/ScrollToTop';
+
 
 const Home: React.FC = () => {
   const images = [
@@ -41,6 +43,7 @@ const Home: React.FC = () => {
 
   return (
     <>
+      <ScrollToTop />
       <Hero
         title='Brandon McKimmons'
         subtitle='Photography, Programming & Producing Music'

@@ -217,6 +217,10 @@ const Animals: React.FC = () => {
                           }}
                           width={1501}
                           height={1687}
+                          placeholder='blur'
+                          blurDataURL={
+                            'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkqAcAAIUAgUW0RjgAAAAASUVORK5CYII='
+                          }
                           className='block h-full w-full object-cover'
                         />
                       </button>

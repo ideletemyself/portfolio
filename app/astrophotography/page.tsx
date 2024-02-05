@@ -141,7 +141,10 @@ const Astrophotography: React.FC = () => {
                   navigation={true}
                   spaceBetween={50}
                   thumbs={{
-                    swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null
+                    swiper:
+                      thumbsSwiper && !thumbsSwiper.destroyed
+                        ? thumbsSwiper
+                        : null,
                   }}
                   modules={[FreeMode, Navigation, Thumbs]}
                   initialSlide={currentSlideIndex ?? 0}
@@ -198,6 +201,10 @@ const Astrophotography: React.FC = () => {
                           }}
                           width={7028}
                           height={4688}
+                          placeholder='blur'
+                          blurDataURL={
+                            'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkqAcAAIUAgUW0RjgAAAAASUVORK5CYII='
+                          }
                           className='block h-full w-full object-cover'
                         />
                       </button>

@@ -236,7 +236,7 @@ const Nature: React.FC = () => {
                   navigation={true}
                   spaceBetween={50}
                   thumbs={{
-                    swiper: thumbsSwiper,
+                    swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null
                   }}
                   modules={[FreeMode, Navigation, Thumbs]}
                   initialSlide={currentSlideIndex ?? 0}
@@ -272,13 +272,13 @@ const Nature: React.FC = () => {
                   ))}
                 </SwiperReact>
                 <SwiperReact
+                  onSwiper={setThumbsSwiper}
                   loop={true}
                   spaceBetween={12}
                   slidesPerView={4}
                   freeMode={true}
                   watchSlidesProgress={true}
                   modules={[FreeMode, Navigation, Thumbs]}
-                  onSwiper={setThumbsSwiper}
                   className='thumbs mt-3 h-32 w-full rounded-lg'
                 >
                   {processedImages.map((image, index) => (

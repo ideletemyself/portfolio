@@ -34,4 +34,10 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# directorys to ignore
 public/images/
+/app/components/GenerateImgixUrls.tsx
+
+# files to ignore
+/next.config.js

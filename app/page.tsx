@@ -6,23 +6,23 @@ import ScrollToTop from './components/ScrollToTop';
 const Home: React.FC = () => {
   const images = [
     {
-      src: 'https://brandonmckimmons-nextjs-563476088.imgix.net/Astrophotography/Blue_Orion_Shot1_Small.webp',
+      src: '/images/others/Blue_Orion_Shot1_Small.webp',
       alt: 'The constellation Orion with a blue hue. Small version.',
     },
     {
-      src: 'https://brandonmckimmons-nextjs-563476088.imgix.net/Nature/Green_Path_at_Sunset_Small.webp',
+      src: '/images/others/Green_Path_at_Sunset_Small.webp',
       alt: 'A green path at sunset with a blue sky. Small version.',
     },
     {
-      src: 'https://brandonmckimmons-nextjs-563476088.imgix.net/Animals/Green_Parrot_On_Branch_Small.webp',
+      src: '/images/others/Green_Parrot_On_Branch_Small.webp',
       alt: 'A green parrot trying to get attention on a branch. Small version.',
     },
     {
-      src: 'https://brandonmckimmons-nextjs-563476088.imgix.net/Sagan/Sagan_Yawning_On_Blue_Sofa_Small.webp',
+      src: '/images/others/Sagan_Yawning_On_Blue_Sofa_Small.webp',
       alt: 'Sagan yawning on the top of a blue sofa. Small version.',
     },
     {
-      src: 'https://brandonmckimmons-nextjs-563476088.imgix.net/Blog/blog-writing.webp',
+      src: '/images/others/blog-writing.webp',
       alt: 'A colorful illustration of a desk with a laptop and other things on it.',
     },
   ];

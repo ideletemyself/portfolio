@@ -3,11 +3,11 @@ import Image from 'next/image';
 export default function About() {
   const images = [
     {
-      src: 'https://brandonmckimmons-nextjs-563476088.imgix.net/Website/Me_Under_Colored_Lights.webp',
+      src: '/images/others/Me_Under_Colored_Lights.webp',
       alt: 'A closeup of myself under colored lights.',
     },
     {
-      src: 'https://brandonmckimmons-nextjs-563476088.imgix.net/Website/Sagan_Peering_Over_On_Blue_Sofa.webp',
+      src: '/images/others/Sagan_Peering_Over_On_Blue_Sofa.webp',
       alt: 'Sagan peering over the top corner of a blue sofa.',
     },
   ];

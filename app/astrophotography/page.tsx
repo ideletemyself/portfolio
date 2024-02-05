@@ -2,7 +2,6 @@
 
 import React, { useState } from 'react';
 import Image from 'next/image';
-import generateImgUrls from '../components/GenerateImgixUrls';
 import { Swiper } from 'swiper';
 import { Swiper as SwiperReact, SwiperSlide } from 'swiper/react';
 import { FreeMode, Navigation, Thumbs } from 'swiper/modules';
@@ -22,54 +21,52 @@ type ImageType = {
   alt?: string;
 };
 
-const selectedImage: ImageType = {
-  src: 'path/to/image',
-  alt: 'image description',
-};
-
 const Astrophotography: React.FC = () => {
   const images: Image[] = [
     {
-      src: '/Astrophotography/Blue_Orion_Shot1',
+      src: '/Blue_Orion_Shot1',
       alt: 'The Orion constellation with a blue hue, 1st photo',
     },
     {
-      src: '/Astrophotography/Blue_Starry_Night_Shot1',
+      src: '/Blue_Starry_Night_Shot1',
       alt: 'A random shot of a section of the night sky with a blue hue',
     },
     {
-      src: '/Astrophotography/Purple_Orion_Shot1',
+      src: '/Purple_Orion_Shot1',
       alt: 'The Orion constellation with a purple hue, 1st photo',
     },
     {
-      src: '/Astrophotography/Purple_Orion_Shot2',
+      src: '/Purple_Orion_Shot2',
       alt: 'The Orion constellation with a purple hue, 2nd photo',
     },
     {
-      src: '/Astrophotography/Purple_Orion_Shot3',
+      src: '/Purple_Orion_Shot3',
       alt: 'The Orion constellation with a purple hue, 3rd photo',
     },
     {
-      src: '/Astrophotography/Starry_Night_Sky_with_Clouds_Shot1',
+      src: '/Starry_Night_Sky_with_Clouds_Shot1',
       alt: 'A colorful photo of a cloudy night sky, 1st photo',
     },
     {
-      src: '/Astrophotography/Starry_Night_Sky_with_Clouds_Shot2',
+      src: '/Starry_Night_Sky_with_Clouds_Shot2',
       alt: 'A colorful photo of a cloudy night sky, 2nd photo',
     },
     {
-      src: '/Astrophotography/Starry_Night_Sky_with_Clouds_Shot3',
+      src: '/Starry_Night_Sky_with_Clouds_Shot3',
       alt: 'A colorful photo of a cloudy night sky, 3rd photo',
     },
     {
-      src: '/Astrophotography/Starry_Night_Sky_with_Clouds_Shot4',
+      src: '/Starry_Night_Sky_with_Clouds_Shot4',
       alt: 'A colorful photo of a cloudy night sky, 4th photo',
     },
     {
-      src: '/Astrophotography/Night_Streetlight_Gate',
+      src: '/Night_Streetlight_Gate',
       alt: 'A photo of a street light behind a gate with the night sky in the background',
     },
-  ];
+  ].map((image) => ({
+    ...image,
+    src: `/images/astro${image.src}.webp`,
+  }));
 
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
@@ -84,8 +81,6 @@ const Astrophotography: React.FC = () => {
   const [currentSlideIndex, setCurrentSlideIndex] = useState<number | null>(
     null
   );
-
-  const processedImages: Image[] = generateImgUrls(images);
 
   return (
     <>
@@ -154,7 +149,7 @@ const Astrophotography: React.FC = () => {
                     setCurrentSlideIndex(swiper.activeIndex);
                   }}
                 >
-                  {processedImages.map((image, index) => (
+                  {images.map((image, index) => (
                     <SwiperSlide key={index}>
                       <div className='flex items-center justify-center'>
                         <Image
@@ -191,7 +186,7 @@ const Astrophotography: React.FC = () => {
                   modules={[FreeMode, Navigation, Thumbs]}
                   className='thumbs mt-3 h-32 w-full rounded-lg'
                 >
-                  {processedImages.map((image, index) => (
+                  {images.map((image, index) => (
                     <SwiperSlide key={index}>
                       <button className='flex h-full w-full items-center justify-center'>
                         <Image

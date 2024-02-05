@@ -12,7 +12,7 @@ const Hero: React.FC<HeroProps> = ({ title, subtitle }) => {
       <div className='relative h-1/2 w-full'>
         <Image
           className='object-cover w-full -z-1'
-          src={'https://brandonmckimmons-nextjs-563476088.imgix.net/Website/DSC01612-hero.webp'}
+          src={'/images/others/DSC01612-hero.webp'}
           sizes='100vw'
           style={{
             objectFit: 'contain',

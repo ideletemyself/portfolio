@@ -2,7 +2,6 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
-import generateImgUrls from '../components/GenerateImgixUrls';
 import { Swiper } from 'swiper';
 import { Swiper as SwiperReact, SwiperSlide } from 'swiper/react';
 import { FreeMode, Navigation, Thumbs } from 'swiper/modules';
@@ -22,71 +21,69 @@ type ImageType = {
   alt?: string;
 };
 
-const selectedImage: ImageType = {
-  src: 'path/to/image',
-  alt: 'image description',
-};
-
 const Sagan: React.FC = () => {
   const images: Image[] = [
     {
-      src: '/Sagan/Closeup_Front_Shot_Of_Sagan',
+      src: '/Closeup_Front_Shot_Of_Sagan',
       alt: 'Closeup of Sagan in colored lights',
     },
     {
-      src: '/Sagan/Closeup_Side_Shot_Of_Sagan',
+      src: '/Closeup_Side_Shot_Of_Sagan',
       alt: 'Closeup of Sagan at a side shot in colored lights',
     },
     {
-      src: '/Sagan/Lounging_Sagan_On_Wood_Floor',
+      src: '/Lounging_Sagan_On_Wood_Floor',
       alt: 'Sagan lounging on a wooden floor',
     },
     {
-      src: '/Sagan/Sagan_Below_Colored_Ceiling_Fan',
+      src: '/Sagan_Below_Colored_Ceiling_Fan',
       alt: 'Sagan below a ceiling fan with colored lights',
     },
     {
-      src: '/Sagan/Sagan_In_Box_Colored_Lights',
+      src: '/Sagan_In_Box_Colored_Lights',
       alt: 'Sagan in a box in colored lights',
     },
     {
-      src: '/Sagan/Sagan_In_Small_Box',
+      src: '/Sagan_In_Small_Box',
       alt: 'Sagan in a small box with a blue sofa in the background',
     },
-    { src: '/Sagan/Sagan_Licking_His_Chops', alt: 'Sagan licking his chops' },
+    { src: '/Sagan_Licking_His_Chops', alt: 'Sagan licking his chops' },
     {
-      src: '/Sagan/Sagan_Lounging_On_Black_Chair',
+      src: '/Sagan_Lounging_On_Black_Chair',
       alt: 'Sagan lounging on a black computer chair',
     },
     {
-      src: '/Sagan/Sagan_On_Edge_Of_Blue_Sofa',
+      src: '/Sagan_On_Edge_Of_Blue_Sofa',
       alt: 'Sagan looking down from the edge of a blue sofa',
     },
     {
-      src: '/Sagan/Sagan_On_Edge_Of_Blue_Sofa_Posing',
+      src: '/Sagan_On_Edge_Of_Blue_Sofa_Posing',
       alt: 'Sagan looking down posing cutely from the edge of a blue sofa',
     },
     {
-      src: '/Sagan/Sagan_On_Green_Material_On_Blue_Sofa',
+      src: '/Sagan_On_Green_Material_On_Blue_Sofa',
       alt: 'Sagan on a green canvas material on a blue sofa',
     },
     {
-      src: '/Sagan/Sagan_Posing_On_Black_Chair',
+      src: '/Sagan_Posing_On_Black_Chair',
       alt: 'Sagan posing from a black computer chair in colored lights',
     },
     {
-      src: '/Sagan/Sagan_Posing_On_Wood_Floor',
+      src: '/Sagan_Posing_On_Wood_Floor',
       alt: 'Sagan posing on a wooden floor at night time',
     },
     {
-      src: '/Sagan/Sagan_Yawning_On_Blue_Sofa',
+      src: '/Sagan_Yawning_On_Blue_Sofa',
       alt: 'Sagan having a big yawn on the top of a blue sofa',
     },
     {
-      src: '/Sagan/Surprised_Sagan_In_Doorway',
+      src: '/Surprised_Sagan_In_Doorway',
       alt: 'Sagan surprised in a doorway with colored lights above',
     },
-  ];
+  ].map((image) => ({
+    ...image,
+    src: `/images/sagan${image.src}.webp`,
+  }));
 
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
@@ -101,8 +98,6 @@ const Sagan: React.FC = () => {
   const [currentSlideIndex, setCurrentSlideIndex] = useState<number | null>(
     null
   );
-
-  const processedImages: Image[] = generateImgUrls(images);
 
   return (
     <>
@@ -174,7 +169,7 @@ const Sagan: React.FC = () => {
                     setCurrentSlideIndex(swiper.activeIndex);
                   }}
                 >
-                  {processedImages.map((image, index) => (
+                  {images.map((image, index) => (
                     <SwiperSlide key={index}>
                       <div className='flex items-center justify-center'>
                         <Image
@@ -211,7 +206,7 @@ const Sagan: React.FC = () => {
                   modules={[FreeMode, Navigation, Thumbs]}
                   className='thumbs mt-3 h-32 w-full rounded-lg'
                 >
-                  {processedImages.map((image, index) => (
+                  {images.map((image, index) => (
                     <SwiperSlide key={index}>
                       <button className='flex h-full w-full items-center justify-center'>
                         <Image

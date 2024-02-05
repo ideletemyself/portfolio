@@ -2,14 +2,33 @@
 
 import React, { useState } from 'react';
 import Image from 'next/image';
-import ImgixClient from '@imgix/js-core';
-import {
-  ArrowLeftCircleIcon,
-  ArrowRightCircleIcon,
-} from '@heroicons/react/24/outline';
+import generateImgUrls from '../components/GenerateImgixUrls';
+import { Swiper } from 'swiper';
+import { Swiper as SwiperReact, SwiperSlide } from 'swiper/react';
+import { FreeMode, Navigation, Thumbs } from 'swiper/modules';
+
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/free-mode';
+import 'swiper/css/thumbs';
+
+interface Image {
+  src: string;
+  alt: string;
+}
+
+type ImageType = {
+  src: string;
+  alt?: string;
+};
+
+const selectedImage: ImageType = {
+  src: 'path/to/image',
+  alt: 'image description',
+};
 
 const Astrophotography: React.FC = () => {
-  const images = [
+  const images: Image[] = [
     {
       src: '/Astrophotography/Blue_Orion_Shot1',
       alt: 'The Orion constellation with a blue hue, 1st photo',
@@ -52,43 +71,25 @@ const Astrophotography: React.FC = () => {
     },
   ];
 
-  const imgixClient = new ImgixClient({
-    domain: 'brandonmckimmons-nextjs-563476088.imgix.net',
-  });
-
-  const imgUrl = (image: { src: string; alt: string }) =>
-    imgixClient.buildURL(`${image.src}.webp`, {
-      fit: 'fill', // fill mode
-      auto: 'format,compress', // auto format and compress
-      lossless: 1,
-      // ... other Imgix parameters
-    });
-
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-
-  const nextImage = () => {
-    if (images) {
-      setCurrentImageIndex((currentImageIndex + 1) % images.length);
-    }
-  };
-
-  const prevImage = () => {
-    if (images) {
-      setCurrentImageIndex(
-        (currentImageIndex - 1 + images.length) % images.length
-      );
-    }
-  };
-
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
   const toggleModal = () => {
     setIsModalOpen(!isModalOpen);
   };
 
+  const [thumbsSwiper, setThumbsSwiper] = useState<Swiper | null>(null);
+
+  const [selectedImage, setSelectedImage] = useState<ImageType | null>(null);
+
+  const [currentSlideIndex, setCurrentSlideIndex] = useState<number | null>(
+    null
+  );
+
+  const processedImages: Image[] = generateImgUrls(images);
+
   return (
     <>
-      {isModalOpen && (
+      {isModalOpen && selectedImage && (
         <div
           onClick={toggleModal}
           className='fixed top-0 left-0 w-screen h-screen flex items-center justify-center bg-black'
@@ -96,8 +97,8 @@ const Astrophotography: React.FC = () => {
           <div className='w-full'>
             <Image
               className='w-full max-h-svh mx-auto'
-              src={imgUrl(images[currentImageIndex])}
-              alt={images[currentImageIndex].alt}
+              src={selectedImage.src}
+              alt={selectedImage.alt ?? ''}
               sizes='(min-width: 1280px) 1256px, (min-width: 1040px) 744px, (min-width: 780px) 648px, calc(100vw - 24px)'
               style={{
                 objectFit: 'contain',
@@ -135,45 +136,82 @@ const Astrophotography: React.FC = () => {
         </div>
       )}
 
-      <div className='bg-behr-debonair-blue flex flex-wrap justify-center py-8'>
-        <div className='bg-very-light-brown rounded shadow-lg relative'>
-          {!isModalOpen && images.length > 0 && (
-            <div>
-              <Image
-                className='object-cover max-h-svh max-w-min px-3 py-3 z-10'
-                src={imgUrl(images[currentImageIndex])}
-                alt={images[currentImageIndex].alt}
-                sizes='(min-width: 1280px) 1256px, (min-width: 1040px) 744px, (min-width: 780px) 648px, calc(100vw - 24px)'
-                style={{
-                  objectFit: 'contain',
-                }}
-                width={7028}
-                height={4688}
-                onClick={toggleModal}
-                placeholder='blur'
-                blurDataURL={
-                  'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkqAcAAIUAgUW0RjgAAAAASUVORK5CYII='
-                }
-                priority
-              />
-            </div>
-          )}
-          {!isModalOpen && (
-            <div className='absolute inset-0 flex items-center justify-between px-4 pointer-events-none'>
-              <ArrowLeftCircleIcon
-                className='h-10 w-10 text-white opacity-75 hover:opacity-100 pointer-events-auto'
-                onClick={prevImage}
-              >
-                Previous
-              </ArrowLeftCircleIcon>
-              <ArrowRightCircleIcon
-                className='h-10 w-10 text-white opacity-75 hover:opacity-100 pointer-events-auto'
-                onClick={nextImage}
-              >
-                Next
-              </ArrowRightCircleIcon>
-            </div>
-          )}
+      <div className='bg-behr-debonair-blue flex flex-col items-center py-8'>
+        <div className='container items-center justify-center flex'>
+          <div className='bg-very-light-brown rounded shadow-lg w-full sm:w-3/4'>
+            {!isModalOpen && images.length > 0 && (
+              <>
+                <SwiperReact
+                  loop={true}
+                  navigation={true}
+                  spaceBetween={50}
+                  thumbs={{
+                    swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null
+                  }}
+                  modules={[FreeMode, Navigation, Thumbs]}
+                  initialSlide={currentSlideIndex ?? 0}
+                  onSlideChange={(swiper) => {
+                    setCurrentSlideIndex(swiper.activeIndex);
+                  }}
+                >
+                  {processedImages.map((image, index) => (
+                    <SwiperSlide key={index}>
+                      <div className='flex items-center justify-center'>
+                        <Image
+                          className='object-cover max-h-svh px-3 py-3 z-10'
+                          src={image.src}
+                          alt={image.alt}
+                          sizes='(min-width: 1280px) 1256px, (min-width: 1040px) 744px, (min-width: 780px) 648px, calc(100vw - 24px)'
+                          style={{
+                            objectFit: 'contain',
+                          }}
+                          width={7028}
+                          height={4688}
+                          onClick={() => {
+                            toggleModal();
+                            setSelectedImage(image);
+                          }}
+                          placeholder='blur'
+                          blurDataURL={
+                            'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkqAcAAIUAgUW0RjgAAAAASUVORK5CYII='
+                          }
+                          priority
+                        />
+                      </div>
+                    </SwiperSlide>
+                  ))}
+                </SwiperReact>
+                <SwiperReact
+                  onSwiper={setThumbsSwiper}
+                  loop={true}
+                  spaceBetween={12}
+                  slidesPerView={4}
+                  freeMode={true}
+                  watchSlidesProgress={true}
+                  modules={[FreeMode, Navigation, Thumbs]}
+                  className='thumbs mt-3 h-32 w-full rounded-lg'
+                >
+                  {processedImages.map((image, index) => (
+                    <SwiperSlide key={index}>
+                      <button className='flex h-full w-full items-center justify-center'>
+                        <Image
+                          src={image.src}
+                          alt={image.alt}
+                          sizes='(min-width: 1280px) 1256px, (min-width: 1040px) 744px, (min-width: 780px) 648px, calc(100vw - 24px)'
+                          style={{
+                            objectFit: 'contain',
+                          }}
+                          width={7028}
+                          height={4688}
+                          className='block h-full w-full object-cover'
+                        />
+                      </button>
+                    </SwiperSlide>
+                  ))}
+                </SwiperReact>
+              </>
+            )}
+          </div>
         </div>
       </div>
     </>

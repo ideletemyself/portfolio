@@ -4,6 +4,8 @@ import { GoogleAnalytics } from '@next/third-parties/google'
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
+import OGimage from './public/images/others/OG-SunSky-1200x630.jpg';
+import SafariIcon from './public/images/others/safari-icon.svg';
 import './globals.css';
 
 const inter = Inter({ subsets: ['latin'] });
@@ -15,7 +17,7 @@ export const metadata: Metadata = {
   icons: [
     {
       rel: 'mask-icon',
-      url: '/images/others/safari-icon.svg',
+      url: SafariIcon.src,
       color: '#0217d6',
     },
   ],
@@ -40,7 +42,7 @@ export const metadata: Metadata = {
     siteName: 'brandonmckimmons.com',
     images: [
       {
-        url: '/images/others/OG-SunSky-1200x630.jpg',
+        url: OGimage.src,
         type: 'image/jpeg',
         width: 1200,
         height: 630,
@@ -59,7 +61,7 @@ export const metadata: Metadata = {
       'Brandon McKimmons Portfolio, talking about and showing off my photography, programming and music production. I also have a blog where I talk about various related topics.',
     creator: '@ideletemyself',
     images: [
-      '/images/others/OG-SunSky-1200x630.jpg',
+      OGimage.src,
     ],
   },
 };

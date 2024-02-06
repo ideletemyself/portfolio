@@ -3,6 +3,7 @@
 import { Disclosure } from '@headlessui/react';
 import { Bars3Icon, HomeIcon, XMarkIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 
 const navigation = [
@@ -42,14 +43,18 @@ const Navbar: React.FC = () => {
                 </Disclosure.Button>
               </div>
               <div className='flex flex-auto flex-shrink-1 items-center justify-center sm:items-stretch sm:justify-start'>
-                <div className='flex flex-shrink-1 items-center'>
+                <div className='flex flex-auto justify-center md:justify-start'>
                   <Link href='/'>
-                    <p
-                      className='subpixel-antialiased font-bold text-base sm:text-3xl 
-                                 text-cyan-blue hover:bg-light-cyan-blue hover:text-white rounded-md px-3 py-2 pl-0 sm:pl-40 md:pl-0'
-                    >
-                      Brandon McKimmons
-                    </p>
+                    <Image
+                      className='h-16 w-16'
+                      src='/images/others/bcm-logo1.webp'
+                      alt='Logo'
+                      style={{
+                        objectFit: 'contain',
+                      }}
+                      width={540}
+                      height={540}
+                      />
                   </Link>
                 </div>
               </div>

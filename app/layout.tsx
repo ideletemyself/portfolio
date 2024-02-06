@@ -4,8 +4,8 @@ import { GoogleAnalytics } from '@next/third-parties/google'
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
-import OGimage from './public/images/others/OG-SunSky-1200x630.jpg';
-import SafariIcon from './public/images/others/safari-icon.svg';
+import OGimage from '../public/images/others/OG-SunSky-1200x630.jpg';
+import SafariIcon from '../public/images/others/safari-icon.svg';
 import './globals.css';
 
 const inter = Inter({ subsets: ['latin'] });

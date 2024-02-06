@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   icons: [
     {
       rel: 'mask-icon',
-      url: 'https://brandonmckimmons-nextjs-563476088.imgix.net/Website/safari-icon.svg',
+      url: '/images/others/safari-icon.svg',
       color: '#0217d6',
     },
   ],
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     siteName: 'brandonmckimmons.com',
     images: [
       {
-        url: 'https://brandonmckimmons-nextjs-563476088.imgix.net/Website/OG-SunSky-1200x630.jpg',
+        url: '/images/others/OG-SunSky-1200x630.jpg',
         type: 'image/jpeg',
         width: 1200,
         height: 630,
@@ -59,7 +59,7 @@ export const metadata: Metadata = {
       'Brandon McKimmons Portfolio, talking about and showing off my photography, programming and music production. I also have a blog where I talk about various related topics.',
     creator: '@ideletemyself',
     images: [
-      'https://brandonmckimmons-nextjs-563476088.imgix.net/Website/OG-SunSky-1200x630.jpg',
+      '/images/others/OG-SunSky-1200x630.jpg',
     ],
   },
 };

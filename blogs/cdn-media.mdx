@@ -12,11 +12,12 @@ image: '/images/blog/image_serve_CDN.webp'
 
 In my journey creating this website and blog I was having real issues with image load times. Especially the photos in my image sliders.
 There was a 5-6 second delay before the images would load. Granted, they were pretty high resolution images, but still, that's a long time to wait for an image to load.
-The [NextJS](https://nextjs.org) CLI suggested that I use the [Sharp](https://sharp.pixelplumbing.com/) library to optimize my images. After taking a look at what was involved however I decided it was time to look at other options.
+Since CDN's are pretty much the standard on any kind of project of size or significance I decided to look into using one.
 
-There's going to be some amount of work that needs to be done either going with Sharp to code the image conversions and edits or setting up a CDN to serve the images.
-Setting up a CDN seemed like it would be less work overall and if I ever needed to move away from a CDN because of cost or whatever else I could alway fall back to using Sharp.
-I know that CDNs are pretty much the standard for serving images and other media, so I might as well get some experience with them now.
+## What is a CDN?
+
+For those laypeople out there, a CDN is a Content Delivery Network. It's a network of servers that are distributed across the globe. They are used to serve content to users based on their geographic location. 
+This means that the content is served from a server that is closest to the user. This results in faster load times and a better user experience.
 
 <Image
   src='/images/blog/imgix-logo.webp'

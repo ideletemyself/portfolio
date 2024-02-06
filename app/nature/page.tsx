@@ -153,7 +153,10 @@ const Nature: React.FC = () => {
       src: '/Nature/Young_Pine_Sapling_on_Forest_Floor',
       alt: 'Closeup of a young pine sapling in a park',
     },
-  ];
+  ].map((image) => ({
+    ...image,
+    src: `/images/sagan${image.src}.webp`,
+  }));
 
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
@@ -168,8 +171,6 @@ const Nature: React.FC = () => {
   const [currentSlideIndex, setCurrentSlideIndex] = useState<number | null>(
     null
   );
-
-  const processedImages: Image[] = generateImgUrls(images);
 
   return (
     <>
@@ -241,7 +242,7 @@ const Nature: React.FC = () => {
                     setCurrentSlideIndex(swiper.activeIndex);
                   }}
                 >
-                  {processedImages.map((image, index) => (
+                  {images.map((image, index) => (
                     <SwiperSlide key={index}>
                       <div className='flex items-center justify-center'>
                         <Image
@@ -277,7 +278,7 @@ const Nature: React.FC = () => {
                   modules={[FreeMode, Navigation, Thumbs]}
                   className='thumbs mt-3 h-32 w-full rounded-lg'
                 >
-                  {processedImages.map((image, index) => (
+                  {images.map((image, index) => (
                     <SwiperSlide key={index}>
                       <button className='flex h-full w-full items-center justify-center'>
                         <Image

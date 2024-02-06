@@ -184,13 +184,12 @@ const Nature: React.FC = () => {
               className='w-full max-h-svh mx-auto'
               src={selectedImage.src}
               alt={selectedImage.alt ?? ''}
-              layout='responsive'
               sizes='(min-width: 1540px) 1128px, (min-width: 1280px) 936px, (min-width: 1040px) 744px, (min-width: 780px) 552px, (min-width: 640px) 456px, (min-width: 400px) calc(100vw - 24px), (min-width: 360px) 336px, calc(50vw + 126px)'
               style={{
                 objectFit: 'contain',
               }}
-              width={3335}
-              height={5000}
+              width={1281}
+              height={1920}
               placeholder='blur'
               blurDataURL={
                 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkqAcAAIUAgUW0RjgAAAAASUVORK5CYII='
@@ -254,8 +253,8 @@ const Nature: React.FC = () => {
                           style={{
                             objectFit: 'contain',
                           }}
-                          width={3335}
-                          height={5000}
+                          width={1281}
+                          height={1920}
                           onClick={() => {
                             toggleModal();
                             setSelectedImage(image);
@@ -290,8 +289,8 @@ const Nature: React.FC = () => {
                           style={{
                             objectFit: 'contain',
                           }}
-                          width={3335}
-                          height={5000}
+                          width={1281}
+                          height={1920}
                           placeholder='blur'
                           blurDataURL={
                             'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkqAcAAIUAgUW0RjgAAAAASUVORK5CYII='

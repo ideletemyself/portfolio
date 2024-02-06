@@ -2,7 +2,6 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
-import generateImgUrls from '../components/GenerateImgixUrls';
 import { Swiper } from 'swiper';
 import { Swiper as SwiperReact, SwiperSlide } from 'swiper/react';
 import { FreeMode, Navigation, Thumbs } from 'swiper/modules';

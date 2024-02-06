@@ -228,6 +228,7 @@ const Nature: React.FC = () => {
             {!isModalOpen && images.length > 0 && (
               <>
                 <SwiperReact
+                  loop={true}
                   navigation={true}
                   spaceBetween={50}
                   thumbs={{
@@ -271,6 +272,7 @@ const Nature: React.FC = () => {
                 </SwiperReact>
                 <SwiperReact
                   onSwiper={setThumbsSwiper}
+                  loop={true}
                   spaceBetween={12}
                   slidesPerView={4}
                   freeMode={true}

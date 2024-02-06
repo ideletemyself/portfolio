@@ -8,18 +8,15 @@ const Footer = () => {
     <footer className='bg-very-light-brown text-white py-14 px-2 h-fit'>
       <div className='flex flex-col items-center px-2'>
         <div className='flex flex-row px-2 py-4 rounded-md'>
-          <FaGithubSquare
-            href='https://github.com/ideletemyself'
-            className='h-8 w-8 mr-4 hover:underline text-cyan-blue hover:bg-light-cyan-blue hover:text-white'
-          />
-          <FaSquareXTwitter
-            href='https://twitter.com/ideletemyself'
-            className='h-8 w-8 mr-4 hover:underline text-cyan-blue hover:bg-light-cyan-blue hover:text-white'
-          />
-          <ImInstagram
-            href='https://www.instagram.com/ideletemyself'
-            className='h-8 w-8 hover:underline text-cyan-blue hover:bg-light-cyan-blue hover:text-white'
-          />
+          <Link href='https://github.com/ideletemyself'>
+            <FaGithubSquare className='h-8 w-8 mr-4 hover:underline text-cyan-blue hover:bg-light-cyan-blue hover:text-white' />
+          </Link>
+          <Link href='https://twitter.com/ideletemyself'>
+            <FaSquareXTwitter className='h-8 w-8 mr-4 hover:underline text-cyan-blue hover:bg-light-cyan-blue hover:text-white' />
+          </Link>
+          <Link href='https://www.instagram.com/ideletemyself/'>
+            <ImInstagram className='h-8 w-8 hover:underline text-cyan-blue hover:bg-light-cyan-blue hover:text-white' />
+          </Link>
         </div>
         <p className='flex flex-row text-cyan-blue mb-6'>
           Email:&nbsp;
